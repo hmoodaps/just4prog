@@ -400,6 +400,24 @@
     .wave-path {
         filter: drop-shadow(0 0 8px rgba(0,0,0,0.2));
     }
+    /* جعل جميع الشرائح بنفس الارتفاع */
+.main-slider .swiper-slide {
+    height: auto !important; /* إلغاء أي ارتفاع ثابت */
+    min-height: 100vh; /* الحد الأدنى للارتفاع */
+    display: flex;
+    align-items: center;
+}
+
+.main-slider .slide .auto-container {
+    width: 100%;
+    padding: 80px 0; /* تعديل حسب الحاجة */
+}
+
+.main-slider .content {
+    width: 100%;
+    padding: 40px 0; /* تعديل حسب الحاجة */
+}
+
     
     .moving-shape {
         filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
@@ -643,6 +661,44 @@
         // إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
     </script>
 
+<style>
+/* Icon Animation */
+.tech-features i {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+}
+
+.tech-features li:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Button Animation */
+.btn-style-two {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-style-two:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0,0,0,0.2) !important;
+}
+
+/* Content Stagger Animation */
+.content > * {
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content h1 { animation-delay: 0.1s; }
+.content .text { animation-delay: 0.3s; }
+.content .btn-box { animation-delay: 0.5s; }
+
+</style>
    <!-- ahmed style -->
 
 
@@ -710,26 +766,17 @@
                     <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                         <ul class="navigation clearfix">
                             <li><a href="index.html">Home</a></li>
-                            
+                            <li><a href="about.html#appointment-form">Request App</a></li>
+
                             <li><a href="about.html">About Us</a></li>
                             
                             <!-- <li><a href="gallery.html">Portfolio</a></li> -->
                             
-                            <li><a href="#main-footer">Contact Us</a></li>
-                            <li><a href="about.html#appointment-form">Request App</a></li>
+                            <li><a href="#contact-details">Contact Us</a></li>
 
                         </ul>
                     </div>
                 </nav>
-                <!-- End Main Menu -->
-                <div class="outer-box clearfix">
-                    <!-- Request App Button -->
-                    <div class="btn-box">
-                        <a href="about.html#appointment-section-two" class="theme-btn btn-style-one" onclick="scrollToForm(event)">
-                            <span class="txt">Request App</span>
-                        </a>
-                    </div>                    
-                </div>
             </div>
         </div>
     </div>
@@ -795,87 +842,166 @@
 
 
         <!-- Main Slider -->
-        <section class="main-slider">
+        <section class="main-slider" style="min-height: 100vh;">
             <div class="banner-carousel">
                 <!-- Swiper -->
                 <div class="swiper-wrapper">
         
-                    <!-- Slide 1: Core Offer -->
-                    <div class="swiper-slide slide" style="background: linear-gradient(135deg, #6981f0 0%, #3a0ca3 100%);">
-                        <div class="auto-container">
-                            <div class="content" style="color: #fff;">
-                                <h1 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Flutter Development Studio</h1>
-                                <div class="text">
-                                    <p style="color: rgba(255,255,255,0.9);">We build high-performance mobile applications using Flutter framework that run natively on both iOS and Android platforms from a single codebase.</p>
-                                    <ul class="tech-features">
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-check-circle" style="color: #4cf083;"></i> 100% Custom UI/UX Design</li>
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-check-circle" style="color: #00ff00;"></i> Firebase & REST API Integration</li>
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-check-circle" style="color: #00ff00;"></i> State Management (Bloc/Riverpod)</li>
-                                    </ul>
-                                </div>
-                                <div class="btn-box clearfix">
-                                    <a href="contact.html" class="theme-btn btn-style-two" style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                                        <span class="txt">View Portfolio</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+<!-- Slide 1: Core Offer -->
+<!-- Slide 1: Core Offer -->
+<div class="swiper-slide slide" style="background: linear-gradient(135deg, #6981f0 0%, #3a0ca3 100%);">
+    <div class="auto-container">
+        <div class="content" style="color: #fff;">
+            <h1 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;">Mobile Vision Crafters</h1>
+            <div class="text">
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">
+                    We specialize in transforming abstract ideas into polished mobile applications that captivate users. 
+                    Whether you're a startup with a groundbreaking concept or an established business needing digital transformation, 
+                    we bridge the gap between imagination and technological execution.
+                </p>
+                <ul class="tech-features" style="margin-bottom: 35px;">
+                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                        <i class="fas fa-lightbulb" style="color: #FFD700; font-size: 1.2em; margin-right: 10px;"></i> 
+                        <strong>Concept Realization:</strong> We take your raw ideas through our proven development process, 
+                        refining them into viable product specifications with wireframes and prototypes
+                    </li>
+                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                        <i class="fas fa-mobile-alt" style="color: #00FFE0; font-size: 1.2em; margin-right: 10px;"></i> 
+                        <strong>Platform Mastery:</strong> Native-quality applications for both iOS and Android with 
+                        seamless performance and platform-specific optimizations
+                    </li>
+                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                        <i class="fas fa-bolt" style="color: #FF4D4D; font-size: 1.2em; margin-right: 10px;"></i> 
+                        <strong>Technical Excellence:</strong> Cutting-edge solutions incorporating AI, IoT, 
+                        AR/VR when needed, with robust backend infrastructure
+                    </li>
+                    <li style="color: rgba(255,255,255,0.9);">
+                        <i class="fas fa-chart-line" style="color: #4CF083; font-size: 1.2em; margin-right: 10px;"></i> 
+                        <strong>Result-Driven:</strong> We build apps that solve real problems, drive engagement, 
+                        and deliver measurable business value
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-box clearfix">
+                <a href="about.html#sec-title" class="theme-btn btn-style-two" style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                    <span class="txt">Discover Our Process</span>
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Slide 2: Technical Excellence -->
+<div class="swiper-slide slide" style="background: linear-gradient(135deg, #3a0ca3 0%, #7f51eb 100%);">
+    <div class="auto-container">
+        <div class="content" style="color: #fff;">
+            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">Engineering Brilliance</h2>
+            <div class="text">
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
+                    Our technical approach combines cutting-edge methodologies with battle-tested practices to deliver 
+                    exceptional mobile experiences that perform flawlessly across all devices and platforms.
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-tachometer-alt" style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Rapid Development</strong>
+                                Achieve 60-80% faster time-to-market compared to native development, with weekly sprint deliveries
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-paint-brush" style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Visual Perfection</strong>
+                                Pixel-perfect UIs with 120fps animations and platform-specific design adaptations
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                <i class="fas fa-sync-alt" style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Instant Iteration</strong>
+                                Hot Reload technology lets you see changes in real-time during development
+                            </li>
+                        </ul>
                     </div>
-        
-                    <!-- Slide 2: Technical Edge -->
-                    <div class="swiper-slide slide" style="background: linear-gradient(135deg, #3a0ca3 0%, #7f51eb 100%);">
-                        <div class="auto-container">
-                            <div class="content" style="color: #fff;">
-                                <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Why Flutter?</h2>
-                                <div class="text">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="advantages">
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> 60-80% faster development than native</li>
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> 120fps smooth animations</li>
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> Hot Reload for instant updates</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="advantages">
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> Pixel-perfect UI consistency</li>
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> Reduced testing effort</li>
-                                                <li style="color: rgba(255,255,255,0.9);"><span style="color: #00ff00;">→</span> Single team for both platforms</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btn-box clearfix">
-                                    <a href="contact.html" class="theme-btn btn-style-two" style="background: #fff; color: #007f5f; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                                        <span class="txt">Our Development Process</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-6">
+                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-shield-alt" style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Robust Architecture</strong>
+                                Enterprise-grade state management and clean architecture patterns
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-users" style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Unified Team</strong>
+                                Single development team for both platforms reduces complexity and cost
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                <i class="fas fa-check-double" style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Quality Assurance</strong>
+                                Automated testing reduces effort while increasing coverage and reliability
+                            </li>
+                        </ul>
                     </div>
-        
-                    <!-- Slide 3: Portfolio CTA -->
-                    <div class="swiper-slide slide" style="background: linear-gradient(135deg, #7f51eb 0%, #6981f0 100%);">
-                        <div class="auto-container">
-                            <div class="content" style="color: #fff;">
-                                <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Enterprise-Grade Solutions</h2>
-                                <div class="text">
-                                    <p style="color: rgba(255,255,255,0.9);">We've delivered Flutter applications for:</p>
-                                    <ul class="client-types">
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-mobile-alt" style="color: #00ff00;"></i> E-Commerce Platforms</li>
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-chart-line" style="color: #00ff00;"></i> FinTech Applications</li>
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-bullhorn" style="color: #00ff00;"></i> Social Media Networks</li>
-                                        <li style="color: rgba(255,255,255,0.9);"><i class="fas fa-medkit" style="color: #00ff00;"></i> Healthcare Solutions</li>
-                                    </ul>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="appointment.html" class="theme-btn btn-style-one" style="background: #fff; color: #560bad; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                                        <span class="txt">Request Case Studies</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="btn-box clearfix" style="margin-top: 30px;">
+                <a href="#development-process" class="theme-btn btn-style-two" style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                    <span class="txt">Our Development Methodology</span>
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: Industry Solutions -->
+<div class="swiper-slide slide" style="background: linear-gradient(135deg, #7f51eb 0%, #6981f0 100%);">
+    <div class="auto-container">
+        <div class="content" style="color: #fff;">
+            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">Tailored Industry Solutions</h2>
+            <div class="text">
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
+                    We've engineered mobile solutions for diverse industries, each with unique challenges and 
+                    compliance requirements, delivering exceptional results across the board.
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-shopping-cart" style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">E-Commerce Platforms</strong>
+                                High-conversion shopping experiences with AR previews and AI recommendations
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-heartbeat" style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Healthcare Solutions</strong>
+                                HIPAA-compliant apps with telemedicine and health data integration
+                            </li>
+                        </ul>
                     </div>
+                    <div class="col-md-6">
+                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-chart-pie" style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">FinTech Applications</strong>
+                                Secure banking solutions with biometric auth and real-time analytics
+                            </li>
+                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                <i class="fas fa-users" style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
+                                <strong style="display: block; margin-bottom: 5px;">Social Networks</strong>
+                                Scalable community platforms with live streaming and content moderation
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box" style="margin-top: 30px;">
+                <a href="#appointment-form" class="theme-btn btn-style-one" style="background: #fff; color: #560bad; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                    <span class="txt">Discuss Your Project</span>
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
                     
                 </div>
                 <!-- Navigation -->
@@ -910,7 +1036,7 @@
                     </div>
                     <div class="text">Movie ticket booking with seat selection and special offers</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -923,7 +1049,7 @@
                     </div>
                     <div class="text">Horse riding lessons and stable management system</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -936,7 +1062,7 @@
                     </div>
                     <div class="text">Order meals from top restaurants with fast delivery</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -949,7 +1075,7 @@
                     </div>
                     <div class="text">Online shopping with diverse products and fast shipping</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -962,7 +1088,7 @@
                     </div>
                     <div class="text">Comprehensive employee management system</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -975,7 +1101,7 @@
                     </div>
                     <div class="text">Schedule organization and productivity enhancement</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -988,7 +1114,7 @@
                     </div>
                     <div class="text">Daily task organization with smart reminders</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -1001,7 +1127,7 @@
                     </div>
                     <div class="text">Booking system for home and office cleaning services</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -1014,7 +1140,7 @@
                     </div>
                     <div class="text">Secure platform for charitable donations</div>
                     <div class="read-outer">
-                        <a href="#" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
+                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -1032,7 +1158,7 @@
     <div class="auto-container">
         
         <!-- Sec Title -->
-        <div class="sec-title centered">
+        <div id="sec-title centered" class="sec-title centered">
             <h2 style="color: #FFD700;">Our Premium Services</h2>
             <div class="separator"></div>
         </div>
@@ -1044,7 +1170,7 @@
                 <div class="inner-column">
                     
                     <!-- Service Block -->
-                    <div class="service-block">
+                    <div id="contact-details" class="service-block">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="icon-box">
                                 <span class="icon flaticon-rocket"></span>

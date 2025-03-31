@@ -712,12 +712,12 @@
 						<div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
 							<ul class="navigation clearfix">
 								<li><a href="index.html">Home</a></li>
-								
+
 								<li><a href="about.html">About Us</a></li>
 								
 								<!-- <li><a href="gallery.html">Portfolio</a></li> -->
 								
-								<li><a href="#appointment-form">Contact Us</a></li>
+								<li><a href="#contact-details">Contact Us</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -821,7 +821,7 @@
 						<div class="inner-column">
 							<div class="border-line"></div>
 							<!-- Sec Title -->
-							<div class="sec-title">
+							<div id="sec-title" class="sec-title">
 								<h2>Who We Are <br> Mobile applications developers</h2>
 								<div class="separator"></div>
 							</div>
@@ -1022,11 +1022,10 @@
     <div class="auto-container">
         <div class="inner-container">
             <div class="row clearfix equal-height-container">
-            
                 <!-- Block 1: Process Timeline -->
                 <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="header-with-icon" style="display: flex; align-items: center; gap: 10px;"></div>
+                        <div class="header-with-icon" style="display: flex; align-items: center; gap: 10px;">
                             <div class="icon fas fa-clock" style="font-size: 2.5em; color: #FFD700;"></div>
                             <h3>Development Process</h3>
                         </div>
@@ -1080,8 +1079,6 @@
     </div>
 </section> 
 <!-- End Service Info Section -->
-
-
 
 
 
@@ -1160,7 +1157,7 @@
                 <div class="form-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <!-- Sec Title -->
-                        <div class="sec-title" style="margin-bottom: 30px;">
+                        <div id="appointment-form" class="sec-title" style="margin-bottom: 30px;">
                             <h2 style="display: flex; align-items: center; margin-bottom: 15px;">
                                 <i class="fas fa-mobile-alt" style="color: #FFD700; margin-right: 15px; font-size: 28px;"></i>
 								<span style="color: #333; display: inline-block;">
@@ -1174,7 +1171,7 @@
                         </div>
                         
                         <!-- Project Request Form -->
-                        <div id="appointment-form" class="appointment-form">
+                        <div  class="appointment-form">
                             <form method="post" action="submit-project-request">
                                 <div class="row clearfix">
                                     <!-- الحقول الأصلية كما هي -->
@@ -1441,17 +1438,18 @@
                         </div>
                         <ul class="footer-list" style="list-style: none; padding: 0;">
                             <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Custom Flutter Development</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">UI/UX App Design</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Maintenance</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Android Mobile App Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">iOS App Development</span></li>
                             <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Firebase Integration</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">API Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">UI/UX App Design</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Convert Any Design To Mobile</span></li>
                             <li><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Testing</span></li>
                         </ul>
                     </div>
                 </div>
                 
                 <!-- Contact Column -->
-                <div class="footer-column col-lg-4 col-md-6">
+                <div id="contact-details" class="footer-column col-lg-4 col-md-6">
                     <div class="footer-widget contact-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
                         <div class="footer-title">
                             <h2 style="color: #222; font-size: 22px; margin-bottom: 20px;text-align: center;">Contact Us</h2>
@@ -1461,22 +1459,22 @@
                             <li style="margin-bottom: 20px; display: flex;">
                                 <span class="icon flaticon-placeholder" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
                                 <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
-                                    Tech Street, Digital District<br>
-                                    Riyadh 12345, Saudi Arabia
+                                    Rijksweg a4 3<br>
+                                    2132 MA , HOOFDDORP NETHERLANDS
                                 </div>
                             </li>
                             <li style="margin-bottom: 20px; display: flex;">
                                 <span class="icon flaticon-call" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
                                 <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
                                     Sun to Thu: 9AM - 5PM<br>
-                                    <a href="tel:+966501234567" style="color: #222; text-decoration: none;">+966 50 123 4567</a>
+                                    <a href="tel:+966501234567" style="color: #222; text-decoration: none;">+31617444144</a>
                                 </div>
                             </li>
                             <li style="display: flex;">
                                 <span class="icon flaticon-message" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
                                 <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
                                     Have questions?<br>
-                                    <a href="mailto:info@just4prog.com" style="color: #222; text-decoration: none;">info@just4prog.com</a>
+                                    <a href="mailto:info@just4prog.com" style="color: #222; text-decoration: none;">just.for4.prog@gmail.com</a>
                                 </div>
                             </li>
                         </ul>
@@ -1495,6 +1493,7 @@
     </div>
 </footer>
 
+<!--End Main Footer-->
 	
 </div>  
 <!--End pagewrapper-->
