@@ -25,200 +25,632 @@
 
 <body>
 
-	
+<!-- ahmed style -->
 <style>
-    /* CSS لتوحيد المربعات وتحسين التصميم */
-    .equal-height-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .doctor-block {
-        display: flex;
-        margin-bottom: 30px;
-    }
-    
-    .inner-box {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        padding: 25px;
+    /* Custom CSS for the page */
+    .payment-methods-section {
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
+        padding: 50px 0;
+        border-top: 1px solid #f0f0f0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .payment-marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 120px;
     }
     
-    .inner-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    .payment-icons-track {
+        display: flex;
+        position: absolute;
+        gap: 50px;
+        align-items: center;
+        height: 100%;
+        animation: marquee 40s linear infinite;
+        padding-left: 100%;
     }
     
-    .header-with-icon {
+    .payment-icon {
+        position: relative;
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        justify-content: center;
     }
     
-    .icon {
-        color: #FFD700;
-        font-size: 28px;
-        margin-right: 15px;
-        min-width: 40px;
-        text-align: center;
+    .payment-icon img {
+        height: 40px;
+        width: auto;
+        max-width: 100px;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     
-    h3 {
-        margin: 0;
-        font-size: 22px;
-        color: #333;
+    .payment-icon:hover img {
+        transform: scale(1.2);
     }
     
-    .doctor-time-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 20px 0;
-        flex-grow: 1;
+    .payment-icon::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+        pointer-events: none;
     }
     
-    .doctor-time-list li {
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        justify-content: space-between;
+    .payment-icon:hover::after {
+        opacity: 1;
     }
     
-    .doctor-time-list li:last-child {
-        border-bottom: none;
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
     }
     
-    .doctor-time-list li span {
-        color: #FFD700;
-        font-weight: bold;
+    .payment-marquee:hover .payment-icons-track {
+        animation-play-state: paused;
+    }
+    
+    
+    
+    
+            .main-slider{
+                position: relative;
+            }
+            
+            .main-slider:before{
+                position: absolute;
+                content:'';
+                left:0px;
+                bottom:0px;
+                width:100%;
+                height:90px;
+                z-index:10;
+                background:url(../images/background/pattern-1.png) repeat-x;
+            }
+            
+            .main-slider:after{
+                position: absolute;
+                content:'';
+                left:0px;
+                bottom:0px;
+                width:100%;
+                height:93px;
+                z-index:10;
+                background:url(../images/background/dotted-line.png) repeat-x;
+            }
+            
+            .main-slider .slide{
+                position:relative;
+                padding:225px 0px 225px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-position:center center;
+            }
+            
+            .main-slider .content{
+                position:relative;
+                z-index:10;
+            }
+            
+            .main-slider .content .title{
+                position:relative;
+                font-size:18px;
+                color:#222222;
+                font-weight:700;
+                line-height:1em;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(80px);
+                -moz-transform: translateX(80px);
+                -ms-transform: translateX(80px);
+                -o-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            
+            .main-slider .swiper-slide-active .content .title{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 600ms;
+            }
+            
+            .main-slider .content h2{
+                position:relative;
+                font-size:48px;
+                color:#da0000;
+                font-weight:700;
+                line-height:1em;
+                opacity: 0;
+                margin-top:25px;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(80px);
+                -moz-transform: translateX(80px);
+                -ms-transform: translateX(80px);
+                -o-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            
+            .main-slider .swiper-slide-active .content h2{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 1200ms;
+            }
+            
+            .main-slider .content .text{
+                position:relative;
+                font-size:16px;
+                color:#777777;
+                font-weight:400;
+                line-height:1.8em;
+                max-width:600px;
+                margin-top:25px;
+                margin-bottom:30px;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(-80px);
+                -moz-transform: translateX(-80px);
+                -ms-transform: translateX(-80px);
+                -o-transform: translateX(-80px);
+                transform: translateX(-80px);
+            }
+            
+            .main-slider .swiper-slide-active .content .text{
+                opacity: 1;
+                -webkit-transform: translateX(0);
+                -moz-transform: translateX(0);
+                -ms-transform: translateX(0);
+                -o-transform: translateX(0);
+                transform: translateX(0);
+                transition-delay: 1000ms;
+            }
+            
+            .main-slider .btn-box{
+                position:relative;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateY(-80px);
+                -moz-transform: translateY(80px);
+                -ms-transform: translateY(80px);
+                -o-transform: translateY(80px);
+                transform: translateY(80px);
+            }
+            
+            .main-slider .btn-box .theme-btn{
+                float:left;
+                margin:0px 30px 15px 0px;
+            }
+            
+            .main-slider .swiper-slide-active .btn-box{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 1500ms;
+            }
+            
+            /* Green Navigation Arrows */
+            .main-slider .swiper-button-next{
+                right:40px;
+                width:50px;
+                height:50px;
+                font-size:16px;
+                line-height:49px;
+                border-radius:50%;
+                text-align:center;
+                background-image:none;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                border:1px solid #00ff00; /* Green border */
+            }
+            
+            .main-slider .swiper-button-next:before{
+                position:absolute;
+                content: "\f14e";
+                left:0px;
+                top:0px;
+                width:50px;
+                color:#00ff00; /* Green icon */
+                font-size:16px;
+                font-weight:700;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                font-family: "Flaticon";
+            }
+            
+            .main-slider .swiper-button-prev{
+                left:40px;
+                width:50px;
+                height:50px;
+                font-size:16px;
+                border-radius:50%;
+                text-align:center;
+                line-height:49px;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                background-image:none;
+                border:1px solid #00ff00; /* Green border */
+            }
+            
+            .main-slider .swiper-button-prev:before{
+                position:absolute;
+                content: "\f14f";
+                left:0px;
+                top:0px;
+                width:50px;
+                height:50px;
+                color:#00ff00; /* Green icon */
+                font-size:16px;
+                font-weight:700;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                font-family: "Flaticon";
+            }
+            
+            .main-slider .swiper-button-next:hover,
+            .main-slider .swiper-button-prev:hover{
+                background-color:#00ff00; /* Green background on hover */
+            }
+            
+            .main-slider .swiper-button-next:hover::before,
+            .main-slider .swiper-button-prev:hover::before{
+                color:#ffffff; /* White icon on green background */
+            }
+            
+            /* Green Progress Bar */
+            .main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+                background:#00ff00; /* Green progress bar */
+            }
+    
+    
+    .department-block .icon {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    .department-block:hover .icon {
+        transform: rotate(360deg) scale(1.2);
+    }
+    
+     .logo img {
+        width: 230px;   /* العرض المطلوب */
+        height: 70px;   /* الارتفاع المطلوب */
+        object-fit: contain; /* للحفاظ على التناسب دون تشويه */
+    }
+    .footer-widget {
+        transform: translateZ(30px); /* 3D effect */
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-widget:hover {
+        transform: translateZ(50px) scale(1.02);
     }
     
     .text {
-        margin-bottom: 20px;
-        color: #666;
-        line-height: 1.6;
-        flex-grow: 1;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
     
-    .footer-content {
-        margin-top: auto;
+    /* Background Animation Styles */
+    .main-footer {
+        position: relative;
+        background: linear-gradient(135deg, #e6f2ff 0%, #f0f8ff 100%);
+        overflow: hidden;
+        padding-top: 120px;
+        padding-bottom: 120px;
     }
     
-    h4 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        color: #333;
-    }
-    
-    .phone {
-        color: #666;
-    }
-    
-    .phone strong {
-        color: #FFD700;
-    }
-    
-    .detail {
-        display: inline-block;
-        padding: 10px 20px;
-        background: #FFD700;
-        color: #333;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-    
-    .detail:hover {
-        background: #e6c200;
-        transform: translateY(-2px);
-    }
-</style>
-
-
-
-
-	
-
-<style>
-    /* التنسيقات الجديدة */
-    .appointment-section-two {
-        padding: 80px 0;
-    }
-    
-    .project-info-box {
-        background: #fff;
-        padding: 25px;
-        border-radius: 10px;
-        margin-top: 30px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .project-info-box h3 {
-        color: #333;
-        margin-bottom: 15px;
-        font-size: 22px;
-    }
-    
-    .project-info-box ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .project-info-box li {
-        padding: 8px 0;
-        color: #555;
-    }
-    
-    .project-info-box li i {
-        color: #FFD700;
-        margin-right: 10px;
-    }
-    
-    .sec-title p {
-        color: #666;
-        margin-bottom: 20px;
-    }
-    
-    select {
+    .footer-bg-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        padding: 12px 20px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        appearance: none;
-        background-color: white;
+        height: 100%;
+        z-index: 1;
     }
     
-    .checkbox {
-        display: flex;
-        align-items: center;
+    .waves {
+        width: 100%;
+        height: 100%;
     }
     
-    .checkbox input {
-        margin-right: 10px;
+    .wave-path {
+        filter: drop-shadow(0 0 8px rgba(0,0,0,0.2));
     }
     
-    textarea {
-        min-height: 120px;
+    .moving-shape {
+        filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+    }
+    /* Animated Balls Styles */
+    .ball-path {
+        position: ce;
+        height: 300px;
+        width: 100%;
+        margin: 20px 0;
+        overflow: hidden;
     }
     
-    .theme-btn {
+    .ball {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+    
+    .gold-ball {
         background: #FFD700;
-        color: #333;
-        font-weight: bold;
-        transition: all 0.3s ease;
+        box-shadow: 0 0 12px #FFD700;
+        animation-name: moveFigureEight;
+        top: 10%;
+        left: 50%;
+        animation-delay: 0s;
     }
     
-    .theme-btn:hover {
-        background: #e6c200;
-        transform: translateY(-2px);
+    .green-ball {
+        background: #00FF00;
+        box-shadow: 0 0 12px #00FF00;
+        animation-name: moveCircle;
+        top: 20%;
+        left: 40%;
+        animation-delay: 0.5s;
+        animation-duration: 12s;
+    }
+    
+    .red-ball {
+        background: #FF0000;
+        box-shadow: 0 0 12px #FF0000;
+        animation-name: moveWave;
+        top: 15%;
+        left: 60%;
+        animation-delay: 1s;
+        animation-duration: 9s;
+    }
+    
+    .blue-ball {
+        background: #0066FF;
+        box-shadow: 0 0 12px #0066FF;
+        animation-name: moveZigzag;
+        top: 5%;
+        left: 45%;
+        animation-delay: 1.5s;
+        animation-duration: 11s;
+    }
+    
+    .purple-ball {
+        background: #AA00FF;
+        box-shadow: 0 0 12px #AA00FF;
+        animation-name: moveSpiral;
+        top: 25%;
+        left: 55%;
+        animation-delay: 2s;
+        animation-duration: 13s;
+    }
+    
+    .gray-ball {
+        background: #888888;
+        box-shadow: 0 0 12px #888888;
+        animation-name: moveEllipse;
+        top: 30%;
+        left: 50%;
+        animation-delay: 2.5s;
+        animation-duration: 14s;
+    }
+    
+    /* Animation Paths */
+    @keyframes moveFigureEight {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-80px, 150px); }
+        50% { transform: translate(0, 300px); }
+        75% { transform: translate(80px, 150px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveCircle {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(70px, 70px); }
+        50% { transform: translate(0, 140px); }
+        75% { transform: translate(-70px, 70px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveWave {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-60px, 100px); }
+        50% { transform: translate(60px, 200px); }
+        75% { transform: translate(-60px, 100px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveZigzag {
+        0% { transform: translate(0, 0); }
+        20% { transform: translate(-50px, 80px); }
+        40% { transform: translate(50px, 160px); }
+        60% { transform: translate(-50px, 240px); }
+        80% { transform: translate(50px, 160px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveSpiral {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(40px, 100px) rotate(90deg); }
+        50% { transform: translate(-40px, 200px) rotate(180deg); }
+        75% { transform: translate(40px, 100px) rotate(270deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes moveEllipse {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-100px, 75px); }
+        50% { transform: translate(0, 150px); }
+        75% { transform: translate(100px, 75px); }
+        100% { transform: translate(0, 0); }
     }
 </style>
+<style>
+    /* تنسيقات الجوال فقط (أقل من 768px) */
+    @media only screen and (max-width: 767px) {
+        .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        padding: 15px 0 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    
+    .social-icons li {
+        margin: 0 5px !important;
+        display: inline-block !important;
+    }
+    
+    .social-icons a {
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+        /* تعديلات الشبكة */
+        .footer-column {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            margin-bottom: 25px;
+        }
+        
+        /* تعديلات العناصر الداخلية */
+        .footer-widget {
+            padding: 25px 20px !important;
+            margin: 0 10px 20px !important;
+            height: auto !important;
+        }
+        
+        /* تعديلات النصوص */
+        .footer-title h2 {
+            font-size: 20px !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .footer-list li span,
+        .contact-text {
+            font-size: 14px !important;
+        }
+        
+        /* تعديلات الشعار */
+        .logo img {
+            width: 140px !important;
+        }
+        
+        /* تعديلات الأيقونات */
+        .social-icons li {
+            margin: 0 8px !important;
+        }
+        
+        /* إخفاء الخلفية المتحركة على الجوال */
+        .footer-bg-animation {
+            display: none !important;
+        }
+        
+        /* تعديلات العنوان الفرعي */
+        .separator {
+            width: 50px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        /* تحسين المسافات في قسم الاتصال */
+        .contact-list li {
+            margin-bottom: 15px !important;
+        }
+        
+        /* تعديلات حقوق النشر */
+        .copyright {
+            font-size: 14px !important;
+        }
+    }
+    
+    </style>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.payment-icons-track');
+        // Clone icons for seamless looping
+        track.innerHTML += track.innerHTML;
+    });
+    </script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+    function scrollToForm(event) {
+        document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
+    }
+        // إذا كنا بالفعل في صفحة about
+        if(window.location.pathname.endsWith('about.html')) {
+            setTimeout(function() {
+                const formSection = document.getElementById('#appointment-section-two');
+                if(formSection) {
+                    formSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+        // إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
+    </script>
+    
+   <!-- ahmed style -->
+
+
+
 
 <div class="page-wrapper">
     <!-- Preloader -->
@@ -285,7 +717,7 @@
 								
 								<!-- <li><a href="gallery.html">Portfolio</a></li> -->
 								
-								<li><a href="#main-footer">Contact Us</a></li>
+								<li><a href="#appointment-form">Contact Us</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -304,21 +736,7 @@
 	</div>
 	<!--End Header Upper-->
 	
-	<script>
-	function scrollToForm(event) {
-		document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
-	}
-		// إذا كنا بالفعل في صفحة about
-		if(window.location.pathname.endsWith('about.html')) {
-			setTimeout(function() {
-				const formSection = document.getElementById('#appointment-section-two');
-				if(formSection) {
-					formSection.scrollIntoView({ behavior: 'smooth' });
-				}
-			}, 100);
-		}
-		// إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
-	</script>
+
 	
 	
 	
@@ -608,8 +1026,8 @@
                 <!-- Block 1: Process Timeline -->
                 <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="header-with-icon">
-                            <div class="icon fas fa-clock"></div>
+                        <div class="header-with-icon" style="display: flex; align-items: center; gap: 10px;"></div>
+                            <div class="icon fas fa-clock" style="font-size: 2.5em; color: #FFD700;"></div>
                             <h3>Development Process</h3>
                         </div>
                         <ul class="doctor-time-list">
@@ -620,7 +1038,7 @@
                         </ul>
                         <div class="footer-content">
                             <h4>Urgent Projects?</h4>
-                            <div class="phone">Call us! <strong>+316 1744 4144</strong></div>
+                            <div class="phone">Call us! <strong style="color: #FFD700;">+316 1744 4144</strong></div>
                         </div>
                     </div>
                 </div>
@@ -629,14 +1047,14 @@
                 <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="header-with-icon">
-                            <div class="icon fas fa-calendar-check"></div>
+                            <div class="icon fas fa-calendar-check" style="font-size: 2.5em; color: #FFD700;"></div>
                             <h3>Schedule Consultation</h3>
                         </div>
                         <div class="text">
                             Book a free 30-minute consultation to discuss your app idea with our Flutter experts.
                         </div>
                         <div class="footer-content">
-                            <a href="contact.html" class="detail">Request Appointment</a>
+                            <a href="contact.html" class="detail" style="color: #FFD700;">Request Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -645,14 +1063,14 @@
                 <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="header-with-icon">
-                            <div class="icon fas fa-lightbulb"></div>
+                            <div class="icon fas fa-lightbulb" style="font-size: 2.5em; color: #FFD700;"></div>
                             <h3>Project Ideas</h3>
                         </div>
                         <div class="text">
                             Share your app idea with us and we'll help you bring it to life.
                         </div>
                         <div class="footer-content">
-                            <a href="contact.html?type=idea" class="detail">Share Your Idea</a>
+                            <a href="contact.html?type=idea" class="detail" style="color: #FFD700;">Share Your Idea</a>
                         </div>
                     </div>
                 </div>
@@ -662,6 +1080,10 @@
     </div>
 </section> 
 <!-- End Service Info Section -->
+
+
+
+
 
 <!-- Flutter Project Request Section -->
 <section id="appointment-section-two" class="appointment-section-two" style="background: #f8f9fa;">
@@ -752,24 +1174,25 @@
                         </div>
                         
                         <!-- Project Request Form -->
-                        <div class="appointment-form">
+                        <div id="appointment-form" class="appointment-form">
                             <form method="post" action="submit-project-request">
                                 <div class="row clearfix">
+                                    <!-- الحقول الأصلية كما هي -->
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
-                                        <span class="icon fa fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                        <span class="icon fa fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
                                     
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
-                                        <span class="icon fa fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                        <span class="icon fa fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
-
+                        
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
-                                        <span class="icon fas fa-phone" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                        <span class="icon fas fa-phone" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
-
+                        
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <select name="project_type" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px; appearance: none; background-color: white;">
                                             <option value="">Project Type</option>
@@ -780,18 +1203,29 @@
                                             <option value="health">Health & Fitness</option>
                                             <option value="other">Other</option>
                                         </select>
-                                        <span class="icon fas fa-project-diagram" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                        <span class="icon fas fa-project-diagram" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
-
+                        
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <select name="platform" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px; appearance: none; background-color: white;">
+                                            <option value="">Select Platform</option>
+                                            <option value="android">Android Only</option>
+                                            <option value="ios">iOS Only</option>
+                                            <option value="both">Both Platforms</option>
+                                        </select>
+                                        <span class="icon fas fa-mobile-alt" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
+                                    </div>
+                        
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <input type="text" name="project_title" placeholder="Project Title" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
-                                        <span class="icon fas fa-heading" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                        <span class="icon fas fa-heading" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
                                     
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-bottom: 25px;">
                                         <textarea name="project_description" placeholder="Describe your app in detail (features, target audience, special requirements)" required style="width: 100%; padding: 12px 20px; border: 1px solid #ddd; border-radius: 4px; min-height: 120px;"></textarea>
+                                        <p style="margin-top: 10px; color: #666; font-size: 14px;">The more detailed your description, specifying each point of the project, the faster we can process your request.</p>
                                     </div>
-
+                        
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-bottom: 25px;">
                                         <button class="theme-btn btn-style-two" type="submit" name="submit-form" style="background: #FFD700; color: #333; border: none; padding: 12px 30px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
                                             <span class="txt">Submit Project Request</span>
@@ -905,13 +1339,7 @@
         </div>
     </div>
 </section>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.payment-icons-track');
-        // Clone icons for seamless looping
-        track.innerHTML += track.innerHTML;
-    });
-    </script>
+
 
 
 
@@ -1066,10 +1494,7 @@
         </div>
     </div>
 </footer>
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</footer>
+
 	
 </div>  
 <!--End pagewrapper-->
@@ -1078,39 +1503,6 @@
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
 
-
-<!-- Color Palate / Color Switcher -->
-<div class="color-palate">
-    <div class="color-trigger">
-        <i class="fas fa-cog"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-            <span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-            <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-        </div>
-    </div>
-	
-	<ul class="rtl-version option-box"> <li class="rtl">RTL Version</li> <li>LTR Version</li> </ul>
-
-    <a href="#" class="purchase-btn">Purchase now $17</a>
-    
-    <div class="palate-foo">
-        <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
-    </div>
-
-</div>
-
-<!--Scroll to top-->
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-ui.js"></script>
