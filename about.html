@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Medi-tech - HTML Template | About</title>
+<title>Just4Prog | About</title>
 <!-- Stylesheets -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -13,8 +13,8 @@
 <!--Color Themes-->
 <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
 
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+<link rel="icon" href="images/logo.png" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,220 +25,372 @@
 
 <body>
 
+	
+<style>
+    /* CSS لتوحيد المربعات وتحسين التصميم */
+    .equal-height-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .doctor-block {
+        display: flex;
+        margin-bottom: 30px;
+    }
+    
+    .inner-box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 25px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .inner-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .header-with-icon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .icon {
+        color: #FFD700;
+        font-size: 28px;
+        margin-right: 15px;
+        min-width: 40px;
+        text-align: center;
+    }
+    
+    h3 {
+        margin: 0;
+        font-size: 22px;
+        color: #333;
+    }
+    
+    .doctor-time-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+        flex-grow: 1;
+    }
+    
+    .doctor-time-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .doctor-time-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .doctor-time-list li span {
+        color: #FFD700;
+        font-weight: bold;
+    }
+    
+    .text {
+        margin-bottom: 20px;
+        color: #666;
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+    
+    .footer-content {
+        margin-top: auto;
+    }
+    
+    h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .phone {
+        color: #666;
+    }
+    
+    .phone strong {
+        color: #FFD700;
+    }
+    
+    .detail {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #FFD700;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .detail:hover {
+        background: #e6c200;
+        transform: translateY(-2px);
+    }
+</style>
+
+
+
+
+	
+
+<style>
+    /* التنسيقات الجديدة */
+    .appointment-section-two {
+        padding: 80px 0;
+    }
+    
+    .project-info-box {
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .project-info-box h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+    
+    .project-info-box ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .project-info-box li {
+        padding: 8px 0;
+        color: #555;
+    }
+    
+    .project-info-box li i {
+        color: #FFD700;
+        margin-right: 10px;
+    }
+    
+    .sec-title p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        appearance: none;
+        background-color: white;
+    }
+    
+    .checkbox {
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkbox input {
+        margin-right: 10px;
+    }
+    
+    textarea {
+        min-height: 120px;
+    }
+    
+    .theme-btn {
+        background: #FFD700;
+        color: #333;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .theme-btn:hover {
+        background: #e6c200;
+        transform: translateY(-2px);
+    }
+</style>
+
 <div class="page-wrapper">
     <!-- Preloader -->
     <div class="preloader"></div>
+        <!--  Main Header -->
 
-    <header class="main-header">
+		<header class="main-header">
+			<!--Header Top-->
+			<div class="header-top" style="background: linear-gradient(135deg, #7f51eb 0%, #b407f8 100%);;">
+				<div class="auto-container clearfix">
+					<div class="top-left clearfix">
+						<ul class="list">
+							<li><span class="icon fas fa-map-marker-alt"></span> Riksweg a4 3 2132 MA HOOFDDORP NETHERLANDS</li>
+							<li><span class="icon fas fa-phone"></span> <a href="tel:+31617444144"> 617444144</a></li>
+						</ul>
+					</div>
+					<div class="top-right clearfix">
+						<ul class="social-icons">
+							<li><a href="#"><span class="fab fa-facebook-f" style="color: #1877F2;"></span></a></li>
+							<li><a href="#"><span class="fab fa-google" style="color: #DB4437;"></span></a></li>
+							<li><a href="#"><span class="fab fa-twitter" style="color: #1DA1F2;"></span></a></li>
+							<li><a href="#"><span class="fab fa-skype" style="color: #00AFF0;"></span></a></li>
+							<li><a href="#"><span class="fab fa-linkedin" style="color: #0077B5;"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End Header Top -->
 	
-        <!--Header Top-->
-        <div class="header-top">
-            <div class="auto-container clearfix">
-                <div class="top-left clearfix">
-                    <ul class="list">
-						<li><span class="icon fas fa-envelope"></span> 2130 Fulton Street San Diego CA 94117-1080 USA</li>
-						<li><span class="icon fas fa-phone"></span> <a href="tel:+555–123–2323"> 555–123–2323</a></li>
-					</ul>
-                </div>
-                <div class="top-right clearfix">
-                    <ul class="social-icons">
-						<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-						<li><a href="#"><span class="fab fa-google"></span></a></li>
-						<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-						<li><a href="#"><span class="fab fa-skype"></span></a></li>
-						<li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-					</ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Header Top -->
-
-        <!-- Header Upper -->
-        <div class="header-upper">
-            <div class="inner-container">
-                <div class="auto-container clearfix">
-                    <!--Info-->
-                    <div class="logo-outer">
-                        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
-                    </div>
-
-                    <!--Nav Box-->
-                    <div class="nav-outer clearfix">
-                        <!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="navbar-header">
-                                <!-- Togg le Button -->      
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="icon flaticon-menu"></span>
-                                </button>
-                            </div>
-                            
-                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="#">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home page 01</a></li>
-                                            <li><a href="index-2.html">Home page 02</a></li>
-                                            <li><a href="index-3.html">Home page 03</a></li>
-											<li><a href="index-4.html">Home page 04</a></li>
-                                            <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header Style One</a></li>
-                                                    <li><a href="index-2.html">Header Style Two</a></li>
-                                                    <li><a href="index-3.html">Header Style Three</a></li>
-													<li><a href="index-4.html">Header Style Four</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-									<li class="dropdown"><a href="#">About us</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-											<li><a href="team.html">Our Team</a></li>
-											<li><a href="faq.html">Faq</a></li>
-											<li><a href="services.html">Services</a></li>
-											<li><a href="gallery.html">Gallery</a></li>
-											<li><a href="comming-soon.html">Comming Soon</a></li>
-                                        </ul>
-                                    </li>
-									<li class="dropdown has-mega-menu"><a href="#">Pages</a>
-										<div class="mega-menu">
-											<div class="mega-menu-bar row clearfix">
-												<div class="column col-md-3 col-xs-12">
-													<h3>About Us</h3>
-													<ul>
-														<li><a href="about.html">About Us</a></li>
-														<li><a href="team.html">Our Team</a></li>
-														<li><a href="faq.html">Faq</a></li>
-														<li><a href="services.html">Services</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Doctors</h3>
-													<ul>
-														<li><a href="doctors.html">Doctors</a></li>
-														<li><a href="doctors-detail.html">Doctors Detail</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Blog</h3>
-													<ul>
-														<li><a href="blog.html">Our Blog</a></li>
-														<li><a href="blog-classic.html">Blog Classic</a></li>
-														<li><a href="blog-detail.html">Blog Detail</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Shops</h3>
-													<ul>
-														<li><a href="shop.html">Shop</a></li>
-														<li><a href="shop-single.html">Shop Details</a></li>
-														<li><a href="shoping-cart.html">Cart Page</a></li>
-														<li><a href="checkout.html">Checkout Page</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-                                    <li class="dropdown"><a href="#">Doctors</a>
-                                        <ul>
-                                            <li><a href="doctors.html">Doctors</a></li>
-                                            <li><a href="doctors-detail.html">Doctors Detail</a></li>
-                                        </ul>
-                                    </li>
-									<li class="dropdown"><a href="#">Department</a>
-                                        <ul>
-                                            <li><a href="department.html">Department</a></li>
-                                            <li><a href="department-detail.html">Department Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Our Blog</a></li>
-											<li><a href="blog-classic.html">Blog Classic</a></li>
-                                            <li><a href="blog-detail.html">Blog Detail</a></li>
-                                        </ul>
-                                    </li>
-									<li class="dropdown"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="shop-single.html">Shop Details</a></li>
-                                            <li><a href="shoping-cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Checkout Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                        <!-- Main Menu End-->
-
-                        <!-- Main Menu End-->
-                        <div class="outer-box clearfix">
-							<!-- Search Btn -->
-							<div class="search-box-btn"><span class="icon flaticon-search"></span></div>
-                            <!-- Button Box -->
-                            <div class="btn-box">
-                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Appointment</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End Header Upper-->
-
-		<!--Sticky Header-->
-        <div class="sticky-header">
-        	<div class="auto-container clearfix">
-            	<!--Logo-->
-            	<div class="logo pull-left">
-                	<a href="index.html" class="img-responsive"><img src="images/logo-small.png" alt="" title=""></a>
-                </div>
-                
-				<!--Right Col-->
-                <div class="right-col pull-right">
-					<!-- Main Menu -->
-                    <nav class="main-menu navbar-expand-md">
-                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
-                            <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
-                        </div>
-                    </nav><!-- Main Menu End-->
-                </div>
-                
-            </div>
-        </div>
-        <!--End Sticky Header-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- Header Upper -->
+	<div class="header-upper">
+		<div class="inner-container">
+			<div class="auto-container clearfix">
+				<!--Logo-->
+				<div class="logo-outer">
+					<div class="logo"><a href="index.html"><img src="images/logo.png" alt="Company Logo" title="Home"></a></div>
+				</div>
+				<!--Nav Box-->
+				<div class="nav-outer clearfix">
+					<!-- Mobile Navigation Toggler -->
+					<div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+					
+					<nav class="main-menu navbar-expand-md navbar-light">
+						<div class="navbar-header">
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="icon flaticon-menu"></span>
+							</button>
+						</div>
+						
+						<div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+							<ul class="navigation clearfix">
+								<li><a href="index.html">Home</a></li>
+								
+								<li><a href="about.html">About Us</a></li>
+								
+								<li><a href="gallery.html">Portfolio</a></li>
+								
+								<li><a href="contact.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</nav>
+					<!-- End Main Menu -->
+					<div class="outer-box clearfix">
+						<!-- Request App Button -->
+						<div class="btn-box">
+							<a href="about.html#appointment-section-two" class="theme-btn btn-style-one" onclick="scrollToForm(event)">
+								<span class="txt">Request App</span>
+							</a>
+						</div>                    
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--End Header Upper-->
+	
+	<script>
+	function scrollToForm(event) {
+		document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
+	}
+		// إذا كنا بالفعل في صفحة about
+		if(window.location.pathname.endsWith('about.html')) {
+			setTimeout(function() {
+				const formSection = document.getElementById('#appointment-section-two');
+				if(formSection) {
+					formSection.scrollIntoView({ behavior: 'smooth' });
+				}
+			}, 100);
+		}
+		// إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--Sticky Header-->
+			<div class="sticky-header" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);">
+				<div class="auto-container clearfix">
+					<!--Logo-->
+					<div class="logo pull-left">
+						<a href="index.html" class="img-responsive"><img src="images/logo.png" alt="" title=""></a>
+					</div>
+					
+					<!--Right Col-->
+					<div class="right-col pull-right">
+						<!-- Main Menu -->
+						<nav class="main-menu navbar-expand-md">
+							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+								<ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+							</div>
+						</nav><!-- Main Menu End-->
+					</div>
+					
+				</div>
+			</div>
+			<!--End Sticky Header-->
+			
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu"  >
+				<div class="menu-backdrop"></div>
+				<div class="close-btn"><span class="icon far fa-window-close"></span></div>
+				
+				<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+				<nav class="menu-box" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);" >
+					<div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+					
+					<ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+				</nav>
+			</div><!-- End Mobile Menu -->
+		</header>
+		<!-- End Main Header -->
 		
-    	<!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn"><span class="icon far fa-window-close"></span></div>
-            
-            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            <nav class="menu-box">
-            	<div class="nav-logo"><a href="index.html"><img src="images/nav-logo.png" alt="" title=""></a></div>
-                
-                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
-            </nav>
-        </div><!-- End Mobile Menu -->
-
-    </header>
-    <!-- End Main Header -->
-	
 	<!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/7.jpg);">
+    <section class="page-title" style="background: linear-gradient(200deg, #4518a7 35%, #7b79f7 65%);">
         <div class="auto-container">
-            <h1>About MediTech</h1>
+            <h1>About Just4Prog</h1>
 			<div class="text">What We Actually Do?</div>
 			<ul class="bread-crumb clearfix">
 				<li><a href="index.html"><span class="fas fa-home"></span> Home </a></li>
-				<li>About MediTech</li>
+				<li>About Just4Prog</li>
 			</ul>
         </div>
     </section>
     <!--End Page Title-->
 	
+
+
+
+
+
+
+
+
+
 	<!-- Health Section -->
 	<section class="health-section">
 		<div class="auto-container">
@@ -252,11 +404,20 @@
 							<div class="border-line"></div>
 							<!-- Sec Title -->
 							<div class="sec-title">
-								<h2>Who We Are <br> Pioneering in Health.</h2>
+								<h2>Who We Are <br> Mobile applications developers</h2>
 								<div class="separator"></div>
 							</div>
-							<div class="text">Where you are at the heart of our mission. We hope you will consider us as your medical home—the place where you feel safe, comfortable and cared for. As a multi-specialty medical group,</div>
-							<a href="about.html" class="theme-btn btn-style-one"><span class="txt">More About Us</span></a>
+							<div class="text">
+								At Just4Prog, we put your digital vision at the heart of our mission. 
+								We specialize in building high-performance cross-platform applications 
+								using the Flutter framework that run seamlessly on both iOS and Android. 
+								Our team of experienced developers is dedicated to delivering innovative 
+								and scalable solutions tailored to meet your unique business needs. 
+								From concept to deployment, we ensure every project is executed with precision, 
+								creativity, and a commitment to excellence. Whether you're a startup or an 
+								established enterprise, we are here to transform your ideas into reality 
+								with cutting-edge technology and exceptional customer service.
+							</div>
 						</div>
 					</div>
 					
@@ -264,7 +425,7 @@
 					<div class="image-column col-lg-5 col-md-12 col-sm-12">
 						<div class="inner-column wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
 							<div class="image">
-								<img src="images/resource/image-3.jpg" alt="" />
+								<img src="https://ims.consulting/wp-content/uploads/2022/06/mobile-app-developer.png" alt="" />
 							</div>
 						</div>
 					</div>
@@ -276,605 +437,639 @@
 	</section>
 	<!-- End Health Section -->
 	
-	<!-- Featured Section -->
-	<section class="featured-section">
-		<div class="auto-container">
+
+
+
+
+
+
+
+
+
+
+	
+<!-- Features Section -->
+<section class="featured-section">
+	<div class="auto-container">
+		<div class="row clearfix">
+			
+			<!-- Feature Block -->
+			<div class="feature-block col-lg-3 col-md-6 col-sm-12">
+				<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+					<div class="upper-box">
+						<div class="icon fas fa-mobile-alt" style="color: #FFD700;"></div>
+						<h3>Cross-Platform Development</h3>
+					</div>
+					<div class="text">Single codebase for both iOS and Android with native performance using Flutter framework.</div>
+				</div>
+			</div>
+			
+			<!-- Feature Block -->
+			<div class="feature-block col-lg-3 col-md-6 col-sm-12">
+				<div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
+					<div class="upper-box">
+						<div class="icon fas fa-tachometer-alt" style="color: #FFD700;"></div>
+						<h3>High Performance</h3>
+					</div>
+					<div class="text">120fps smooth animations and optimized apps that outperform hybrid solutions.</div>
+				</div>
+			</div>
+			
+			<!-- Feature Block -->
+			<div class="feature-block col-lg-3 col-md-6 col-sm-12">
+				<div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
+					<div class="upper-box">
+						<div class="icon fas fa-paint-brush" style="color: #FFD700;"></div>
+						<h3>Custom UI/UX</h3>
+					</div>
+					<div class="text">Pixel-perfect designs tailored to your brand identity with Material & Cupertino widgets.</div>
+				</div>
+			</div>
+			
+			<!-- Feature Block -->
+			<div class="feature-block col-lg-3 col-md-6 col-sm-12">
+				<div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
+					<div class="upper-box">
+						<div class="icon fas fa-code" style="color: #FFD700;"></div>
+						<h3>Clean Architecture</h3>
+					</div>
+					<div class="text">BLoC/Riverpod state management and SOLID principles for maintainable code.</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!-- End Features Section -->
+ 
+
+
+
+
+
+
+
+
+
+
+
+<!-- Stats Section -->
+<section class="counter-section style-two" style="background-image: url(images/background/tech-pattern.png); color: #fff;">
+	<div class="auto-container">
+		<!-- Stats Counter -->
+		<div class="fact-counter style-two">
 			<div class="row clearfix">
-				
-				<!-- Feature Block -->
-				<div class="feature-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="upper-box">
-							<div class="icon flaticon-doctor-stethoscope"></div>
-							<h3><a href="#">Medical Treatment</a></h3>
+
+				<!-- Flutter Packages -->
+				<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+					<div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+						<div class="content">
+							<div class="icon fab fa-flutter" style="color: #0553B1;"></div>
+							<div class="count-outer count-box">
+								<span class="count-text" data-speed="2500" data-stop="120">0</span>+
+							</div>
+							<h4 class="counter-title" style="color: #fff;">Flutter Packages</h4>
+							<div class="counter-text" style="color: #fff;">Custom reusable components for faster development</div>
 						</div>
-						<div class="text">Whether you're taking your first steps, just finding your stride,</div>
+					</div>
+				</div>
+
+				<!-- Projects Completed -->
+				<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+					<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="content">
+							<div class="fas fa-mobile-alt" style="color: #0553B1;"></div>
+							<div class="count-outer count-box alternate">
+								<span class="count-text" data-speed="3000" data-stop="85">0</span>+
+							</div>
+							<h4 class="counter-title" style="color: #fff;">Published Apps</h4>
+							<div class="counter-text" style="color: #fff;">On both App Store and Play Store</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Free Support -->
+				<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+					<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+						<div class="content">
+							<div class="fas fa-headset" style="color: #0553B1;"></div>
+							<div class="count-outer count-box">
+								<span class="count-text" data-speed="2000" data-stop="7">0</span> days
+							</div>
+							<h4 class="counter-title" style="color: #fff;">Free Support</h4>
+							<div class="counter-text" style="color: #fff;">Full week of free maintenance post-launch</div>
+						</div>
 					</div>
 				</div>
 				
-				<!-- Feature Block -->
-				<div class="feature-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
-						<div class="upper-box">
-							<div class="icon flaticon-ambulance-side-view"></div>
-							<h3><a href="#">Emergency Help</a></h3>
+				<!-- Competitive Pricing -->
+				<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+					<div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
+						<div class="content">
+							<div class="fas fa-percentage" style="color: #0553B1;"></div>
+							<div class="count-outer count-box">
+								<span class="count-text" data-speed="1500" data-stop="30">0</span>%
+							</div>
+							<h4 class="counter-title" style="color: #fff;">Discount Offer</h4>
+							<div class="counter-text" style="color: #fff;">Special startup & bulk development discounts</div>
 						</div>
-						<div class="text">Whether you're taking your first steps, just finding your stride,</div>
 					</div>
 				</div>
-				
-				<!-- Feature Block -->
-				<div class="feature-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
-						<div class="upper-box">
-							<div class="icon fas fa-user-md"></div>
-							<h3><a href="#">Qualified Doctors</a></h3>
-						</div>
-						<div class="text">Whether you're taking your first steps, just finding your stride,</div>
-					</div>
-				</div>
-				
-				<!-- Feature Block -->
-				<div class="feature-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
-						<div class="upper-box">
-							<div class="icon fas fa-briefcase-medical"></div>
-							<h3><a href="#">Medical Professionals</a></h3>
-						</div>
-						<div class="text">Whether you're taking your first steps, just finding your stride,</div>
-					</div>
-				</div>
-				
+
 			</div>
-		</div>
-	</section>
-	<!-- End Featured Section -->
-	
-	<!-- Counter Section -->
-	<section class="counter-section style-two" style="background-image: url(images/background/pattern-3.png)">
-		<div class="auto-container">
-		
-			<!-- Fact Counter -->
-			<div class="fact-counter style-two">
-				<div class="row clearfix">
 
-					<!--Column-->
-					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-						<div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="content">
-								<div class="icon flaticon-logout"></div>
-								<div class="count-outer count-box">
-									<span class="count-text" data-speed="2500" data-stop="2350">0</span>
-								</div>
-								<h4 class="counter-title">Satisfied Patients</h4>
-							</div>
-						</div>
+			<!-- Additional Non-Counter Features -->
+			<div class="row mt-4">
+				<div class="col-md-12">
+					<div class="feature-highlights" style="text-align: center; color: #fff;">
+						<div class="icon fas fa-rocket" style="font-size: 40px; margin-bottom: 15px; color: #FFD700;"></div>
+						<h3 style="color: #fff;">Blazing Fast Development</h3>
+						<p style="color: #fff;">MVP delivery in 2-4 weeks using our proven Flutter templates</p>
+						
+						<div class="icon fas fa-shield-alt" style="font-size: 40px; margin: 25px 0 15px; color: #FFD700;"></div>
+						<h3 style="color: #fff;">Robust Architecture</h3>
+						<p style="color: #fff;">Clean code with BLoC/Riverpod state management and SOLID principles</p>
 					</div>
-
-					<!--Column-->
-					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-						<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-							<div class="content">
-								<div class="icon flaticon-logout"></div>
-								<div class="count-outer count-box alternate">
-									+<span class="count-text" data-speed="3000" data-stop="350">0</span>
-								</div>
-								<h4 class="counter-title">Doctor’s Team</h4>
-							</div>
-						</div>
-					</div>
-
-					<!--Column-->
-					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-						<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-							<div class="content">
-								<div class="icon flaticon-logout"></div>
-								<div class="count-outer count-box">
-									<span class="count-text" data-speed="3000" data-stop="2150">0</span>
-								</div>
-								<h4 class="counter-title">Success Mission</h4>
-							</div>
-						</div>
-					</div>
-					
-					<!--Column-->
-					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-						<div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
-							<div class="content">
-								<div class="icon flaticon-logout"></div>
-								<div class="count-outer count-box">
-									+<span class="count-text" data-speed="2500" data-stop="225">0</span>
-								</div>
-								<h4 class="counter-title">Successfull Surgeries</h4>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			
-		</div>
-	</section>
-	<!-- End Counter Section -->
-	
-	<!-- Doctor Info Section -->
-	<section class="doctor-info-section">
-		<div class="auto-container">
-			<div class="inner-container">
-				<div class="row clearfix">
-				
-					<!-- Doctor Block -->
-					<div class="doctor-block col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<h3>Working Hours</h3>
-							<ul class="doctor-time-list">
-								<li>Mon–Fri <span>8:00am–7:00pm</span></li>
-								<li>Saturday <span>9:00am–5:00pm</span></li>
-								<li>Sunday <span>9:00am–3:00pm</span></li>
-							</ul>
-							<h4>Emergency Cases</h4>
-							<div class="phone">Call us! <strong>+898 68679 575 09</strong></div>
-						</div>
-					</div>
-					
-					<!-- Doctor Block -->
-					<div class="doctor-block col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<h3>Doctors Timetable</h3>
-							<div class="text">The following is for guidance only to help you plan your appointment with a preferred doctor or nurse. It does not guarantee availability as the doctors or nurses may sometimes be attending to other duties.</div>
-							<a href="#" class="detail">More Detail</a>
-						</div>
-					</div>
-					
-					<!-- Doctor Block -->
-					<div class="doctor-block col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<h3>Primary Health Care</h3>
-							<div class="text">When you know you are using your best talents for something you love, you can’t it. Effective communication is the basis for building brands as solid as the relation-ships with build with our clients..</div>
-							<a href="#" class="detail">Contact Now</a>
-						</div>
-					</div>
-					
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- End Doctor Info Section -->
-	
-	<!-- Team Section -->
-	<section class="team-section">
-		<div class="auto-container">
-			
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<h2>The Medical Specialists</h2>
-				<div class="separator"></div>
-			</div>
-			
-			<div class="row clearfix">
-				
-				<!-- Team Block -->
-				<div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/team-1.jpg" alt="" />
-							<div class="overlay-box">
-								<ul class="social-icons">
-									<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fab fa-google"></span></a></li>
-									<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fab fa-skype"></span></a></li>
-									<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-								</ul>
-								<a href="#" class="appointment">Make Appointment</a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<h3><a href="#">Dr. Andria Jonea</a></h3>
-							<div class="designation">Cancer Specialist</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Team Block -->
-				<div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/team-2.jpg" alt="" />
-							<div class="overlay-box">
-								<ul class="social-icons">
-									<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fab fa-google"></span></a></li>
-									<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fab fa-skype"></span></a></li>
-									<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-								</ul>
-								<a href="#" class="appointment">Make Appointment</a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<h3><a href="#">Dr. Robet Samith</a></h3>
-							<div class="designation">Heart Surgen</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Team Block -->
-				<div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/team-3.jpg" alt="" />
-							<div class="overlay-box">
-								<ul class="social-icons">
-									<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fab fa-google"></span></a></li>
-									<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fab fa-skype"></span></a></li>
-									<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-								</ul>
-								<a href="#" class="appointment">Make Appointment</a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<h3><a href="#">Dr. Sharon Laura</a></h3>
-							<div class="designation">Family Physician</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Team Block -->
-				<div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/team-4.jpg" alt="" />
-							<div class="overlay-box">
-								<ul class="social-icons">
-									<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fab fa-google"></span></a></li>
-									<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fab fa-skype"></span></a></li>
-									<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-								</ul>
-								<a href="#" class="appointment">Make Appointment</a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<h3><a href="#">Dr. Alex Furgosen</a></h3>
-							<div class="designation">Ortho Specialist</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-	</section>
-	<!-- End Team Section -->
-	
-	<!-- Video Section -->
-	<section class="video-section" style="background-image:url(images/background/5.jpg)">
-		<div class="auto-container">
-			<div class="content">
-				<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-box"><span class="flaticon-play-button"><i class="ripple"></i></span></a>
-				<div class="text">WE ARE CARE ABOUT YOUR HEALTH</div>
-				<h2>We Care About You</h2>
-			</div>
-		</div>
-	</section>
-	<!-- End Video Section -->
-	
-	<!-- Appointment Section Two -->
-	<section class="appointment-section-two">
-		<div class="auto-container">
-			<div class="inner-container">
-				<div class="row clearfix">
-					
-					<!-- Image Column -->
-					<div class="image-column col-lg-6 col-md-12 col-sm-12">
-						<div class="inner-column wow slideInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="image">
-								<img src="images/resource/doctor-2.png" alt="" />
-							</div>
-						</div>
-					</div>
-					
-					<!-- Form Column -->
-					<div class="form-column col-lg-6 col-md-12 col-sm-12">
-						<div class="inner-column">
-							<!-- Sec Title -->
-							<div class="sec-title">
-								<h2>Appointment Form</h2>
-								<div class="separator"></div>
-							</div>
-							
-							<!-- Appointment Form -->
-							<div class="appointment-form">
-								<form method="post" action="appointment.html">
-									<div class="row clearfix">
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="username" placeholder="Name" required="">
-											<span class="icon fa fa-user"></span>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="email" name="email" placeholder="Email" required="">
-											<span class="icon fa fa-envelope"></span>
-										</div>
+	</div>
+</section>
+<!-- End Stats Section -->
 
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="tel" name="phone" placeholder="Phone No" required="">
-											<span class="icon fas fa-phone"></span>
-										</div>
 
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="department" placeholder="Department" required="">
-											<span class="icon fas fa-home"></span>
-										</div>
 
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="day" placeholder="Day">
-											<span class="icon fa fa-calendar"></span>
-										</div>
-
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="time" placeholder="Time" class="">
-											<span class="icon far fa-clock"></span>
-										</div>
-										
-										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-											<textarea name="message" placeholder="Message"></textarea>
-										</div>
-
-										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-											<button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="txt">Book Appointment</span></button>
-										</div>
-									</div>
-								</form>
-							</div>
-							
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- Testimonial Section -->
-    <section class="testimonial-section style-two">
-    	<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<h2>What Patients Saying</h2>
-				<div class="separator"></div>
-			</div>
-        	<div class="testimonial-outer" style="background-image: url(images/background/pattern-4.png)">
+<!-- Service Info Section -->
+<section class="doctor-info-section" style="margin-bottom: 400px;">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="row clearfix equal-height-container">
             
-            	<!--Client Testimonial Carousel-->
-                <div class="client-testimonial-carousel owl-carousel owl-theme">
+                <!-- Block 1: Process Timeline -->
+                <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="header-with-icon">
+                            <div class="icon fas fa-clock"></div>
+                            <h3>Development Process</h3>
+                        </div>
+                        <ul class="doctor-time-list">
+                            <li>Initial Consultation <span>1-2 business days</span></li>
+                            <li>Prototype Delivery <span>7-10 days</span></li>
+                            <li>MVP Development <span>2-4 weeks</span></li>
+                            <li>Full App Delivery <span>6-8 weeks</span></li>
+                        </ul>
+                        <div class="footer-content">
+                            <h4>Urgent Projects?</h4>
+                            <div class="phone">Call us! <strong>+316 1744 4144</strong></div>
+                        </div>
+                    </div>
+                </div>
                 
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
+                <!-- Block 2: Consultation -->
+                <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="header-with-icon">
+                            <div class="icon fas fa-calendar-check"></div>
+                            <h3>Schedule Consultation</h3>
                         </div>
-                    </div>
-                    
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
+                        <div class="text">
+                            Book a free 30-minute consultation to discuss your app idea with our Flutter experts.
                         </div>
-                    </div>
-					
-					<!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-                    
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-					
-					<!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-					
-					<!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-							<div class="quote-icon flaticon-quote"></div>
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-                    
-                </div>
-				
-				<!--Product Thumbs Carousel-->
-                <div class="client-thumb-outer">
-                    <div class="client-thumbs-carousel owl-carousel owl-theme">
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-1.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-2.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-3.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-1.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-2.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="images/resource/author-3.jpg" alt=""></figure>
-							<div class="author-info">
-								<div class="author-name">Max Winchester</div>
-								<div class="designation">Kidny Patient</div>
-							</div>
+                        <div class="footer-content">
+                            <a href="contact.html" class="detail">Request Appointment</a>
                         </div>
                     </div>
                 </div>
-				
+                
+                <!-- Block 3: Project Ideas -->
+                <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="header-with-icon">
+                            <div class="icon fas fa-lightbulb"></div>
+                            <h3>Project Ideas</h3>
+                        </div>
+                        <div class="text">
+                            Share your app idea with us and we'll help you bring it to life.
+                        </div>
+                        <div class="footer-content">
+                            <a href="contact.html?type=idea" class="detail">Share Your Idea</a>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
         </div>
-    </section>
-    <!-- End Testimonial Section Two -->
-	
-	<!--Main Footer-->
-    <footer class="main-footer style-two">
-		<div class="auto-container">
-        	<!--Widgets Section-->
-            <div class="widgets-section">
-            	<div class="row clearfix">
-                	
-                    <!--big column-->
-                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="row clearfix">
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
-                                <div class="footer-widget logo-widget">
-									<div class="logo">
-                                    	<a href="index.html"><img src="images/logo-3.png" alt="" /></a>
-                                    </div>
-                                    <div class="text">Meditech is a library of health and medical templates with predefined web elements which helps you to build your medical templates best site Provide Comprehensive Quality Care About Medical Care Health Suspendisse metus turpis.</div>
-									<ul class="social-icons">
-										<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-										<li><a href="#"><span class="fab fa-google"></span></a></li>
-										<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-										<li><a href="#"><span class="fab fa-skype"></span></a></li>
-										<li><a href="#"><span class="fab fa-linkedin"></span></a></li>
-									</ul>
-								</div>
-							</div>
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
-                                <div class="footer-widget links-widget">
-									<div class="footer-title  clearfix">
-										<h2>Departments</h2>
-										<div class="separator"></div>
-									</div>
-									<ul class="footer-list">
-										<li><a href="#">Surgery & Radiology</a></li>
-										<li><a href="#">Family Medicine</a></li>
-										<li><a href="#">Women’s Health</a></li>
-										<li><a href="#">Optician</a></li>
-										<li><a href="#">Pediatrics</a></li>
-										<li><a href="#">Dermatology</a></li>
-									</ul>
-								</div>
-							</div>
-							
+    </div>
+</section> 
+<!-- End Service Info Section -->
+
+<!-- Flutter Project Request Section -->
+<section id="appointment-section-two" class="appointment-section-two" style="background: #f8f9fa;">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="row clearfix">
+                
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column wow slideInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="image">
+                            <img src="https://www.apptunix.com/blog/wp-content/uploads/sites/3/2019/11/Apps-built-with-Flutter.jpg" alt="Flutter App Development" />
+                        </div>
+						<div class="project-info-box" style="margin-top: 30px; padding: 25px; background: #fff; border-radius: 10px;">
+							<h3 style="margin-bottom: 15px; color: #333; font-size: 22px; display: flex; align-items: center;">
+								<i class="fas fa-star" style="color: #FFD700; margin-right: 10px; font-size: 24px;"></i>
+								<span style="color: #1a73e8;">Why Choose Us?</span>
+							</h3>
+							<ul style="list-style: none; padding: 0; margin: 0;">
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Experienced Flutter Developers</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Cross-platform Solutions</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Custom App Development</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Fast Delivery</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Ongoing Support</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Scalable Architecture</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Affordable Pricing</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Comprehensive Testing</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Seamless Integration</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Advanced Security Features</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>24/7 Customer Support</span>
+								</li>
+								<li style="padding: 8px 0; display: flex; align-items: flex-start;">
+									<i class="fas fa-check-circle" style="color: #FFD700; margin-right: 10px; margin-top: 3px;"></i>
+									<span>Regular Updates and Maintenance</span>
+								</li>
+							</ul>
 						</div>
-					</div>
-					
-					<!--big column-->
-                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="row clearfix">
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                <div class="footer-widget news-widget">
-									<div class="footer-title  clearfix">
-										<h2>News Update</h2>
-										<div class="separator"></div>
+                    </div>
+                </div>
+                
+                <!-- Form Column -->
+                <div class="form-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column wow slideInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <!-- Sec Title -->
+                        <div class="sec-title" style="margin-bottom: 30px;">
+                            <h2 style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <i class="fas fa-mobile-alt" style="color: #FFD700; margin-right: 15px; font-size: 28px;"></i>
+								<span style="color: #333; display: inline-block;">
+									<div style="display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+										<span style="font-size: 1em;">Request Your Mobile App</span>
 									</div>
-									
-									<!--News Widget Block-->
-                                    <div class="news-widget-block">
-                                        <div class="widget-inner">
-                                            <div class="image">
-                                                <img src="images/resource/news-image-1.jpg" alt="" />
-                                            </div>
-                                            <h3><a href="blog-detail.html">Integrative Medicine And Cancer Treatment</a></h3>
-                                            <div class="post-date">July 11, 2017</div>
-                                        </div>
+								</span>
+                            </h2>
+                            <div class="separator" style="height: 2px; background: #FFD700; width: 100px; margin: 15px 0;"></div>
+                            <p style="color: #666; margin-top: 20px;">Fill out this form to describe your app idea. We'll contact you within 24 hours to discuss your project requirements.</p>
+                        </div>
+                        
+                        <!-- Project Request Form -->
+                        <div class="appointment-form">
+                            <form method="post" action="submit-project-request">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
+                                        <span class="icon fa fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
                                     </div>
-									
-									<!--News Widget Block-->
-                                    <div class="news-widget-block">
-                                        <div class="widget-inner">
-                                            <div class="image">
-                                                <img src="images/resource/news-image-2.jpg" alt="" />
-                                            </div>
-                                            <h3><a href="blog-detail.html">Achieving Better Health Care One Patient  Time</a></h3>
-                                            <div class="post-date">July 11, 2018</div>
-                                        </div>
+                                    
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
+                                        <span class="icon fa fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
                                     </div>
-									
-								</div>
-							</div>
-							
-							<!--Footer Column-->
-                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                                <div class="footer-widget contact-widget">
-									<div class="footer-title  clearfix">
-										<h2>Contact Us</h2>
-										<div class="separator"></div>
-									</div>
-									
-									<ul class="contact-list">
-										<li><span class="icon flaticon-placeholder"></span>2130 Fulton Street San Diego <br> CA 94117-1080 USA</li>
-										<li><span class="icon flaticon-call"></span>Mon to Fri : 08:30 - 18:00 <br> <a href="tel:+898-68679-575-09">+898 68679 575 09</a></li>
-										<li><span class="icon flaticon-message"></span>Do you have a Question? <a href="mailto:info@gmail.com">info@gmail.com</a></li>
-									</ul>
-									
-								</div>
-							</div>
-							
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
+                                        <span class="icon fas fa-phone" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <select name="project_type" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px; appearance: none; background-color: white;">
+                                            <option value="">Project Type</option>
+                                            <option value="business">Business App</option>
+                                            <option value="ecommerce">E-commerce App</option>
+                                            <option value="social">Social Network</option>
+                                            <option value="education">Education App</option>
+                                            <option value="health">Health & Fitness</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <span class="icon fas fa-project-diagram" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <input type="text" name="project_title" placeholder="Project Title" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
+                                        <span class="icon fas fa-heading" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999;"></span>
+                                    </div>
+                                    
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-bottom: 25px;">
+                                        <textarea name="project_description" placeholder="Describe your app in detail (features, target audience, special requirements)" required style="width: 100%; padding: 12px 20px; border: 1px solid #ddd; border-radius: 4px; min-height: 120px;"></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-bottom: 25px;">
+                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form" style="background: #FFD700; color: #333; border: none; padding: 12px 30px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                                            <span class="txt">Submit Project Request</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Flutter Project Request Section -->
+
+
+
+
+
+
+
+
+
+
+
 	
-		<!-- Footer Bottom -->
-		<div class="footer-bottom">
-			<div class="auto-container">
-				<div class="copyright">MediTech Helth Care &copy; All Rights Reserved By Expertthemes</div>
-			</div>
-		</div>
-	
-	</footer>
+
+
+
+
+
+
+
+
+<!-- Payment Methods Section -->
+<section class="payment-methods-section">
+    <div class="auto-container" style="max-width: 100%; height: 150px; padding: 0;">
+        <h4 class="text-center mb-4">Accepted Payment Methods</h4>
+        <div class="payment-marquee" style="margin-top: 50px;">
+            <div class="payment-icons-track">
+               <!-- Credit/Debit Cards -->
+               <div class="payment-icon" data-tooltip="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+            </div>
+            <div class="payment-icon" data-tooltip="Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
+            </div>
+            <div class="payment-icon" data-tooltip="American Express">
+                <img src="https://images.icon-icons.com/1178/PNG/512/amex_82052.png" alt="Amex">
+            </div>
+            <div class="payment-icon" data-tooltip="Discover">
+                <img src="https://w7.pngwing.com/pngs/321/928/png-transparent-discover-payment-method-icon.png" alt="Discover">
+            </div>
+            
+            <!-- Digital Wallets -->
+            <div class="payment-icon" data-tooltip="PayPal">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png" alt="PayPal">
+            </div>
+            <div class="payment-icon" data-tooltip="Apple Pay">
+                <img src="https://developer.apple.com/news/images/og/apple-pay-og-twitter.jpg" alt="Apple Pay">
+            </div>
+            <div class="payment-icon" data-tooltip="Google Pay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/1200px-Google_Pay_Logo.svg.png" alt="Google Pay">
+            </div>
+            <div class="payment-icon" data-tooltip="Alipay">
+                <img src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/6491bebb2dbd96fc12766172_alipay-pos-1.webp" alt="Alipay">
+            </div>
+            
+            <!-- European Payment Methods -->
+            <div class="payment-icon" data-tooltip="iDEAL">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/IDEAL_Logo_2020.svg/1200px-IDEAL_Logo_2020.svg.png" alt="iDEAL">
+            </div>
+            <div class="payment-icon" data-tooltip="Giropay">
+                <img src="https://lh4.googleusercontent.com/proxy/wGFfW3TEb13BxlBldOOdVzqcdY2K08y3XxQQvn7oCStaqYBZsFlcgnGH8GW8362vhxzxrcEuUGXm1FEGnLyb06y-vXlmVqdw2svs25jsAnABNc4fXWeohEqWYtvkI0v5-1FOY1XewjdLTcDcWZlNFPTbEjpoBI7JCyUNXzgTfugVUJCRJTzyy-WRlzRT4fAEGw" alt="Giropay">
+            </div>
+            <div class="payment-icon" data-tooltip="Klarna">
+                <img src="https://webshoptiger.com/wp-content/uploads/2020/11/klarna_soepele_betalingen_online.png" alt="Klarna">
+            </div>
+            <div class="payment-icon" data-tooltip="WeChat Pay">
+                <img src="https://walkthechat.com/wp-content/uploads/2017/04/Screen-Shot-2017-04-11-at-6.34.16-PM.png" alt="WeChat Pay">
+            </div>
+            <div class="payment-icon" data-tooltip="TWINT">
+                <img src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/66fef2ee27c6ae35ec0392f8_64db590cd29b6e16d4796f1f_twint_logo_q_pos_bg.webp" alt="TWINT">
+            </div>
+            <div class="payment-icon" data-tooltip="Przelewy24">
+                <img src="https://www.curopayments.com/wp-content/uploads/logo-przelewy24.svg" alt="Przelewy24">
+            </div>
+            <div class="payment-icon" data-tooltip="Multibanco">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnt32vL9ucoWInEWjrdxIa8-ZcHV0NKmAsxA&s" alt="Multibanco">
+            </div>
+            <div class="payment-icon" data-tooltip="BLIK">
+                <img src="https://cdn.prod.website-files.com/610922bf9b095f4969ed70fb/6741a84667832beef9b932fb_BLIK%20LOGO%20RGB.png" alt="BLIK">
+            </div>
+            
+            <!-- Additional European Methods -->
+            <div class="payment-icon" data-tooltip="Bancontact">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpBmSqI4dMbui4WE6DT6BwwMB15LMr7nNwA&s" alt="Bancontact">
+            </div>
+            <div class="payment-icon" data-tooltip="Sofort">
+                <img src="https://givewp.com/wp-content/uploads/2018/01/sofort-addon.png" alt="Sofort">
+            </div>
+            <div class="payment-icon" data-tooltip="EPS">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQxmz5hR3O9MSYABcTzKtu3DEqTfJXd8l3mA&s" alt="EPS">
+            </div>
+            <div class="payment-icon" data-tooltip="SEPA Direct Debit">
+                <img src="https://www.billwerk.plus/wp-content/uploads/2023/01/sepa-direct-debit-payment-method.png" alt="SEPA">
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.payment-icons-track');
+        // Clone icons for seamless looping
+        track.innerHTML += track.innerHTML;
+    });
+    </script>
+
+
+
+
+<!--Main Footer-->
+<footer class="main-footer">
+    <!-- Animated Background -->
+    <div class="footer-bg-animation">
+        <svg class="waves" viewBox="0 0 1200 800" preserveAspectRatio="none">
+            <!-- Infinity Path 1 (Top Wave - Circles) -->
+            <path class="wave-path" d="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" 
+                  stroke="#3a7bd5" stroke-width="40" fill="none" stroke-linecap="round"></path>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="30s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" />
+            </circle>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="35s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="4s" />
+            </circle>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="8s" />
+            </circle>
+            
+            <!-- Infinity Path 2 (Middle Wave - Triangles) -->
+            <path class="wave-path" d="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" 
+                  stroke="#00d2ff" stroke-width="60" fill="none" stroke-linecap="round"></path>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="35s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" />
+            </polygon>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="4s" />
+            </polygon>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="45s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="9s" />
+            </polygon>
+            
+            <!-- Infinity Path 3 (Bottom Wave - Squares) -->
+            <path class="wave-path" d="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" 
+                  stroke="#4b6cb7" stroke-width="70" fill="none" stroke-linecap="round"></path>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" />
+            </rect>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="45s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="5s" />
+            </rect>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="50s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="11s" />
+            </rect>
+        </svg>
+    </div>
+    <div class="auto-container">
+        <div class="widgets-section" style="position: relative; z-index: 2;">
+            <div class="row clearfix">
+                
+                <!-- Logo Column -->
+                <div class="footer-column col-lg-4 col-md-12">
+                    <div class="footer-widget logo-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2);height: 100%;">
+                        <div class="logo text-center mb-4">
+                            <a href="index.html"><img src="images/logo.png" alt="Just4Prog Logo" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); width: 180px;"/></a>
+                        </div>
+                        <div class="text text-center mx-auto" style="max-width: 350px; color: #222; font-size: 16px; line-height: 1.6; font-weight: 500;">
+                            Just4Prog is a leading Flutter development company specializing in high-performance cross-platform mobile apps.
+                        </div>
+                        <ul class="social-icons justify-content-center mt-4">
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-facebook-f" style="color: #1877F2; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-google" style="color: #DB4437; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-twitter" style="color: #1DA1F2; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-skype" style="color: #00AFF0; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-linkedin" style="color: #0077B5; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Services Column -->
+                <div class="footer-column col-lg-4 col-md-6">
+                    <div class="footer-widget links-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                        <div class="footer-title">
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px; text-align: center;">Our Services</h2>
+                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                        </div>
+                        <ul class="footer-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Custom Flutter Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">UI/UX App Design</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Maintenance</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Firebase Integration</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">API Development</span></li>
+                            <li><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Testing</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-column col-lg-4 col-md-6">
+                    <div class="footer-widget contact-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                        <div class="footer-title">
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px;text-align: center;">Contact Us</h2>
+                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                        </div>
+                        <ul class="contact-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 20px; display: flex;">
+                                <span class="icon flaticon-placeholder" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Tech Street, Digital District<br>
+                                    Riyadh 12345, Saudi Arabia
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 20px; display: flex;">
+                                <span class="icon flaticon-call" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Sun to Thu: 9AM - 5PM<br>
+                                    <a href="tel:+966501234567" style="color: #222; text-decoration: none;">+966 50 123 4567</a>
+                                </div>
+                            </li>
+                            <li style="display: flex;">
+                                <span class="icon flaticon-message" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Have questions?<br>
+                                    <a href="mailto:info@just4prog.com" style="color: #222; text-decoration: none;">info@just4prog.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="background: rgba(255,255,255,0.75); padding: 20px 0; box-shadow: 0 0 20px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+        <div class="auto-container text-center">
+            <div class="copyright" style="color: #222; font-size: 16px; font-weight: 500;">All Rights Reserved &copy; <span id="year"></span> Just4Prog</div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</footer>
 	
 </div>  
 <!--End pagewrapper-->
@@ -882,35 +1077,7 @@
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
-<!--Search Popup-->
-<div id="search-popup" class="search-popup">
-	<div class="close-search theme-btn"><span class="fas fa-window-close"></span></div>
-	<div class="popup-inner">
-		<div class="overlay-layer"></div>
-    	<div class="search-form">
-        	<form method="post" action="index.html">
-            	<div class="form-group">
-                	<fieldset>
-                        <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
-                        <input type="submit" value="Search Now!" class="theme-btn">
-                    </fieldset>
-                </div>
-            </form>
-            
-            <br>
-            <h3>Recent Search Keywords</h3>
-            <ul class="recent-searches">
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">SEO</a></li>
-                <li><a href="#">Logistics</a></li>
-                <li><a href="#">Freedom</a></li>
-            </ul>
-        
-        </div>
-        
-    </div>
-</div>
+
 
 <!-- Color Palate / Color Switcher -->
 <div class="color-palate">
