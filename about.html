@@ -30,7 +30,7 @@
 
 <script>
 
-console.log("Script is running ✅");
+console.log("Script is running ✅1");
 
 /* Otherwise just put the config content (json): */
 // التهيئة الأساسية لـ Firebase
@@ -77,100 +77,97 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      // الخطوة 1: إرسال بيانات المشروع إلى API
-      const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
+    console.log("Script 2 is running ✅");
+
+    // 🔍 تحقق من وجود الإيميل في Firebase أولاً
+    const signInMethods = await firebase.auth().fetchSignInMethodsForEmail(formData.email);
+
+    if (signInMethods.length > 0) {
+        // الإيميل مسجل مسبقاً - لا تكمل العملية
+        loadingSpinner.style.display = 'none';
+        errorMessage.innerHTML = `
+            <div style="padding: 10px; background-color: #ffe4e4; color: #d8000c; border-radius: 5px;">
+            لديك حساب بالفعل! قم بتسجيل الدخول إلى <strong>لوحة التحكم</strong> لإنشاء مشروع جديد من هناك.<br>
+            <a href="https://just4prog.nl/dashboard" style="color: #1a73e8; text-decoration: underline;">اضغط هنا للذهاب إلى لوحة التحكم</a>
+            </div>
+        `;
+        errorMessage.style.display = 'flex';
+        submitButton.disabled = false;
+        return;
+    }
+
+    console.log("Script 3 is running ✅");
+
+    // 🟢 الإيميل غير مسجل - نبدأ بإرسال المشروع
+    const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify({
-          client_name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          project_title: formData.project_title,
-          description: formData.description,
-          project_type: formData.project_type,
-          platforms: formData.platform,
-          status: "new"
+            client_name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            project_title: formData.project_title,
+            description: formData.description,
+            project_type: formData.project_type,
+            platforms: formData.platform,
+            status: "new"
         })
-      });
+    });
 
-      const projectData = await projectResponse.json();
-      const trackingId = projectData.project_data.tracking_id;
-      console.log("Project Response:", projectData); 
-      // الخطوة 2: إنشاء مستخدم في Firebase Authentication
-      const userCredential = await firebase.auth().createUserWithEmailAndPassword(
+    const projectData = await projectResponse.json();
+    const trackingId = projectData.project_data.tracking_id;
+
+    // 🧑‍💻 إنشاء مستخدم في Firebase
+    const userCredential = await firebase.auth().createUserWithEmailAndPassword(
         formData.email,
         formData.password
-      );
-      const uid = userCredential.user.uid;
+    );
+    const uid = userCredential.user.uid;
 
-      // الخطوة 3: إنشاء مستخدم في API الخاص بك
-      const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
+    // 📡 تسجيل المستخدم في API الخاص بك
+    const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ uid })
-      });
-      const userApiData = await userApiResponse.json();
-      console.log("User API Response:", userApiData);
-      const token = userApiData.token;
+    });
 
-      // الخطوة 4: إضافة البيانات إلى Firestore
-      await firebase.firestore().collection('users').doc(uid).set({
+    const userApiData = await userApiResponse.json();
+    const token = userApiData.token;
+
+    // 🔥 إضافة معلومات المستخدم في Firestore
+    await firebase.firestore().collection('users').doc(uid).set({
         token: token,
-        bills:[],
+        bills: [],
         email: formData.email,
         dateJoined: new Date().toISOString().replace('Z', ''),
-       name: formData.name,
+        name: formData.name,
         phone: formData.phone,
         projects: [trackingId]
-      });
+    });
 
-      // رسالة نجاح
-    //   alert('Project created successfully! You can now login to your dashboard.');
-
+    // ✅ رسالة نجاح
     loadingSpinner.style.display = 'none';
-        successMessage.style.display = 'flex';
-        setTimeout(() => successMessage.classList.add('show'), 10);
-        form.reset();
-        
+    successMessage.style.display = 'flex';
+    setTimeout(() => successMessage.classList.add('show'), 10);
+    form.reset();
 
-    } catch (error) {
-        console.error('Error:', error);
-        loadingSpinner.style.display = 'none';
-        errorMessage.style.display = 'flex';
-        setTimeout(() => errorMessage.classList.add('show'), 10);
-        submitButton.disabled = false;
-    }
+} catch (error) {
+    console.error('Error:', error);
+    loadingSpinner.style.display = 'none';
+    errorMessage.style.display = 'flex';
+    setTimeout(() => errorMessage.classList.add('show'), 10);
+    submitButton.disabled = false;
+}
+
   });
 });
 
-// رسالة نجاح
-// alert('Project created successfully! You can now login to your dashboard.');
-
-// إضافة التأثير لإظهار الرسالة
-const successMessage = document.getElementById('success-message');
-if (successMessage) {
-    successMessage.style.display = 'block';
-    setTimeout(() => {
-        successMessage.classList.add('show'); // سيظهر التأثير بعد إضافة الكلاس
-    }, 100);
-}
-
-// إخفاء الرسالة بعد فترة (اختياري)
-if (successMessage) {
-  setTimeout(() => {
-    successMessage.classList.remove('show');
-    setTimeout(() => {
-      successMessage.style.display = 'none'; // إخفاء الرسالة بعد التأثير
-    }, 1000); // بعد التأثير
-  }, 5000); // تبقى الرسالة لمدة 5 ثوانٍ
-}
-
-
+console.log("Script is running ✅end");
 </script>
 <!-- Ensure all script tags are properly closed and JavaScript code is complete -->
 
