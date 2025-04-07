@@ -24,6 +24,138 @@
 </head>
 
 <body>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+
+<script>
+
+console.log("Script is running ✅");
+
+/* Otherwise just put the config content (json): */
+// التهيئة الأساسية لـ Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
+  authDomain: "just4prog-website.firebaseapp.com",
+  projectId: "just4prog-website",
+  storageBucket: "just4prog-website.firebasestorage.app",
+  messagingSenderId: "333979709686",
+  appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
+  measurementId: "G-XGKYFS5PFB"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// الربط مع الزر
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('project-form');
+  
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // جمع البيانات من الحقول
+    const formData = {
+      name: document.querySelector('[name="name"]').value,
+      email: document.querySelector('[name="email"]').value,
+      phone: document.querySelector('[name="phone"]').value,
+      project_title: document.querySelector('[name="project_title"]').value,
+      description: document.querySelector('[name="project_description"]').value,
+      project_type: document.querySelector('[name="project_type"]').value,
+      platform: document.querySelector('[name="platform"]').value,
+      password: document.querySelector('#password').value
+    };
+
+    try {
+      // الخطوة 1: إرسال بيانات المشروع إلى API
+      const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          client_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          project_title: formData.project_title,
+          description: formData.description,
+          project_type: formData.project_type,
+          platforms: formData.platform,
+          status: "new"
+        })
+      });
+
+      const projectData = await projectResponse.json();
+      const trackingId = projectData.project_data.tracking_id;
+      console.log("Project Response:", projectData); 
+      // الخطوة 2: إنشاء مستخدم في Firebase Authentication
+      const userCredential = await firebase.auth().createUserWithEmailAndPassword(
+        formData.email,
+        formData.password
+      );
+      const uid = userCredential.user.uid;
+
+      // الخطوة 3: إنشاء مستخدم في API الخاص بك
+      const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ uid })
+      });
+      const userApiData = await userApiResponse.json();
+      console.log("User API Response:", userApiData);
+      const token = userApiData.token;
+
+      // الخطوة 4: إضافة البيانات إلى Firestore
+      await firebase.firestore().collection('users').doc(uid).set({
+        token: token,
+        bills:[],
+        email: formData.email,
+        dateJoined: new Date().toISOString().replace('Z', ''),
+        name: formData.name,
+        phone: formData.phone,
+        projects: [trackingId]
+      });
+
+      // رسالة نجاح
+    //   alert('Project created successfully! You can now login to your dashboard.');
+
+      form.reset();
+
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error: ' + error.message);
+    }
+  });
+});
+
+// رسالة نجاح
+// alert('Project created successfully! You can now login to your dashboard.');
+
+// إضافة التأثير لإظهار الرسالة
+const successMessage = document.getElementById('success-message');
+if (successMessage) {
+    successMessage.style.display = 'block';
+    setTimeout(() => {
+        successMessage.classList.add('show'); // سيظهر التأثير بعد إضافة الكلاس
+    }, 100);
+}
+
+// إخفاء الرسالة بعد فترة (اختياري)
+if (successMessage) {
+  setTimeout(() => {
+    successMessage.classList.remove('show');
+    setTimeout(() => {
+      successMessage.style.display = 'none'; // إخفاء الرسالة بعد التأثير
+    }, 1000); // بعد التأثير
+  }, 5000); // تبقى الرسالة لمدة 5 ثوانٍ
+}
+
+
+</script>
+<!-- Ensure all script tags are properly closed and JavaScript code is complete -->
 
 <!-- ahmed style -->
 <style>
@@ -537,6 +669,16 @@
     }
 </style>
 <style>
+    /* إضافة تنسيق لحقل الباسوورد */
+input[type="password"] {
+    position: relative;
+}
+
+/* تلميح المعلومات */
+.fa-info-circle {
+    color: #1a73e8;
+    margin-right: 5px;
+}
     /* تنسيقات الجوال فقط (أقل من 768px) */
     @media only screen and (max-width: 767px) {
         .social-icons {
@@ -617,6 +759,7 @@
         .copyright {
             font-size: 14px !important;
         }
+        
     }
     
     </style>
@@ -626,9 +769,14 @@
         // Clone icons for seamless looping
         track.innerHTML += track.innerHTML;
     });
-    </script>
+</script>
 <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearElement = document.getElementById('year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    });
 </script>
 
 <script>
@@ -932,7 +1080,7 @@
 
 
 <!-- Stats Section -->
-<section class="counter-section style-two" style="background-image: url(images/background/tech-pattern.png); color: #fff;">
+<section class="counter-section style-two" style=" color: #fff;">
 	<div class="auto-container">
 		<!-- Stats Counter -->
 		<div class="fact-counter style-two">
@@ -1172,7 +1320,7 @@
                         
                         <!-- Project Request Form -->
                         <div  class="appointment-form">
-                            <form method="post" action="submit-project-request">
+                            <form id="project-form">
                                 <div class="row clearfix">
                                     <!-- الحقول الأصلية كما هي -->
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
@@ -1184,7 +1332,16 @@
                                         <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
                                         <span class="icon fa fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
                                     </div>
-                        
+                        <!-- أضف هذا الحقل بعد حقل Project Title -->
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
+                                        <input type="password" name="password" id="password" placeholder="Password" required 
+                                            style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
+                                        <span class="icon fas fa-lock" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
+                                    </div>
+
+                                    <!-- أضف تلميح تحت حقل الباسوورد -->
+                                    <p style="color: #666; font-size: 14px; margin-top: -15px; margin-bottom: 20px; margin-left: 15px;">
+                                        <i class="fas fa-info-circle"></i> we will create an account for you with this email and password to follow your project in the dashboard later.
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group" style="position: relative; margin-bottom: 25px;">
                                         <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 12px 20px 12px 40px; border: 1px solid #ddd; border-radius: 4px;">
                                         <span class="icon fas fa-phone" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #00aaff; text-shadow: 0 0 2.75px #00aaff;"></span>
@@ -1222,12 +1379,18 @@
                                         <textarea name="project_description" placeholder="Describe your app in detail (features, target audience, special requirements)" required style="width: 100%; padding: 12px 20px; border: 1px solid #ddd; border-radius: 4px; min-height: 120px;"></textarea>
                                         <p style="margin-top: 10px; color: #666; font-size: 14px;">The more detailed your description, specifying each point of the project, the faster we can process your request.</p>
                                     </div>
-                        
+            
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-bottom: 25px;">
                                         <button class="theme-btn btn-style-two" type="submit" name="submit-form" style="background: #FFD700; color: #333; border: none; padding: 12px 30px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
                                             <span class="txt">Submit Project Request</span>
                                         </button>
                                     </div>
+                                    <div id="success-message" style="display: none; padding: 10px; background-color: #28a745; color: white; border-radius: 5px; text-align: center;">
+                                        Your project has been submitted successfully! We will get in touch with you soon.
+                                    </div>
+                                    <div id="error-message" style="display: none; padding: 10px; background-color: #dc3545; color: white; border-radius: 5px; text-align: center;">
+                                        There was an error submitting your project request. Please try again later.
+
                                 </div>
                             </form>
                         </div>
@@ -1503,6 +1666,7 @@
 
 
 <script src="js/jquery.js"></script>
+<script src="js/app.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -1515,6 +1679,7 @@
 <script src="js/appear.js"></script>
 <script src="js/script.js"></script>
 <script src="js/color-settings.js"></script>
+
 
 </body>
 </html>
