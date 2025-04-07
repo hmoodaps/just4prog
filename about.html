@@ -53,7 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+    const submitButton = document.querySelector('[name="submit-form"]');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    // Reset messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+    loadingSpinner.style.display = 'flex';
+    submitButton.disabled = true;
+
     // جمع البيانات من الحقول
     const formData = {
       name: document.querySelector('[name="name"]').value,
@@ -114,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bills:[],
         email: formData.email,
         dateJoined: new Date().toISOString().replace('Z', ''),
-        name: formData.name,
+       name: formData.name,
         phone: formData.phone,
         projects: [trackingId]
       });
@@ -122,11 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // رسالة نجاح
     //   alert('Project created successfully! You can now login to your dashboard.');
 
-      form.reset();
+    loadingSpinner.style.display = 'none';
+        successMessage.style.display = 'flex';
+        setTimeout(() => successMessage.classList.add('show'), 10);
+        form.reset();
+        
 
     } catch (error) {
-      console.error('Error:', error);
-      alert('Error: ' + error.message);
+        console.error('Error:', error);
+        loadingSpinner.style.display = 'none';
+        errorMessage.style.display = 'flex';
+        setTimeout(() => errorMessage.classList.add('show'), 10);
+        submitButton.disabled = false;
     }
   });
 });
@@ -159,6 +176,82 @@ if (successMessage) {
 
 <!-- ahmed style -->
 <style>
+    /* التنسيقات الجديدة */
+.status-messages {
+    margin-top: 20px;
+}
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.loading-spinner p {
+    margin: 0;
+    color: #1a73e8;
+    font-weight: 500;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1a73e8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.alert {
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alert-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.alert i {
+    font-size: 24px;
+}
+
+.alert div h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.alert div p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
     /* Custom CSS for the page */
     .payment-methods-section {
         background: #fff;
@@ -1385,13 +1478,33 @@ input[type="password"] {
                                             <span class="txt">Submit Project Request</span>
                                         </button>
                                     </div>
-                                    <div id="success-message" style="display: none; padding: 10px; background-color: #28a745; color: white; border-radius: 5px; text-align: center;">
-                                        Your project has been submitted successfully! We will get in touch with you soon.
-                                    </div>
-                                    <div id="error-message" style="display: none; padding: 10px; background-color: #dc3545; color: white; border-radius: 5px; text-align: center;">
-                                        There was an error submitting your project request. Please try again later.
+                                    <!-- داخل قسم النموذج بعد زر Submit -->
+                                        <div class="status-messages">
+                                            <!-- Loading Spinner -->
+                                            <div id="loading-spinner" class="loading-spinner" style="display: none;">
+                                                <div class="spinner"></div>
+                                                <p>Submitting your project...</p>
+                                            </div>
 
-                                </div>
+                                            <!-- Success Message -->
+                                            <div id="success-message" class="alert alert-success" style="display: none;">
+                                                <i class="fas fa-check-circle"></i>
+                                                <div>
+                                                    <h4>Success!</h4>
+                                                    <p>Project submitted successfully! We'll contact you soon.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Error Message -->
+                                            <div id="error-message" class="alert alert-danger" style="display: none;">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                <div>
+                                                    <h4>Error!</h4>
+                                                    <p>There was an error submitting your request. Please try again.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </div>
                             </form>
                         </div>
                     </div>
