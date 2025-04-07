@@ -29,145 +29,216 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
 
 <script>
+    console.log("Script1 - بدء تحميل السكربت ✅");
 
-console.log("Script is running ✅1");
-
-/* Otherwise just put the config content (json): */
-// التهيئة الأساسية لـ Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
-  authDomain: "just4prog-website.firebaseapp.com",
-  projectId: "just4prog-website",
-  storageBucket: "just4prog-website.firebasestorage.app",
-  messagingSenderId: "333979709686",
-  appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
-  measurementId: "G-XGKYFS5PFB"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-// الربط مع الزر
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('project-form');
-  
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitButton = document.querySelector('[name="submit-form"]');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-
-    // Reset messages
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
-    loadingSpinner.style.display = 'flex';
-    submitButton.disabled = true;
-
-    // جمع البيانات من الحقول
-    const formData = {
-      name: document.querySelector('[name="name"]').value,
-      email: document.querySelector('[name="email"]').value,
-      phone: document.querySelector('[name="phone"]').value,
-      project_title: document.querySelector('[name="project_title"]').value,
-      description: document.querySelector('[name="project_description"]').value,
-      project_type: document.querySelector('[name="project_type"]').value,
-      platform: document.querySelector('[name="platform"]').value,
-      password: document.querySelector('#password').value
+    // تهيئة Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
+        authDomain: "just4prog-website.firebaseapp.com",
+        projectId: "just4prog-website",
+        storageBucket: "just4prog-website.firebasestorage.app",
+        messagingSenderId: "333979709686",
+        appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
+        measurementId: "G-XGKYFS5PFB"
     };
 
     try {
-    console.log("Script 2 is running ✅");
-
-    // 🔍 تحقق من وجود الإيميل في Firebase أولاً
-    const signInMethods = await firebase.auth().fetchSignInMethodsForEmail(formData.email);
-
-    if (signInMethods.length > 0) {
-        // الإيميل مسجل مسبقاً - لا تكمل العملية
-        loadingSpinner.style.display = 'none';
-        errorMessage.innerHTML = `
-            <div style="padding: 10px; background-color: #ffe4e4; color: #d8000c; border-radius: 5px;">
-            لديك حساب بالفعل! قم بتسجيل الدخول إلى <strong>لوحة التحكم</strong> لإنشاء مشروع جديد من هناك.<br>
-            <a href="https://just4prog.nl/dashboard" style="color: #1a73e8; text-decoration: underline;">اضغط هنا للذهاب إلى لوحة التحكم</a>
-            </div>
-        `;
-        errorMessage.style.display = 'flex';
-        submitButton.disabled = false;
-        return;
+        firebase.initializeApp(firebaseConfig);
+        console.log("Script2 - تم تهيئة Firebase بنجاح ✅");
+    } catch (error) {
+        console.error("Script2 - خطأ في تهيئة Firebase:", error);
     }
 
-    console.log("Script 3 is running ✅");
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("Script3 - تم تحميل DOM بالكامل ✅");
 
-    // 🟢 الإيميل غير مسجل - نبدأ بإرسال المشروع
-    const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            client_name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            project_title: formData.project_title,
-            description: formData.description,
-            project_type: formData.project_type,
-            platforms: formData.platform,
-            status: "new"
-        })
+        const form = document.getElementById('project-form');
+        if (!form) {
+            console.error("Script3 - لم يتم العثور على النموذج!");
+            return;
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log("Script4 - تم الضغط على زر الإرسال ✅");
+
+            const submitButton = document.querySelector('[name="submit-form"]');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // إعادة تعيين الرسائل
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            loadingSpinner.style.display = 'flex';
+            submitButton.disabled = true;
+
+            // جمع البيانات من الحقول
+            const formData = {
+                name: document.querySelector('[name="name"]')?.value,
+                email: document.querySelector('[name="email"]')?.value,
+                phone: document.querySelector('[name="phone"]')?.value,
+                project_title: document.querySelector('[name="project_title"]')?.value,
+                description: document.querySelector('[name="project_description"]')?.value,
+                project_type: document.querySelector('[name="project_type"]')?.value,
+                platform: document.querySelector('[name="platform"]')?.value,
+                password: document.querySelector('#password')?.value
+            };
+
+            console.log("Script5 - بيانات النموذج المجمعة:", formData);
+
+            try {
+                // ========== الخطوة 1: التحقق من صحة البيانات ==========
+                console.log("Script6 - بدء التحقق من صحة البيانات...");
+                
+                if (!formData.name || !formData.email || !formData.phone || 
+                    !formData.project_title || !formData.description) {
+                    throw new Error("جميع الحقول مطلوبة");
+                }
+
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                    throw new Error("البريد الإلكتروني غير صالح");
+                }
+
+                if (formData.phone.length < 8) {
+                    throw new Error("رقم الهاتف يجب أن يكون 8 خانات على الأقل");
+                }
+
+                console.log("Script6 - التحقق من صحة البيانات ناجح ✅");
+
+                // ========== الخطوة 2: إرسال بيانات المشروع إلى API ==========
+                console.log("Script7 - إرسال بيانات المشروع إلى API...");
+                
+                const projectPayload = {
+                    client_name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    project_title: formData.project_title,
+                    description: formData.description,
+                    project_type: formData.project_type,
+                    platforms: formData.platform,
+                    status: "new"
+                };
+
+                console.log("Script7 - بيانات الإرسال إلى API:", projectPayload);
+
+                const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(projectPayload)
+                });
+
+                console.log("Script7 - استجابة API الخام:", projectResponse);
+
+                if (!projectResponse.ok) {
+                    const errorData = await projectResponse.json().catch(() => ({}));
+                    console.error("Script7 - تفاصيل خطأ API:", errorData);
+                    throw new Error(errorData.message || "فشل في إنشاء المشروع");
+                }
+
+                const projectData = await projectResponse.json();
+                console.log("Script7 - بيانات استجابة API:", projectData);
+
+                if (!projectData?.project_data?.tracking_id) {
+                    throw new Error("لم يتم استلام tracking_id من الخادم");
+                }
+
+                const trackingId = projectData.project_data.tracking_id;
+                console.log("Script7 - تم إنشاء المشروع بنجاح، tracking_id:", trackingId);
+
+                // ========== الخطوة 3: إنشاء مستخدم في Firebase ==========
+                console.log("Script8 - إنشاء مستخدم في Firebase...");
+                
+                const userCredential = await firebase.auth().createUserWithEmailAndPassword(
+                    formData.email,
+                    formData.password
+                ).catch(error => {
+                    console.error("Script8 - خطأ في إنشاء مستخدم Firebase:", error);
+                    throw new Error("فشل في إنشاء الحساب: " + error.message);
+                });
+
+                const uid = userCredential.user.uid;
+                console.log("Script8 - تم إنشاء مستخدم Firebase بنجاح، UID:", uid);
+
+                // ========== الخطوة 4: إنشاء مستخدم في API ==========
+                console.log("Script9 - إنشاء مستخدم في API...");
+                
+                const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ uid })
+                });
+
+                if (!userApiResponse.ok) {
+                    const errorData = await userApiResponse.json().catch(() => ({}));
+                    console.error("Script9 - خطأ في إنشاء مستخدم API:", errorData);
+                    throw new Error("فشل في إنشاء مستخدم API");
+                }
+
+                const userApiData = await userApiResponse.json();
+                console.log("Script9 - استجابة إنشاء مستخدم API:", userApiData);
+
+                const token = userApiData.token;
+                if (!token) {
+                    throw new Error("لم يتم استلام token من API");
+                }
+
+                // ========== الخطوة 5: حفظ البيانات في Firestore ==========
+                console.log("Script10 - حفظ البيانات في Firestore...");
+                
+                await firebase.firestore().collection('users').doc(uid).set({
+                    token: token,
+                    bills: [],
+                    email: formData.email,
+                    dateJoined: new Date().toISOString().replace('Z', ''),
+                    name: formData.name,
+                    phone: formData.phone,
+                    projects: [trackingId]
+                }).catch(error => {
+                    console.error("Script10 - خطأ في حفظ بيانات Firestore:", error);
+                    throw new Error("فشل في حفظ بيانات المستخدم");
+                });
+
+                console.log("Script10 - تم حفظ البيانات في Firestore بنجاح ✅");
+
+                // ========== الخطوة 6: إظهار رسالة النجاح ==========
+                loadingSpinner.style.display = 'none';
+                successMessage.style.display = 'flex';
+                setTimeout(() => successMessage.classList.add('show'), 10);
+                form.reset();
+                console.log("Script11 - العملية اكتملت بنجاح ✅");
+
+            } catch (error) {
+                console.error("ScriptError - حدث خطأ:", error);
+                loadingSpinner.style.display = 'none';
+                errorMessage.querySelector('p').textContent = error.message;
+                errorMessage.style.display = 'flex';
+                setTimeout(() => errorMessage.classList.add('show'), 10);
+                submitButton.disabled = false;
+            }
+        });
     });
 
-    const projectData = await projectResponse.json();
-    const trackingId = projectData.project_data.tracking_id;
+    // إعداد رسالة النجاح
+    const successMessage = document.getElementById('success-message');
+    if (successMessage) {
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.classList.add('show');
+        }, 100);
 
-    // 🧑‍💻 إنشاء مستخدم في Firebase
-    const userCredential = await firebase.auth().createUserWithEmailAndPassword(
-        formData.email,
-        formData.password
-    );
-    const uid = userCredential.user.uid;
-
-    // 📡 تسجيل المستخدم في API الخاص بك
-    const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ uid })
-    });
-
-    const userApiData = await userApiResponse.json();
-    const token = userApiData.token;
-
-    // 🔥 إضافة معلومات المستخدم في Firestore
-    await firebase.firestore().collection('users').doc(uid).set({
-        token: token,
-        bills: [],
-        email: formData.email,
-        dateJoined: new Date().toISOString().replace('Z', ''),
-        name: formData.name,
-        phone: formData.phone,
-        projects: [trackingId]
-    });
-
-    // ✅ رسالة نجاح
-    loadingSpinner.style.display = 'none';
-    successMessage.style.display = 'flex';
-    setTimeout(() => successMessage.classList.add('show'), 10);
-    form.reset();
-
-} catch (error) {
-    console.error('Error:', error);
-    loadingSpinner.style.display = 'none';
-    errorMessage.style.display = 'flex';
-    setTimeout(() => errorMessage.classList.add('show'), 10);
-    submitButton.disabled = false;
-}
-
-  });
-});
-
-console.log("Script is running ✅end");
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 1000);
+        }, 5000);
+    }
 </script>
 <!-- Ensure all script tags are properly closed and JavaScript code is complete -->
 
