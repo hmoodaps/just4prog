@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Just4Prog | About</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+    <!-- Primary Meta Tags -->
+    <meta charset="utf-8">
+    <title>About Just4Prog | Mobile App Development Company in Amsterdam</title>
+    <meta name="description" content="Learn about Just4Prog - Leading mobile app developers in Netherlands specializing in Flutter, Android & iOS app development since 2015. Meet our expert team.">
+    <meta name="keywords" content="about Just4Prog, mobile app developers Amsterdam, Flutter experts Netherlands, Android iOS development company, app development agency">
 
-<!--Color Switcher Mockup-->
-<link href="css/color-switcher-design.css" rel="stylesheet">
-<!--Color Themes-->
-<link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.just4prog.nl/about" />
 
-<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-<link rel="icon" href="images/logo.png" type="image/x-icon">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.just4prog.nl/about">
+    <meta property="og:title" content="About Just4Prog | Mobile App Development Experts">
+    <meta property="og:description" content="Your trusted mobile app development partner in Amsterdam specializing in Flutter and Native development">
+    <meta property="og:image" content="https://www.just4prog.nl/images/og-about-image.jpg">
 
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.just4prog.nl/about">
+    <meta property="twitter:title" content="About Just4Prog | Mobile App Development Experts">
+    <meta property="twitter:description" content="Your trusted mobile app development partner in Amsterdam specializing in Flutter and Native development">
+    <meta property="twitter:image" content="https://www.just4prog.nl/images/og-about-image.jpg">
+
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/about.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Just4Prog",
+      "description": "Mobile app development company based in Amsterdam",
+      "url": "https://www.just4prog.nl/about",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Just4Prog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.just4prog.nl/images/logo.png",
+          "width": "300",
+          "height": "60"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
-
 <script>
-    console.log("Script1 - بدء تحميل السكربت ✅");
-
-    // تهيئة Firebase
+    // Initialize Firebase
     const firebaseConfig = {
         apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
         authDomain: "just4prog-website.firebaseapp.com",
         projectId: "just4prog-website",
-        storageBucket: "just4prog-website.firebasestorage.app",
+        storageBucket: "just4prog-website.appspot.com",
         messagingSenderId: "333979709686",
         appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
         measurementId: "G-XGKYFS5PFB"
@@ -44,36 +80,55 @@
 
     try {
         firebase.initializeApp(firebaseConfig);
-        console.log("Script2 - تم تهيئة Firebase بنجاح ✅");
-    } catch (error) {
-        console.error("Script2 - خطأ في تهيئة Firebase:", error);
+    } catch (error) {}
+
+    // Password strength validation function
+    function validatePassword(password) {
+        const minLength = 6;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecialChar = /[!@#$%^&*]/.test(password);
+        
+        if (password.length < minLength) {
+            return "Password must be at least 6 characters long";
+        }
+        if (!hasUpperCase) {
+            return "Password must contain at least one uppercase letter";
+        }
+        if (!hasLowerCase) {
+            return "Password must contain at least one lowercase letter";
+        }
+        if (!hasNumber) {
+            return "Password must contain at least one number";
+        }
+        if (!hasSpecialChar) {
+            return "Password must contain at least one special character (!@#$%^&*)";
+        }
+        return null; // Password is valid
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        console.log("Script3 - تم تحميل DOM بالكامل ✅");
-
         const form = document.getElementById('project-form');
         if (!form) {
-            console.error("Script3 - لم يتم العثور على النموذج!");
             return;
         }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            console.log("Script4 - تم الضغط على زر الإرسال ✅");
 
             const submitButton = document.querySelector('[name="submit-form"]');
             const loadingSpinner = document.getElementById('loading-spinner');
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
 
-            // إعادة تعيين الرسائل
+            // Reset messages
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             loadingSpinner.style.display = 'flex';
             submitButton.disabled = true;
 
-            // جمع البيانات من الحقول
+            // Collect data from fields
             const formData = {
                 name: document.querySelector('[name="name"]')?.value,
                 email: document.querySelector('[name="email"]')?.value,
@@ -85,30 +140,80 @@
                 password: document.querySelector('#password')?.value
             };
 
-            console.log("Script5 - بيانات النموذج المجمعة:", formData);
-
             try {
-                // ========== الخطوة 1: التحقق من صحة البيانات ==========
-                console.log("Script6 - بدء التحقق من صحة البيانات...");
-                
+                // ========== Step 1: Validate data ==========
                 if (!formData.name || !formData.email || !formData.phone || 
-                    !formData.project_title || !formData.description) {
-                    throw new Error("جميع الحقول مطلوبة");
+                    !formData.project_title || !formData.description || !formData.password) {
+                    throw new Error("All fields are required");
                 }
 
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-                    throw new Error("البريد الإلكتروني غير صالح");
+                    throw new Error("Invalid email address");
                 }
 
                 if (formData.phone.length < 8) {
-                    throw new Error("رقم الهاتف يجب أن يكون 8 خانات على الأقل");
+                    throw new Error("Phone number must be at least 8 characters long");
                 }
 
-                console.log("Script6 - التحقق من صحة البيانات ناجح ✅");
+                // Validate password strength
+                const passwordError = validatePassword(formData.password);
+                if (passwordError) {
+                    throw new Error(passwordError);
+                }
 
-                // ========== الخطوة 2: إرسال بيانات المشروع إلى API ==========
-                console.log("Script7 - إرسال بيانات المشروع إلى API...");
-                
+                // ========== Step 2: Check email existence in Firebase ==========
+                try {
+                    await firebase.auth().fetchSignInMethodsForEmail('test@test.com').catch(() => {});
+                } catch (firebaseError) {
+                    throw new Error("Server connection error. Please try again later");
+                }
+
+                const signInMethods = await firebase.auth().fetchSignInMethodsForEmail(formData.email)
+                    .catch(error => {
+                        throw new Error("Error checking email");
+                    });
+
+                if (signInMethods && signInMethods.length > 0) {
+                    errorMessage.style.color = '#3498db';
+                    errorMessage.style.borderColor = '#3498db';
+                    throw new Error("The email you entered is already in use. If you want to start another project, please log in to your dashboard and request your project from there.");
+                }
+
+                // ========== Step 3: Create user in Firebase ==========
+                const userCredential = await firebase.auth().createUserWithEmailAndPassword(
+                    formData.email,
+                    formData.password
+                ).catch(error => {
+                    errorMessage.style.color = '#3498db';
+                    errorMessage.style.borderColor = '#3498db';
+                    throw new Error("Failed while creating your account: you are already registered with this email. If you want to start a new project, please log in to your dashboard and request your project from there.");
+                });
+
+                const uid = userCredential.user.uid;
+
+                // ========== Step 4: Create user in API ==========
+                const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ uid })
+                });
+
+                if (!userApiResponse.ok) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    const errorData = await userApiResponse.json().catch(() => ({}));
+                    throw new Error("Failed to create API user");
+                }
+
+                const userApiData = await userApiResponse.json();
+                const token = userApiData.token;
+                if (!token) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("No token received from API");
+                }
+
+                // ========== Step 5: Send project data to API ==========
                 const projectPayload = {
                     client_name: formData.name,
                     email: formData.email,
@@ -120,8 +225,6 @@
                     status: "new"
                 };
 
-                console.log("Script7 - بيانات الإرسال إلى API:", projectPayload);
-
                 const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
                     method: 'POST',
                     headers: {
@@ -131,66 +234,21 @@
                     body: JSON.stringify(projectPayload)
                 });
 
-                console.log("Script7 - استجابة API الخام:", projectResponse);
-
                 if (!projectResponse.ok) {
+                    await userCredential.user.delete().catch(deleteError => {});
                     const errorData = await projectResponse.json().catch(() => ({}));
-                    console.error("Script7 - تفاصيل خطأ API:", errorData);
-                    throw new Error(errorData.message || "فشل في إنشاء المشروع");
+                    throw new Error(errorData.message || "Failed to create project");
                 }
 
                 const projectData = await projectResponse.json();
-                console.log("Script7 - بيانات استجابة API:", projectData);
-
                 if (!projectData?.project_data?.tracking_id) {
-                    throw new Error("لم يتم استلام tracking_id من الخادم");
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("No tracking_id received from server");
                 }
 
                 const trackingId = projectData.project_data.tracking_id;
-                console.log("Script7 - تم إنشاء المشروع بنجاح، tracking_id:", trackingId);
 
-                // ========== الخطوة 3: إنشاء مستخدم في Firebase ==========
-                console.log("Script8 - إنشاء مستخدم في Firebase...");
-                
-                const userCredential = await firebase.auth().createUserWithEmailAndPassword(
-                    formData.email,
-                    formData.password
-                ).catch(error => {
-                    console.error("Script8 - خطأ في إنشاء مستخدم Firebase:", error);
-                    throw new Error("فشل في إنشاء الحساب: " + error.message);
-                });
-
-                const uid = userCredential.user.uid;
-                console.log("Script8 - تم إنشاء مستخدم Firebase بنجاح، UID:", uid);
-
-                // ========== الخطوة 4: إنشاء مستخدم في API ==========
-                console.log("Script9 - إنشاء مستخدم في API...");
-                
-                const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/users/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ uid })
-                });
-
-                if (!userApiResponse.ok) {
-                    const errorData = await userApiResponse.json().catch(() => ({}));
-                    console.error("Script9 - خطأ في إنشاء مستخدم API:", errorData);
-                    throw new Error("فشل في إنشاء مستخدم API");
-                }
-
-                const userApiData = await userApiResponse.json();
-                console.log("Script9 - استجابة إنشاء مستخدم API:", userApiData);
-
-                const token = userApiData.token;
-                if (!token) {
-                    throw new Error("لم يتم استلام token من API");
-                }
-
-                // ========== الخطوة 5: حفظ البيانات في Firestore ==========
-                console.log("Script10 - حفظ البيانات في Firestore...");
-                
+                // ========== Step 6: Save data in Firestore ==========
                 await firebase.firestore().collection('users').doc(uid).set({
                     token: token,
                     bills: [],
@@ -199,22 +257,18 @@
                     name: formData.name,
                     phone: formData.phone,
                     projects: [trackingId]
-                }).catch(error => {
-                    console.error("Script10 - خطأ في حفظ بيانات Firestore:", error);
-                    throw new Error("فشل في حفظ بيانات المستخدم");
+                }).catch(async error => {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("Failed to save user data");
                 });
 
-                console.log("Script10 - تم حفظ البيانات في Firestore بنجاح ✅");
-
-                // ========== الخطوة 6: إظهار رسالة النجاح ==========
+                // ========== Step 7: Show success message ==========
                 loadingSpinner.style.display = 'none';
                 successMessage.style.display = 'flex';
                 setTimeout(() => successMessage.classList.add('show'), 10);
                 form.reset();
-                console.log("Script11 - العملية اكتملت بنجاح ✅");
 
             } catch (error) {
-                console.error("ScriptError - حدث خطأ:", error);
                 loadingSpinner.style.display = 'none';
                 errorMessage.querySelector('p').textContent = error.message;
                 errorMessage.style.display = 'flex';
@@ -224,7 +278,7 @@
         });
     });
 
-    // إعداد رسالة النجاح
+    // Setup success message
     const successMessage = document.getElementById('success-message');
     if (successMessage) {
         successMessage.style.display = 'block';
@@ -240,7 +294,6 @@
         }, 5000);
     }
 </script>
-<!-- Ensure all script tags are properly closed and JavaScript code is complete -->
 
 <!-- ahmed style -->
 <style>
