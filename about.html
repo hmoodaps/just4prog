@@ -153,7 +153,7 @@
                 const uid = userCredential.user.uid;
 
                 // ========== Step 4: Create user in API ==========
-                const userApiResponse = await fetch('https://just4prog-api.vercel.app/users/', {
+                const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/ahmed/users/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -186,7 +186,7 @@
                     status: "new"
                 };
 
-                const projectResponse = await fetch('https://just4prog-api.vercel.app/projects/', {
+                const projectResponse = await fetch('https://just4prog-api.vercel.app/api/ahmed/projects/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
