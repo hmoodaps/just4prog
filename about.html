@@ -195,7 +195,7 @@
                     body: JSON.stringify(projectPayload)
                 });
                 console.log(projectPayload);
-                console.log(projectResponse);
+                console.log(JSON.stringify(projectResponse));
 
                 if (!projectResponse.ok) {
                     await userCredential.user.delete().catch(deleteError => {});
