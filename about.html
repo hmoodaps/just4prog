@@ -153,7 +153,6 @@
                 const uid = userCredential.user.uid;
 
                 // ========== Step 4: Create user in API ==========
-                console.log(JSON.stringify({ uid }));
                 
                 const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/ahmed/users/', {
                     method: 'POST',
@@ -162,7 +161,6 @@
                     },
                     body: JSON.stringify({ uid })
                 });
-                console.log(userApiResponse);
                 if (!userApiResponse.ok) {
                     await userCredential.user.delete().catch(deleteError => {});
                     const errorData = await userApiResponse.json().catch(() => ({}));
@@ -196,6 +194,8 @@
                     },
                     body: JSON.stringify(projectPayload)
                 });
+                console.log(projectPayload);
+                console.log(projectResponse);
 
                 if (!projectResponse.ok) {
                     await userCredential.user.delete().catch(deleteError => {});
