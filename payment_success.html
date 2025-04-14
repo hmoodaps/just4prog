@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Just4Prog | About</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<!--Color Switcher Mockup-->
+<link href="css/color-switcher-design.css" rel="stylesheet">
+<!--Color Themes-->
+<link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+<link rel="icon" href="images/logo.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+<script>
+    // Initialize Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
+        authDomain: "just4prog-website.firebaseapp.com",
+        projectId: "just4prog-website",
+        storageBucket: "just4prog-website.appspot.com",
+        messagingSenderId: "333979709686",
+        appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
+        measurementId: "G-XGKYFS5PFB"
+    };
+
+    try {
+        firebase.initializeApp(firebaseConfig);
+    } catch (error) {}
+
+    // Password strength validation function
+    function validatePassword(password) {
+        const minLength = 6;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecialChar = /[!@#$%^&*]/.test(password);
+        
+        if (password.length < minLength) {
+            return "Password must be at least 6 characters long";
+        }
+        if (!hasUpperCase) {
+            return "Password must contain at least one uppercase letter";
+        }
+        if (!hasLowerCase) {
+            return "Password must contain at least one lowercase letter";
+        }
+        if (!hasNumber) {
+            return "Password must contain at least one number";
+        }
+        if (!hasSpecialChar) {
+            return "Password must contain at least one special character (!@#$%^&*)";
+        }
+        return null; // Password is valid
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('project-form');
+        if (!form) {
+            return;
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitButton = document.querySelector('[name="submit-form"]');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // Reset messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            loadingSpinner.style.display = 'flex';
+            submitButton.disabled = true;
+
+            // Collect data from fields
+            const formData = {
+                name: document.querySelector('[name="name"]')?.value,
+                email: document.querySelector('[name="email"]')?.value,
+                phone: document.querySelector('[name="phone"]')?.value,
+                project_title: document.querySelector('[name="project_title"]')?.value,
+                description: document.querySelector('[name="project_description"]')?.value,
+                project_type: document.querySelector('[name="project_type"]')?.value,
+                platform: document.querySelector('[name="platform"]')?.value,
+                password: document.querySelector('#password')?.value
+            };
+
+            try {
+                // ========== Step 1: Validate data ==========
+                if (!formData.name || !formData.email || !formData.phone || 
+                    !formData.project_title || !formData.description || !formData.password) {
+                    throw new Error("All fields are required");
+                }
+
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                    throw new Error("Invalid email address");
+                }
+
+                if (formData.phone.length < 8) {
+                    throw new Error("Phone number must be at least 8 characters long");
+                }
+
+                // Validate password strength
+                const passwordError = validatePassword(formData.password);
+                if (passwordError) {
+                    throw new Error(passwordError);
+                }
+
+                // ========== Step 2: Check email existence in Firebase ==========
+                try {
+                    await firebase.auth().fetchSignInMethodsForEmail('test@test.com').catch(() => {});
+                } catch (firebaseError) {
+                    throw new Error("Server connection error. Please try again later");
+                }
+
+                const signInMethods = await firebase.auth().fetchSignInMethodsForEmail(formData.email)
+                    .catch(error => {
+                        throw new Error("Error checking email");
+                    });
+
+                if (signInMethods && signInMethods.length > 0) {
+                    errorMessage.style.color = '#3498db';
+                    errorMessage.style.borderColor = '#3498db';
+                    throw new Error("The email you entered is already in use. If you want to start another project, please log in to your dashboard and request your project from there.");
+                }
+
+                // ========== Step 3: Create user in Firebase ==========
+                const userCredential = await firebase.auth().createUserWithEmailAndPassword(
+                    formData.email,
+                    formData.password
+                ).catch(error => {
+                    errorMessage.style.color = '#3498db';
+                    errorMessage.style.borderColor = '#3498db';
+                    throw new Error("Failed while creating your account: you are already registered with this email. If you want to start a new project, please log in to your dashboard and request your project from there.");
+                });
+
+                const uid = userCredential.user.uid;
+
+                // ========== Step 4: Create user in API ==========
+                
+                const userApiResponse = await fetch('https://just4prog-api.vercel.app/api/ahmed/users/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ uid })
+                });
+                if (!userApiResponse.ok) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    const errorData = await userApiResponse.json().catch(() => ({}));
+                    throw new Error("Failed to create API user");
+                }
+
+                const userApiData = await userApiResponse.json();
+                const token = userApiData.token;
+                if (!token) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("No token received from API");
+                }
+
+                // ========== Step 5: Send project data to API ==========
+                const projectPayload = {
+                    client_name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    project_title: formData.project_title,
+                    description: formData.description,
+                    project_type: formData.project_type,
+                    platforms: formData.platform,
+                    status: "New"
+                };
+
+                const projectResponse = await fetch('https://just4prog-api.vercel.app/api/ahmed/projects/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(projectPayload)
+                });
+             
+
+                if (!projectResponse.ok) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    const errorData = await projectResponse.json().catch(() => ({}));
+                    throw new Error(errorData.message || "Failed to create project");
+                }
+
+                const projectData = await projectResponse.json();
+                if (!projectData?.project_data?.tracking_id) {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("No tracking_id received from server");
+                }
+
+                const trackingId = projectData.project_data.tracking_id;
+
+                // ========== Step 6: Save data in Firestore ==========
+                await firebase.firestore().collection('users').doc(uid).set({
+                    token: token,
+                    bills: [],
+                    email: formData.email,
+                    dateJoined: new Date().toISOString().replace('Z', ''),
+                    name: formData.name,
+                    phone: formData.phone,
+                    projects: [trackingId]
+                }).catch(async error => {
+                    await userCredential.user.delete().catch(deleteError => {});
+                    throw new Error("Failed to save user data");
+                });
+
+                // ========== Step 7: Show success message ==========
+                loadingSpinner.style.display = 'none';
+                successMessage.style.display = 'flex';
+                setTimeout(() => successMessage.classList.add('show'), 10);
+                form.reset();
+
+            } catch (error) {
+                loadingSpinner.style.display = 'none';
+                errorMessage.querySelector('p').textContent = error.message;
+                errorMessage.style.display = 'flex';
+                setTimeout(() => errorMessage.classList.add('show'), 10);
+                submitButton.disabled = false;
+            }
+        });
+    });
+
+    // Setup success message
+    const successMessage = document.getElementById('success-message');
+    if (successMessage) {
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.classList.add('show');
+        }, 100);
+
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 1000);
+        }, 5000);
+    }
+</script>
+
+<!-- ahmed style -->
+<style>
+    /* التنسيقات الجديدة */
+.status-messages {
+    margin-top: 20px;
+}
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.loading-spinner p {
+    margin: 0;
+    color: #1a73e8;
+    font-weight: 500;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1a73e8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.alert {
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alert-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.alert i {
+    font-size: 24px;
+}
+
+.alert div h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.alert div p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    /* Custom CSS for the page */
+    .payment-methods-section {
+        background: #fff;
+        padding: 50px 0;
+        border-top: 1px solid #f0f0f0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .payment-marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 120px;
+    }
+    
+    .payment-icons-track {
+        display: flex;
+        position: absolute;
+        gap: 50px;
+        align-items: center;
+        height: 100%;
+        animation: marquee 40s linear infinite;
+        padding-left: 100%;
+    }
+    
+    .payment-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .payment-icon img {
+        height: 40px;
+        width: auto;
+        max-width: 100px;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .payment-icon:hover img {
+        transform: scale(1.2);
+    }
+    
+    .payment-icon::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+    
+    .payment-icon:hover::after {
+        opacity: 1;
+    }
+    
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+    
+    .payment-marquee:hover .payment-icons-track {
+        animation-play-state: paused;
+    }
+    
+    
+    
+    
+            .main-slider{
+                position: relative;
+            }
+            
+            .main-slider:before{
+                position: absolute;
+                content:'';
+                left:0px;
+                bottom:0px;
+                width:100%;
+                height:90px;
+                z-index:10;
+                background:url(../images/background/pattern-1.png) repeat-x;
+            }
+            
+            .main-slider:after{
+                position: absolute;
+                content:'';
+                left:0px;
+                bottom:0px;
+                width:100%;
+                height:93px;
+                z-index:10;
+                background:url(../images/background/dotted-line.png) repeat-x;
+            }
+            
+            .main-slider .slide{
+                position:relative;
+                padding:225px 0px 225px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-position:center center;
+            }
+            
+            .main-slider .content{
+                position:relative;
+                z-index:10;
+            }
+            
+            .main-slider .content .title{
+                position:relative;
+                font-size:18px;
+                color:#222222;
+                font-weight:700;
+                line-height:1em;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(80px);
+                -moz-transform: translateX(80px);
+                -ms-transform: translateX(80px);
+                -o-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            
+            .main-slider .swiper-slide-active .content .title{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 600ms;
+            }
+            
+            .main-slider .content h2{
+                position:relative;
+                font-size:48px;
+                color:#da0000;
+                font-weight:700;
+                line-height:1em;
+                opacity: 0;
+                margin-top:25px;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(80px);
+                -moz-transform: translateX(80px);
+                -ms-transform: translateX(80px);
+                -o-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            
+            .main-slider .swiper-slide-active .content h2{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 1200ms;
+            }
+            
+            .main-slider .content .text{
+                position:relative;
+                font-size:16px;
+                color:#777777;
+                font-weight:400;
+                line-height:1.8em;
+                max-width:600px;
+                margin-top:25px;
+                margin-bottom:30px;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateX(-80px);
+                -moz-transform: translateX(-80px);
+                -ms-transform: translateX(-80px);
+                -o-transform: translateX(-80px);
+                transform: translateX(-80px);
+            }
+            
+            .main-slider .swiper-slide-active .content .text{
+                opacity: 1;
+                -webkit-transform: translateX(0);
+                -moz-transform: translateX(0);
+                -ms-transform: translateX(0);
+                -o-transform: translateX(0);
+                transform: translateX(0);
+                transition-delay: 1000ms;
+            }
+            
+            .main-slider .btn-box{
+                position:relative;
+                opacity: 0;
+                -webkit-transition: all 1000ms ease;
+                -moz-transition: all 100ms ease;
+                -ms-transition: all 1000ms ease;
+                -o-transition: all 1000ms ease;
+                transition: all 1000ms ease;
+                -webkit-transform: translateY(-80px);
+                -moz-transform: translateY(80px);
+                -ms-transform: translateY(80px);
+                -o-transform: translateY(80px);
+                transform: translateY(80px);
+            }
+            
+            .main-slider .btn-box .theme-btn{
+                float:left;
+                margin:0px 30px 15px 0px;
+            }
+            
+            .main-slider .swiper-slide-active .btn-box{
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
+                transform: translateY(0);
+                transition-delay: 1500ms;
+            }
+            
+            /* Green Navigation Arrows */
+            .main-slider .swiper-button-next{
+                right:40px;
+                width:50px;
+                height:50px;
+                font-size:16px;
+                line-height:49px;
+                border-radius:50%;
+                text-align:center;
+                background-image:none;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                border:1px solid #00ff00; /* Green border */
+            }
+            
+            .main-slider .swiper-button-next:before{
+                position:absolute;
+                content: "\f14e";
+                left:0px;
+                top:0px;
+                width:50px;
+                color:#00ff00; /* Green icon */
+                font-size:16px;
+                font-weight:700;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                font-family: "Flaticon";
+            }
+            
+            .main-slider .swiper-button-prev{
+                left:40px;
+                width:50px;
+                height:50px;
+                font-size:16px;
+                border-radius:50%;
+                text-align:center;
+                line-height:49px;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                background-image:none;
+                border:1px solid #00ff00; /* Green border */
+            }
+            
+            .main-slider .swiper-button-prev:before{
+                position:absolute;
+                content: "\f14f";
+                left:0px;
+                top:0px;
+                width:50px;
+                height:50px;
+                color:#00ff00; /* Green icon */
+                font-size:16px;
+                font-weight:700;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease;
+                -ms-transition:all 0.5s ease;
+                -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+                font-family: "Flaticon";
+            }
+            
+            .main-slider .swiper-button-next:hover,
+            .main-slider .swiper-button-prev:hover{
+                background-color:#00ff00; /* Green background on hover */
+            }
+            
+            .main-slider .swiper-button-next:hover::before,
+            .main-slider .swiper-button-prev:hover::before{
+                color:#ffffff; /* White icon on green background */
+            }
+            
+            /* Green Progress Bar */
+            .main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+                background:#00ff00; /* Green progress bar */
+            }
+    
+    
+    .department-block .icon {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    .department-block:hover .icon {
+        transform: rotate(360deg) scale(1.2);
+    }
+    
+     .logo img {
+        width: 230px;   /* العرض المطلوب */
+        height: 70px;   /* الارتفاع المطلوب */
+        object-fit: contain; /* للحفاظ على التناسب دون تشويه */
+    }
+    .footer-widget {
+        transform: translateZ(30px); /* 3D effect */
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-widget:hover {
+        transform: translateZ(50px) scale(1.02);
+    }
+    
+    .text {
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    /* Background Animation Styles */
+    .main-footer {
+        position: relative;
+        background: linear-gradient(135deg, #e6f2ff 0%, #f0f8ff 100%);
+        overflow: hidden;
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+    
+    .footer-bg-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    
+    .waves {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .wave-path {
+        filter: drop-shadow(0 0 8px rgba(0,0,0,0.2));
+    }
+    
+    .moving-shape {
+        filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
+    }
+    /* Animated Balls Styles */
+    .ball-path {
+        position: ce;
+        height: 300px;
+        width: 100%;
+        margin: 20px 0;
+        overflow: hidden;
+    }
+    
+    .ball {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+    
+    .gold-ball {
+        background: #FFD700;
+        box-shadow: 0 0 12px #FFD700;
+        animation-name: moveFigureEight;
+        top: 10%;
+        left: 50%;
+        animation-delay: 0s;
+    }
+    
+    .green-ball {
+        background: #00FF00;
+        box-shadow: 0 0 12px #00FF00;
+        animation-name: moveCircle;
+        top: 20%;
+        left: 40%;
+        animation-delay: 0.5s;
+        animation-duration: 12s;
+    }
+    
+    .red-ball {
+        background: #FF0000;
+        box-shadow: 0 0 12px #FF0000;
+        animation-name: moveWave;
+        top: 15%;
+        left: 60%;
+        animation-delay: 1s;
+        animation-duration: 9s;
+    }
+    
+    .blue-ball {
+        background: #0066FF;
+        box-shadow: 0 0 12px #0066FF;
+        animation-name: moveZigzag;
+        top: 5%;
+        left: 45%;
+        animation-delay: 1.5s;
+        animation-duration: 11s;
+    }
+    
+    .purple-ball {
+        background: #AA00FF;
+        box-shadow: 0 0 12px #AA00FF;
+        animation-name: moveSpiral;
+        top: 25%;
+        left: 55%;
+        animation-delay: 2s;
+        animation-duration: 13s;
+    }
+    
+    .gray-ball {
+        background: #888888;
+        box-shadow: 0 0 12px #888888;
+        animation-name: moveEllipse;
+        top: 30%;
+        left: 50%;
+        animation-delay: 2.5s;
+        animation-duration: 14s;
+    }
+    
+    /* Animation Paths */
+    @keyframes moveFigureEight {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-80px, 150px); }
+        50% { transform: translate(0, 300px); }
+        75% { transform: translate(80px, 150px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveCircle {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(70px, 70px); }
+        50% { transform: translate(0, 140px); }
+        75% { transform: translate(-70px, 70px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveWave {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-60px, 100px); }
+        50% { transform: translate(60px, 200px); }
+        75% { transform: translate(-60px, 100px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveZigzag {
+        0% { transform: translate(0, 0); }
+        20% { transform: translate(-50px, 80px); }
+        40% { transform: translate(50px, 160px); }
+        60% { transform: translate(-50px, 240px); }
+        80% { transform: translate(50px, 160px); }
+        100% { transform: translate(0, 0); }
+    }
+    
+    @keyframes moveSpiral {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(40px, 100px) rotate(90deg); }
+        50% { transform: translate(-40px, 200px) rotate(180deg); }
+        75% { transform: translate(40px, 100px) rotate(270deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes moveEllipse {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-100px, 75px); }
+        50% { transform: translate(0, 150px); }
+        75% { transform: translate(100px, 75px); }
+        100% { transform: translate(0, 0); }
+    }
+</style>
+<style>
+    /* إضافة تنسيق لحقل الباسوورد */
+input[type="password"] {
+    position: relative;
+}
+
+/* تلميح المعلومات */
+.fa-info-circle {
+    color: #1a73e8;
+    margin-right: 5px;
+}
+    /* تنسيقات الجوال فقط (أقل من 768px) */
+    @media only screen and (max-width: 767px) {
+        .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        padding: 15px 0 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    
+    .social-icons li {
+        margin: 0 5px !important;
+        display: inline-block !important;
+    }
+    
+    .social-icons a {
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+        /* تعديلات الشبكة */
+        .footer-column {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            margin-bottom: 25px;
+        }
+        
+        /* تعديلات العناصر الداخلية */
+        .footer-widget {
+            padding: 25px 20px !important;
+            margin: 0 10px 20px !important;
+            height: auto !important;
+        }
+        
+        /* تعديلات النصوص */
+        .footer-title h2 {
+            font-size: 20px !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .footer-list li span,
+        .contact-text {
+            font-size: 14px !important;
+        }
+        
+        /* تعديلات الشعار */
+        .logo img {
+            width: 140px !important;
+        }
+        
+        /* تعديلات الأيقونات */
+        .social-icons li {
+            margin: 0 8px !important;
+        }
+        
+        /* إخفاء الخلفية المتحركة على الجوال */
+        .footer-bg-animation {
+            display: none !important;
+        }
+        
+        /* تعديلات العنوان الفرعي */
+        .separator {
+            width: 50px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        /* تحسين المسافات في قسم الاتصال */
+        .contact-list li {
+            margin-bottom: 15px !important;
+        }
+        
+        /* تعديلات حقوق النشر */
+        .copyright {
+            font-size: 14px !important;
+        }
+        
+    }
+    
+    </style>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.payment-icons-track');
+        // Clone icons for seamless looping
+        track.innerHTML += track.innerHTML;
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const yearElement = document.getElementById('year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    });
+</script>
+
+<script>
+    function scrollToForm(event) {
+        document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
+    }
+        // إذا كنا بالفعل في صفحة about
+        if(window.location.pathname.endsWith('about.html')) {
+            setTimeout(function() {
+                const formSection = document.getElementById('#appointment-section-two');
+                if(formSection) {
+                    formSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+        // إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
+    </script>
+
+<style>
+    /* CSS أنيميشنات مخصصة */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow {
+        0% { filter: drop-shadow(0 0 5px #6c5ce7); }
+        50% { filter: drop-shadow(0 0 20px #6c5ce7); }
+        100% { filter: drop-shadow(0 0 5px #6c5ce7); }
+    }
+
+    body {
+        margin: 0;
+        background: #1a1a2e;
+        font-family: 'Tajawal', sans-serif;
+        overflow-x: hidden;
+        color: white;
+    }
+
+    .magic-portal {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 50px auto;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #6c5ce7, #a66efa);
+        animation: glow 3s infinite, float 6s ease-in-out infinite;
+    }
+
+    .portal-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.8));
+        border-radius: 50%;
+    }
+
+    .floating-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3em;
+        text-shadow: 0 0 15px rgba(108,92,231,0.5);
+    }
+
+    .particles {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .particle {
+        position: absolute;
+        background: radial-gradient(circle, #fff 20%, transparent 70%);
+        border-radius: 50%;
+        animation: particle-flow linear infinite;
+    }
+
+    @keyframes particle-flow {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(100vh); }
+    }
+</style>
+   <!-- ahmed style -->
+
+
+   <div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+        <!--  Main Header -->
+
+		<header class="main-header">
+			<!--Header Top-->
+			<div class="header-top" style="background: linear-gradient(135deg, #7f51eb 0%, #b407f8 100%);;">
+				<div class="auto-container clearfix">
+					<div class="top-left clearfix">
+						<ul class="list">
+                            <li><span class="icon fas fa-map-marker-alt"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Riksweg a4 3 2132 MA HOOFDDORP NETHERLAND8S</li>
+                            <li><span class="icon fas fa-phone"></span> <a href="tel:+31617444144">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 617444144</a></li>
+						</ul>
+					</div>
+					<div class="top-right clearfix">
+						<ul class="social-icons">
+							<li><a href="#"><span class="fab fa-facebook-f" style="color: #1877F2;"></span></a></li>
+							<li><a href="#"><span class="fab fa-google" style="color: #DB4437;"></span></a></li>
+							<li><a href="#"><span class="fab fa-twitter" style="color: #1DA1F2;"></span></a></li>
+							<li><a href="#"><span class="fab fa-skype" style="color: #00AFF0;"></span></a></li>
+							<li><a href="#"><span class="fab fa-linkedin" style="color: #0077B5;"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End Header Top -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    <!-- Header Upper -->
+    <div class="header-upper" style="background-color: #ffffff;">
+        <div class="inner-container">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo-outer">
+                    <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Company Logo" title="Home"></a></div>
+                </div>
+                <!--Nav Box-->
+                <div class="nav-outer clearfix">
+                    <!-- Mobile Navigation Toggler -->
+                    <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+                    
+                    <nav class="main-menu navbar-expand-md navbar-light">
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon flaticon-menu"></span>
+                            </button>
+                        </div>
+                        
+                        <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li><a href="index.html">Home</a></li>
+
+                                <li><a href="about.html">About Us</a></li>
+                                
+                                <!-- <li><a href="gallery.html">Portfolio</a></li> -->
+                                
+                                <li><a href="#contact-details">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- End Main Menu -->
+                    <div class="outer-box clearfix">
+                        <!-- Request App Button -->
+                        <div class="btn-box">
+                            <a href="about.html#appointment-section-two" class="theme-btn btn-style-one" onclick="scrollToForm(event)">
+                                <span class="txt">Request App</span>
+                            </a>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Header Upper-->
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--Sticky Header-->
+			<div class="sticky-header" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);">
+				<div class="auto-container clearfix">
+					<!--Logo-->
+					<div class="logo pull-left">
+						<a href="index.html" class="img-responsive"><img src="images/logo.png" alt="" title=""></a>
+					</div>
+					
+					<!--Right Col-->
+					<div class="right-col pull-right">
+						<!-- Main Menu -->
+						<nav class="main-menu navbar-expand-md">
+							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+								<ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+							</div>
+						</nav><!-- Main Menu End-->
+					</div>
+					
+				</div>
+			</div>
+			<!--End Sticky Header-->
+			
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu"  >
+				<div class="menu-backdrop"></div>
+				<div class="close-btn"><span class="icon far fa-window-close"></span></div>
+				
+				<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+				<nav class="menu-box" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);" >
+					<div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+					
+					<ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+				</nav>
+			</div><!-- End Mobile Menu -->
+		</header>
+		<!-- End Main Header -->
+	
+
+        <title>إشعار الدفع</title>
+        <style>
+            /* أنيميشنات مخصصة */
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+    
+            @keyframes pulse {
+                0% { transform: scale(0.95); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(0.95); }
+            }
+    
+            /* التصميم العام */
+            body {
+                margin: 0;
+                background: #f8f9fa;
+                font-family: 'Tajawal', sans-serif;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+    
+            /* الهيدر */
+            .main-header {
+                background: #fff;
+                padding: 1rem;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+                position: relative;
+                z-index: 100;
+            }
+    
+            .logo {
+                width: 150px;
+                height: auto;
+            }
+    
+            /* قسم الدفع الناجح */
+            .payment-section {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .success-card {
+                background: #fff;
+                border-radius: 20px;
+                padding: 3rem;
+                box-shadow: 0 10px 30px rgba(8, 84, 207, 0.1);
+                max-width: 600px;
+                width: 90%;
+                text-align: center;
+                animation: fadeIn 0.8s ease-out;
+                position: relative;
+            }
+    
+            .success-icon {
+                width: 100px;
+                height: 100px;
+                background: #0854cf;
+                border-radius: 50%;
+                margin: -70px auto 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 10px 20px rgba(8, 84, 207, 0.3);
+                animation: pulse 2s infinite;
+            }
+    
+            .success-icon img {
+                width: 60%;
+            }
+    
+            .success-title {
+                color: #0854cf;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+    
+            .success-details {
+                color: #4a5568;
+                line-height: 1.6;
+                font-size: 1.1rem;
+            }
+    
+            /* الفوتر المعدل */
+            .main-footer {
+                background: #fff;
+                padding: 1.5rem;
+                text-align: center;
+                border-top: 1px solid #e2e8f0;
+                margin-top: auto;
+            }
+    
+            .copyright {
+                color: #4a5568;
+                font-size: 0.9rem;
+            }
+        </style>
+
+    
+
+    
+    <!-- قسم الدفع الناجح -->
+    <section class="payment-section">
+        <div class="success-card">
+            <div class="success-icon">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-payment-success-icon-download-in-svg-png-gif-file-formats--card-complete-transaction-sale-shopping-pack-e-commerce-icons-2775403.png?f=webp&w=256" alt="Success">
+            </div>
+            <h1 class="success-title">Payment Successful!</h1>
+            <p style="color: #000; font-size: 1rem; margin-top: 1rem;">
+                Thank you for your payment! We have received it and will begin working with you shortly. An email with your invoice will be sent to you soon.
+            </p>
+        </div>
+    </section>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // تحديث السنة تلقائيًا
+            document.getElementById('year').textContent = new Date().getFullYear();
+    
+            // تأثيرات تفاعلية
+            const card = document.querySelector('.success-card');
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 15px 40px rgba(8, 84, 207, 0.2)';
+            });
+    
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 10px 30px rgba(8, 84, 207, 0.1)';
+            });
+        });
+    </script>
+
+<!--Main Footer-->
+<footer id = "main-footer" class="main-footer">
+    <!-- Animated Background -->
+    <div class="footer-bg-animation">
+        <svg class="waves" viewBox="0 0 1200 800" preserveAspectRatio="none">
+            <!-- Infinity Path 1 (Top Wave - Circles) -->
+            <path class="wave-path" d="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" 
+                  stroke="#3a7bd5" stroke-width="40" fill="none" stroke-linecap="round"></path>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="30s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" />
+            </circle>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="35s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="4s" />
+            </circle>
+            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="8s" />
+            </circle>
+            
+            <!-- Infinity Path 2 (Middle Wave - Triangles) -->
+            <path class="wave-path" d="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" 
+                  stroke="#00d2ff" stroke-width="60" fill="none" stroke-linecap="round"></path>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="35s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" />
+            </polygon>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="4s" />
+            </polygon>
+            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
+                <animateMotion dur="45s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="9s" />
+            </polygon>
+            
+            <!-- Infinity Path 3 (Bottom Wave - Squares) -->
+            <path class="wave-path" d="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" 
+                  stroke="#4b6cb7" stroke-width="70" fill="none" stroke-linecap="round"></path>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" />
+            </rect>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="45s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="5s" />
+            </rect>
+            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
+                <animateMotion dur="50s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="11s" />
+            </rect>
+        </svg>
+    </div>
+    <div class="auto-container">
+        <div class="widgets-section" style="position: relative; z-index: 2;">
+            <div class="row clearfix">
+                
+                <!-- Logo Column -->
+                <div class="footer-column col-lg-4 col-md-12">
+                    <div class="footer-widget logo-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2);height: 100%;">
+                        <div class="logo text-center mb-4">
+                            <a href="index.html"><img src="images/logo.png" alt="Just4Prog Logo" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); width: 180px;"/></a>
+                        </div>
+                        <div class="text text-center mx-auto" style="max-width: 350px; color: #222; font-size: 16px; line-height: 1.6; font-weight: 500;">
+                            Just4Prog is a leading Flutter development company specializing in high-performance cross-platform mobile apps.
+                        </div>
+                        <ul class="social-icons justify-content-center mt-4">
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-facebook-f" style="color: #1877F2; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-google" style="color: #DB4437; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-twitter" style="color: #1DA1F2; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-skype" style="color: #00AFF0; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2" style="display: inline-block; text-align: center;">
+                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                                    <span class="fab fa-linkedin" style="color: #0077B5; font-size: 18px;"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Services Column -->
+                <div class="footer-column col-lg-4 col-md-6">
+                    <div class="footer-widget links-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                        <div class="footer-title">
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px; text-align: center;">Our Services</h2>
+                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                        </div>
+                        <ul class="footer-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Custom Flutter Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Android Mobile App Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">iOS App Development</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Firebase Integration</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">UI/UX App Design</span></li>
+                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Convert Any Design To Mobile</span></li>
+                            <li><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Testing</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Column -->
+                <div id="contact-details" class="footer-column col-lg-4 col-md-6">
+                    <div class="footer-widget contact-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                        <div class="footer-title">
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px;text-align: center;">Contact Us</h2>
+                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                        </div>
+                        <ul class="contact-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 20px; display: flex;">
+                                <span class="icon flaticon-placeholder" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Rijksweg a4 3<br>
+                                    2132 MA , HOOFDDORP NETHERLANDS
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 20px; display: flex;">
+                                <span class="icon flaticon-call" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Sun to Thu: 9AM - 5PM<br>
+                                    <a href="tel:+966501234567" style="color: #222; text-decoration: none;">+31617444144</a>
+                                </div>
+                            </li>
+                            <li style="display: flex;">
+                                <span class="icon flaticon-message" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                    Have questions?<br>
+                                    <a href="mailto:info@just4prog.com" style="color: #222; text-decoration: none;">contact@just4prog.nl</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="background: rgba(255,255,255,0.75); padding: 20px 0; box-shadow: 0 0 20px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+        <div class="auto-container text-center">
+            <div class="copyright" style="color: #222; font-size: 16px; font-weight: 500;">All Rights Reserved &copy; <span id="year"></span> Just4Prog</div>
+        </div>
+    </div>
+</footer>
+
+<!--End Main Footer-->
+	
+</div>  
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/app.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/parallax.min.js"></script>
+<script src="js/jquery.paroller.min.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/script.js"></script>
+<script src="js/color-settings.js"></script>
+
+
+</body>
+</html>
