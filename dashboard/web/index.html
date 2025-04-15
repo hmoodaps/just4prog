@@ -37,22 +37,23 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
 <script>
-    // Initialize Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
-        authDomain: "just4prog-website.firebaseapp.com",
-        projectId: "just4prog-website",
-        storageBucket: "just4prog-website.appspot.com",
-        messagingSenderId: "333979709686",
-        appId: "1:333979709686:web:035ea9f31683fa10c43cd7",
-        measurementId: "G-XGKYFS5PFB"
-    };
+const firebaseConfig = {
+  apiKey: "AIzaSyAZKEpZ3Dkob9EekzDAOh_g8FO0OxAdA-M",
+  authDomain: "just4prog-website.firebaseapp.com",
+  projectId: "just4prog-website",
+  storageBucket: "just4prog-website.firebasestorage.app",
+  messagingSenderId: "333979709686",
+  appId: "1:333979709686:web:1095c7c6ca4dd7b7c43cd7",
+  measurementId: "G-LPCDSX8YQP"
+};
 
     try {
-        firebase.initializeApp(firebaseConfig);
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
     } catch (error) {}
 </script>
   <script src="/dashboard/web/main.dart.js" type="application/javascript"></script>
+  
   <script src="/dashboard/web/flutter_bootstrap.js" async></script>
 </body>
 </html>
