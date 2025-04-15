@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92">
+    <g id="Flat" transform="translate(-2 -2)">
+        <rect id="Rectangle_6210" data-name="Rectangle 6210" width="21" height="52" rx="1" transform="translate(68 42)" fill="#2980b9"/>
+        <rect id="Rectangle_6211" data-name="Rectangle 6211" width="9" height="9" rx="1" transform="translate(76 48)" fill="#9fe0f6"/>
+        <rect id="Rectangle_6212" data-name="Rectangle 6212" width="9" height="9" rx="1" transform="translate(76 60)" fill="#9fe0f6"/>
+        <rect id="Rectangle_6213" data-name="Rectangle 6213" width="21" height="52" rx="1" transform="translate(7 42)" fill="#2980b9"/>
+        <rect id="Rectangle_6214" data-name="Rectangle 6214" width="9" height="9" rx="1" transform="translate(11 48)" fill="#9fe0f6"/>
+        <rect id="Rectangle_6215" data-name="Rectangle 6215" width="9" height="9" rx="1" transform="translate(11 60)" fill="#9fe0f6"/>
+        <rect id="Rectangle_6216" data-name="Rectangle 6216" width="46" height="69" rx="1" transform="translate(25 25)" fill="#3498db"/>
+        <g id="Group_16042" data-name="Group 16042" transform="translate(29.6 31.133)">
+            <rect id="Rectangle_6217" data-name="Rectangle 6217" width="9" height="9" rx="1" transform="translate(0.4 -0.133)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6218" data-name="Rectangle 6218" width="10" height="9" rx="1" transform="translate(13.4 -0.133)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6219" data-name="Rectangle 6219" width="9" height="9" rx="1" transform="translate(27.4 -0.133)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6220" data-name="Rectangle 6220" width="9" height="10" rx="1" transform="translate(0.4 11.867)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6221" data-name="Rectangle 6221" width="10" height="10" rx="1" transform="translate(13.4 11.867)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6222" data-name="Rectangle 6222" width="9" height="10" rx="1" transform="translate(27.4 11.867)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6223" data-name="Rectangle 6223" width="9" height="9" rx="1" transform="translate(0.4 24.867)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6224" data-name="Rectangle 6224" width="10" height="9" rx="1" transform="translate(13.4 24.867)" fill="#9fe0f6"/>
+            <rect id="Rectangle_6225" data-name="Rectangle 6225" width="9" height="9" rx="1" transform="translate(27.4 24.867)" fill="#9fe0f6"/>
+        </g>
+        <path id="Path_10441" data-name="Path 10441" d="M49.067,48.067H24.533a1.533,1.533,0,1,1,0-3.067H49.067a1.533,1.533,0,0,1,0,3.067Z" transform="translate(11.2 22.933)" fill="#2980b9"/>
+        <path id="Path_10442" data-name="Path 10442" d="M26,46H44.4V69H26Z" transform="translate(12.8 23.467)" fill="#9fe0f6"/>
+        <path id="Path_10443" data-name="Path 10443" d="M44.933,45h-18.4A1.533,1.533,0,0,0,25,46.533v23a1.533,1.533,0,0,0,1.533,1.533h18.4a1.533,1.533,0,0,0,1.533-1.533v-23A1.533,1.533,0,0,0,44.933,45ZM28.067,48.067H34.2V68H28.067ZM43.4,68H37.267V48.067H43.4Z" transform="translate(12.267 22.933)" fill="#2980b9"/>
+        <path id="Path_10444" data-name="Path 10444" d="M92.466,63.067H3.533a1.533,1.533,0,1,1,0-3.067H92.466a1.533,1.533,0,1,1,0,3.067Z" transform="translate(0 30.933)" fill="#333"/>
+        <path id="Path_10445" data-name="Path 10445" d="M38.96,15.946a1.544,1.544,0,0,1-.538-.1,12.032,12.032,0,0,0-8.461,0,1.533,1.533,0,1,1-1.073-2.872,15.111,15.111,0,0,1,10.614,0,1.533,1.533,0,0,1-.538,2.97Z" transform="translate(13.808 5.34)" fill="#ffcc5c"/>
+        <path id="Path_10446" data-name="Path 10446" d="M44.9,12.32a1.533,1.533,0,0,1-.7-.172,18.4,18.4,0,0,0-16.928,0,1.533,1.533,0,1,1-1.411-2.722,21.467,21.467,0,0,1,19.749,0A1.533,1.533,0,0,1,44.9,12.32Z" transform="translate(12.264 2.678)" fill="#f7931e"/>
+        <path id="Path_10447" data-name="Path 10447" d="M50.7,8.851a1.533,1.533,0,0,1-.794-.222,24.368,24.368,0,0,0-25.364,0,1.534,1.534,0,1,1-1.592-2.622,27.428,27.428,0,0,1,28.548,0,1.533,1.533,0,0,1-.8,2.844Z" transform="translate(10.778 0)" fill="#f15a24"/>
+    </g>
+</svg>
