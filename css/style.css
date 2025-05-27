@@ -661,6 +661,7 @@ p{
 .auto-container{
 	position:static;
 	max-width:1210px;
+	max-height: fit-content;
 	padding:0px 20px;
 	margin:0 auto;
 }
