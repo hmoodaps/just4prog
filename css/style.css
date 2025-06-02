@@ -68,6 +68,14 @@ font-family: 'Lato', sans-serif; */
 ====================================================================
 
  ***/
+.feature-item {
+    color: #000; /* اللون الأسود */
+    font-size: 1.1em;
+    font-weight: 600; /* أو نفس وزن h2 */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
 
 
  .payment-methods-section {

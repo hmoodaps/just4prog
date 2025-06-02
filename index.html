@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Flurixa</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-<!--Color Switcher Mockup-->
-<link href="css/color-switcher-design.css" rel="stylesheet">
-<!--Color Themes-->
-<link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/barlogo.png" type="image/x-icon">
-<link rel="icon" href="/images/barlogo.png" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <meta charset="utf-8">
+    <title>Flurixa</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--Color Switcher Mockup-->
+    <link href="css/color-switcher-design.css" rel="stylesheet">
+    <!--Color Themes-->
+    <link href="css/color-themes/default-theme.css" id="theme-color-file" rel="stylesheet">
+    <link href="images/barlogo.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/images/barlogo.png" rel="icon" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          rel="stylesheet">
+    <!-- Responsive -->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          name="viewport">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/respond.js"></script><![endif]-->
 </head>
 <body>
 <!-- ahmed style -->
@@ -103,7 +108,7 @@
             .main-slider{
                 position: relative;
             }
-            
+
             .main-slider:before{
                 position: absolute;
                 content:'';
@@ -114,7 +119,7 @@
                 z-index:10;
                 background:url(../images/background/pattern-1.png) repeat-x;
             }
-            
+
             .main-slider:after{
                 position: absolute;
                 content:'';
@@ -125,7 +130,7 @@
                 z-index:10;
                 background:url(../images/background/dotted-line.png) repeat-x;
             }
-            
+
             .main-slider .slide{
                 position:relative;
                 padding:225px 0px 225px;
@@ -133,12 +138,12 @@
                 background-repeat:no-repeat;
                 background-position:center center;
             }
-            
+
             .main-slider .content{
                 position:relative;
                 z-index:10;
             }
-            
+
             .main-slider .content .title{
                 position:relative;
                 font-size:18px;
@@ -157,7 +162,7 @@
                 -o-transform: translateX(80px);
                 transform: translateX(80px);
             }
-            
+
             .main-slider .swiper-slide-active .content .title{
                 opacity: 1;
                 -webkit-transform: translateY(0);
@@ -167,7 +172,7 @@
                 transform: translateY(0);
                 transition-delay: 600ms;
             }
-            
+
             .main-slider .content h2{
                 position:relative;
                 font-size:48px;
@@ -187,7 +192,7 @@
                 -o-transform: translateX(80px);
                 transform: translateX(80px);
             }
-            
+
             .main-slider .swiper-slide-active .content h2{
                 opacity: 1;
                 -webkit-transform: translateY(0);
@@ -197,7 +202,7 @@
                 transform: translateY(0);
                 transition-delay: 1200ms;
             }
-            
+
             .main-slider .content .text{
                 position:relative;
                 font-size:16px;
@@ -219,7 +224,7 @@
                 -o-transform: translateX(-80px);
                 transform: translateX(-80px);
             }
-            
+
             .main-slider .swiper-slide-active .content .text{
                 opacity: 1;
                 -webkit-transform: translateX(0);
@@ -229,7 +234,7 @@
                 transform: translateX(0);
                 transition-delay: 1000ms;
             }
-            
+
             .main-slider .btn-box{
                 position:relative;
                 opacity: 0;
@@ -244,12 +249,12 @@
                 -o-transform: translateY(80px);
                 transform: translateY(80px);
             }
-            
+
             .main-slider .btn-box .theme-btn{
                 float:left;
                 margin:0px 30px 15px 0px;
             }
-            
+
             .main-slider .swiper-slide-active .btn-box{
                 opacity: 1;
                 -webkit-transform: translateY(0);
@@ -259,7 +264,7 @@
                 transform: translateY(0);
                 transition-delay: 1500ms;
             }
-            
+
             /* Green Navigation Arrows */
             .main-slider .swiper-button-next{
                 right:40px;
@@ -277,7 +282,7 @@
                 transition:all 0.5s ease;
                 border:1px solid #00ff00; /* Green border */
             }
-            
+
             .main-slider .swiper-button-next:before{
                 position:absolute;
                 content: "\f14e";
@@ -294,7 +299,7 @@
                 transition:all 0.5s ease;
                 font-family: "Flaticon";
             }
-            
+
             .main-slider .swiper-button-prev{
                 left:40px;
                 width:50px;
@@ -311,7 +316,7 @@
                 background-image:none;
                 border:1px solid #00ff00; /* Green border */
             }
-            
+
             .main-slider .swiper-button-prev:before{
                 position:absolute;
                 content: "\f14f";
@@ -329,17 +334,17 @@
                 transition:all 0.5s ease;
                 font-family: "Flaticon";
             }
-            
+
             .main-slider .swiper-button-next:hover,
             .main-slider .swiper-button-prev:hover{
                 background-color:#00ff00; /* Green background on hover */
             }
-            
+
             .main-slider .swiper-button-next:hover::before,
             .main-slider .swiper-button-prev:hover::before{
                 color:#ffffff; /* White icon on green background */
             }
-            
+
             /* Green Progress Bar */
             .main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
                 background:#00ff00; /* Green progress bar */
@@ -402,7 +407,6 @@
     }
     /* جعل جميع الشرائح بنفس الارتفاع */
 .main-slider .swiper-slide {
-    height: auto !important; /* إلغاء أي ارتفاع ثابت */
     min-height: 100vh; /* الحد الأدنى للارتفاع */
     display: flex;
     align-items: center;
@@ -632,35 +636,8 @@
             font-size: 14px !important;
         }
     }
-    
-    </style>
-   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.payment-icons-track');
-        // Clone icons for seamless looping
-        track.innerHTML += track.innerHTML;
-    });
-    </script>
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
-<script>
-    function scrollToForm(event) {
-        document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
-    }
-        // إذا كنا بالفعل في صفحة about
-        if(window.location.pathname.endsWith('about.html')) {
-            setTimeout(function() {
-                const formSection = document.getElementById('#appointment-section-two');
-                if(formSection) {
-                    formSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-        }
-        // إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
-    </script>
-
+</style>
 <style>
 
     .swiper-slide {
@@ -707,950 +684,1113 @@
 .content .btn-box { animation-delay: 0.5s; }
 
 </style>
-   <!-- ahmed style -->
-
-
-
-
+<!-- ahmed style -->
+<!-- ahmed scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.payment-icons-track');
+        // Clone icons for seamless looping
+        track.innerHTML += track.innerHTML;
+    });
+</script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+    function scrollToForm(event) {
+        document.getElementById("appointment-section-two").scrollIntoView({ behavior: "smooth" });
+    }
+        // إذا كنا بالفعل في صفحة about
+        if(window.location.pathname.endsWith('about.html')) {
+            setTimeout(function() {
+                const formSection = document.getElementById('#appointment-section-two');
+                if(formSection) {
+                    formSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+        // إذا لم نكن في صفحة about، سيتم تحويلنا أولاً ثم التمرير
+</script>
+<!-- ahmed scripts -->
 
 
 <div class="page-wrapper">
     <!-- Preloader -->
     <div class="preloader"></div>
-        <!--  Main Header -->
+    <!--  Main Header -->
 
     <header class="main-header">
         <!--Header Top-->
-        <div class="header-top" style="background: linear-gradient(135deg, #7f51eb 0%, #b407f8 100%);;">
+        <div class="header-top"
+             style="background: linear-gradient(135deg, #7f51eb 0%, #b407f8 100%);;">
             <div class="auto-container clearfix">
                 <div class="top-left clearfix">
                     <ul class="list">
-                        <li><span class="icon fas fa-map-marker-alt"></span> Riksweg a4 3 2132 MA HOOFDDORP NETHERLANDS</li>
-						<li><span class="icon fas fa-phone"></span> <a href="tel:+31617444144"> 617444144</a></li>
-					</ul>
+                        <li><span class="icon fas fa-map-marker-alt"></span> Riksweg a4 3 2132 MA
+                            HOOFDDORP NETHERLANDS
+                        </li>
+                        <li><span class="icon fas fa-phone"></span> <a href="tel:+31617444144">
+                            617444144</a></li>
+                    </ul>
                 </div>
-<!--                <div class="top-right clearfix">-->
-<!--                    <ul class="social-icons">-->
-<!--                        <li><a href="#"><span class="fab fa-facebook-f" style="color: #1877F2;"></span></a></li>-->
-<!--                        <li><a href="#"><span class="fab fa-google" style="color: #DB4437;"></span></a></li>-->
-<!--                        <li><a href="#"><span class="fab fa-twitter" style="color: #1DA1F2;"></span></a></li>-->
-<!--                        <li><a href="#"><span class="fab fa-skype" style="color: #00AFF0;"></span></a></li>-->
-<!--                        <li><a href="#"><span class="fab fa-linkedin" style="color: #0077B5;"></span></a></li>-->
-<!--					</ul>-->
-<!--                </div>-->
+                <!--                <div class="top-right clearfix">-->
+                <!--                    <ul class="social-icons">-->
+                <!--                        <li><a href="#"><span class="fab fa-facebook-f" style="color: #1877F2;"></span></a></li>-->
+                <!--                        <li><a href="#"><span class="fab fa-google" style="color: #DB4437;"></span></a></li>-->
+                <!--                        <li><a href="#"><span class="fab fa-twitter" style="color: #1DA1F2;"></span></a></li>-->
+                <!--                        <li><a href="#"><span class="fab fa-skype" style="color: #00AFF0;"></span></a></li>-->
+                <!--                        <li><a href="#"><span class="fab fa-linkedin" style="color: #0077B5;"></span></a></li>-->
+                <!--					</ul>-->
+                <!--                </div>-->
             </div>
         </div>
         <!-- End Header Top -->
 
 
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Logo-->
+                    <div class="logo-outer">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img alt="Company Logo" src="images/logo.png"
+                                     style="width: 150px; height: auto;"
+                                     title="Home">
+                            </a>
+                        </div>
+                    </div>
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!-- Mobile Navigation Toggler -->
+                        <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span>
+                        </div>
 
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <button aria-controls="navbarSupportedContent" aria-expanded="false"
+                                        aria-label="Toggle navigation"
+                                        class="navbar-toggler"
+                                        data-target="#navbarSupportedContent" data-toggle="collapse"
+                                        type="button">
+                                    <span class="icon flaticon-menu"></span>
+                                </button>
+                            </div>
 
+                            <div class="collapse navbar-collapse clearfix"
+                                 id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="/dashboard/web/">Dashboard</a></li>
 
+                                    <li><a href="about.html#appointment-form">Request App</a></li>
 
+                                    <li><a href="about.html">About Us</a></li>
 
+                                    <!-- <li><a href="gallery.html">Portfolio</a></li> -->
 
+                                    <li><a href="#contact-details">Contact Us</a></li>
 
-
-<!-- Header Upper -->
-<div class="header-upper">
-    <div class="inner-container">
-        <div class="auto-container clearfix">
-            <!--Logo-->
-            <div class="logo-outer">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="Company Logo" title="Home" style="width: 150px; height: auto;">
-                    </a>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
-            <!--Nav Box-->
-            <div class="nav-outer clearfix">
-                <!-- Mobile Navigation Toggler -->
-                <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
-                
-                <nav class="main-menu navbar-expand-md navbar-light">
-                    <div class="navbar-header">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="icon flaticon-menu"></span>
-                        </button>
-                    </div>
-                    
-                    <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
-                        <ul class="navigation clearfix">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="/dashboard/web/">Dashboard</a></li>
-
-                            <li><a href="about.html#appointment-form">Request App</a></li>
-
-                            <li><a href="about.html">About Us</a></li>
-                            
-                            <!-- <li><a href="gallery.html">Portfolio</a></li> -->
-                            
-                            <li><a href="#contact-details">Contact Us</a></li>
-
-                        </ul>
-                    </div>
-                </nav>
-            </div>
         </div>
-    </div>
-</div>
-<!--End Header Upper-->
+        <!--End Header Upper-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--Sticky Header-->
-        <div class="sticky-header" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);">
+        <!--Sticky Header-->
+        <div class="sticky-header"
+             style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);">
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="index.html" class="img-responsive"><img src="images/logo.png" alt="" title=""></a>
+                    <a class="img-responsive" href="index.html"><img alt="" src="images/logo.png"
+                                                                     title=""></a>
                 </div>
-                
+
                 <!--Right Col-->
                 <div class="right-col pull-right">
                     <!-- Main Menu -->
                     <nav class="main-menu navbar-expand-md">
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
-                            <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+                            <ul class="navigation clearfix">
+                                <!--Keep This Empty / Menu will come through Javascript--></ul>
                         </div>
                     </nav><!-- Main Menu End-->
                 </div>
-                
+
             </div>
         </div>
         <!--End Sticky Header-->
-		
-    	<!-- Mobile Menu  -->
-        <div class="mobile-menu"  >
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><span class="icon far fa-window-close"></span></div>
-            
+
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            <nav class="menu-box" style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);" >
-            	<div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
-                
-                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+            <nav class="menu-box"
+                 style="background: linear-gradient(200deg, #ac8cf1 35%, #7b79f7 65%);">
+                <div class="nav-logo"><a href="index.html"><img alt="" src="images/logo.png"
+                                                                title=""></a></div>
+
+                <ul class="navigation clearfix">
+                    <!--Keep This Empty / Menu will come through Javascript--></ul>
             </nav>
         </div><!-- End Mobile Menu -->
     </header>
     <!-- End Main Header -->
-	
-    
-        					
-							
 
 
+    <!-- Main Slider -->
+    <section class="main-slider">
+        <div class="banner-carousel">
+            <!-- Swiper -->
+            <div class="swiper-wrapper">
 
-
-        <!-- Main Slider -->
-        <section class="main-slider">
-            <div class="banner-carousel">
-                <!-- Swiper -->
-                <div class="swiper-wrapper">
-        
-<!-- Slide 1: Core Offer -->
-<!-- Slide 1: Core Offer -->
-<div class="swiper-slide slide" style="background: linear-gradient(135deg, #6981f0 0%, #3a0ca3 100%);">
-    <div class="auto-container">
-        <div class="content" style="color: #fff;">
-            <h1 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;">Mobile Vision Crafters</h1>
-            <div class="text">
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">
-                    We specialize in transforming abstract ideas into polished mobile applications that captivate users. 
-                    Whether you're a startup with a groundbreaking concept or an established business needing digital transformation, 
-                    we bridge the gap between imagination and technological execution.
-                </p>
-                <ul class="tech-features" style="margin-bottom: 35px;">
-                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
-                        <i class="fas fa-lightbulb" style="color: #FFD700; font-size: 1.2em; margin-right: 10px;"></i> 
-                        <strong>Concept Realization:</strong> We take your raw ideas through our proven development process, 
-                        refining them into viable product specifications with wireframes and prototypes
-                    </li>
-                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
-                        <i class="fas fa-mobile-alt" style="color: #00FFE0; font-size: 1.2em; margin-right: 10px;"></i> 
-                        <strong>Platform Mastery:</strong> Native-quality applications for both iOS and Android with 
-                        seamless performance and platform-specific optimizations
-                    </li>
-                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
-                        <i class="fas fa-bolt" style="color: #FF4D4D; font-size: 1.2em; margin-right: 10px;"></i> 
-                        <strong>Technical Excellence:</strong> Cutting-edge solutions incorporating AI, IoT, 
-                        AR/VR when needed, with robust backend infrastructure
-                    </li>
-                    <li style="color: rgba(255,255,255,0.9);">
-                        <i class="fas fa-chart-line" style="color: #4CF083; font-size: 1.2em; margin-right: 10px;"></i> 
-                        <strong>Result-Driven:</strong> We build apps that solve real problems, drive engagement, 
-                        and deliver measurable business value
-                    </li>
-                </ul>
-            </div>
-            <div class="btn-box clearfix">
-                <a href="about.html#sec-title" class="theme-btn btn-style-two" style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
-                    <span class="txt">Discover Our Process</span>
-                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Slide 2: Technical Excellence -->
-<div class="swiper-slide slide" style="background: linear-gradient(135deg, #3a0ca3 0%, #7f51eb 100%);">
-    <div class="auto-container">
-        <div class="content" style="color: #fff;">
-            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">Engineering Brilliance</h2>
-            <div class="text">
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
-                    Our technical approach combines cutting-edge methodologies with battle-tested practices to deliver 
-                    exceptional mobile experiences that perform flawlessly across all devices and platforms.
-                </p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="advantages" style="list-style: none; padding-left: 0;">
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-tachometer-alt" style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Rapid Development</strong>
-                                Achieve 60-80% faster time-to-market compared to native development, with weekly sprint deliveries
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-paint-brush" style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Visual Perfection</strong>
-                                Pixel-perfect UIs with 120fps animations and platform-specific design adaptations
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
-                                <i class="fas fa-sync-alt" style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Instant Iteration</strong>
-                                Hot Reload technology lets you see changes in real-time during development
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="advantages" style="list-style: none; padding-left: 0;">
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-shield-alt" style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Robust Architecture</strong>
-                                Enterprise-grade state management and clean architecture patterns
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-users" style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Unified Team</strong>
-                                Single development team for both platforms reduces complexity and cost
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
-                                <i class="fas fa-check-double" style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Quality Assurance</strong>
-                                Automated testing reduces effort while increasing coverage and reliability
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box clearfix" style="margin-top: 30px;">
-                <a href="#development-process" class="theme-btn btn-style-two" style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
-                    <span class="txt">Our Development Methodology</span>
-                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Slide 3: Industry Solutions -->
-<div class="swiper-slide slide" style="background: linear-gradient(135deg, #7f51eb 0%, #6981f0 100%);">
-    <div class="auto-container">
-        <div class="content" style="color: #fff;">
-            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">Tailored Industry Solutions</h2>
-            <div class="text">
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
-                    We've engineered mobile solutions for diverse industries, each with unique challenges and 
-                    compliance requirements, delivering exceptional results across the board.
-                </p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="client-types" style="list-style: none; padding-left: 0;">
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-shopping-cart" style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">E-Commerce Platforms</strong>
-                                High-conversion shopping experiences with AR previews and AI recommendations
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-heartbeat" style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Healthcare Solutions</strong>
-                                HIPAA-compliant apps with telemedicine and health data integration
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="client-types" style="list-style: none; padding-left: 0;">
-                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-chart-pie" style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">FinTech Applications</strong>
-                                Secure banking solutions with biometric auth and real-time analytics
-                            </li>
-                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
-                                <i class="fas fa-users" style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
-                                <strong style="display: block; margin-bottom: 5px;">Social Networks</strong>
-                                Scalable community platforms with live streaming and content moderation
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box" style="margin-top: 30px;">
-                <a href="#appointment-form" class="theme-btn btn-style-one" style="background: #fff; color: #560bad; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
-                    <span class="txt">Discuss Your Project</span>
-                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-                    
-                </div>
-                <!-- Navigation -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </section>
-        <!-- End Main Slider -->	
-
-
-
-
-<!-- Apps Showcase Section -->
-<section class="department-section">
-    <div class="auto-container">
-        
-        <!-- Section Title -->
-        <div class="sec-title centered">
-            <h2 style="color: #FFD700;">Our Mobile Applications</h2>
-            <div class="separator"></div>
-        </div>
-        
-        <div class="services-carousel owl-carousel owl-theme">
-            
-            <!-- Cinema Booking -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-ticket-alt" style="color: #e74c3c;"></div>
-                        <h3><a href="#">CinemaBook</a></h3>
-                    </div>
-                    <div class="text">Movie ticket booking with seat selection and special offers</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Horse Stable -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-horse" style="color: #8e44ad;"></div>
-                        <h3><a href="#">Equestra</a></h3>
-                    </div>
-                    <div class="text">Horse riding lessons and stable management system</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Food Delivery -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-utensils" style="color: #e67e22;"></div>
-                        <h3><a href="#">Foody</a></h3>
-                    </div>
-                    <div class="text">Order meals from top restaurants with fast delivery</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- E-Commerce -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-shopping-cart" style="color: #2980b9;"></div>
-                        <h3><a href="#">ShopNow</a></h3>
-                    </div>
-                    <div class="text">Online shopping with diverse products and fast shipping</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Workforce Management -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-users-cog" style="color: #16a085;"></div>
-                        <h3><a href="#">WorkForce</a></h3>
-                    </div>
-                    <div class="text">Comprehensive employee management system</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Time Management -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-clock" style="color: #c0392b;"></div>
-                        <h3><a href="#">TimeMaster</a></h3>
-                    </div>
-                    <div class="text">Schedule organization and productivity enhancement</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Task Management -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-tasks" style="color: #27ae60;"></div>
-                        <h3><a href="#">DailyTasks</a></h3>
-                    </div>
-                    <div class="text">Daily task organization with smart reminders</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Cleaning Services -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-broom" style="color: #9b59b6;"></div>
-                        <h3><a href="#">CleanPro</a></h3>
-                    </div>
-                    <div class="text">Booking system for home and office cleaning services</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Donation Platform -->
-            <div class="department-block">
-                <div class="inner-box" style="height: 320px;">
-                    <div class="upper-box">
-                        <div class="icon fas fa-hand-holding-heart" style="color: #e74c3c;"></div>
-                        <h3><a href="#">DonationHub</a></h3>
-                    </div>
-                    <div class="text">Secure platform for charitable donations</div>
-                    <div class="read-outer">
-                        <a href="about.html#appointment-form" class="read-more">View Details <span class="icon fas fa-angle-double-right"></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</section>
-<!-- End Apps Showcase Section -->
-	
-
-
-
-<!-- Services Section -->
-<section class="services-section">
-    <div class="auto-container">
-        
-        <!-- Sec Title -->
-        <div id="sec-title centered" class="sec-title centered">
-            <h2 style="color: #FFD700;">Our Premium Services</h2>
-            <div class="separator"></div>
-        </div>
-        
-        <div class="row clearfix">
-        
-            <!-- Left Column -->
-            <div class="left-column pull-left col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    
-                    <!-- Service Block -->
-                    <div id="contact-details" class="service-block">
-                        <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-rocket"></span>
+                <!-- Slide 1: Core Offer -->
+                <div class="swiper-slide slide"
+                     style="background: linear-gradient(135deg, #6981f0 0%, #3a0ca3 100%);">
+                    <div class="auto-container">
+                        <div class="content" style="color: #fff;">
+                            <h1 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                                E-Commerce & Booking Experts</h1>
+                            <div class="text">
+                                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">
+                                    We craft high-impact mobile apps for online stores and booking platforms.
+                                    Whether you're launching a startup or upgrading your business operations, we build scalable digital solutions that drive results.
+                                </p>
+                                <ul class="tech-features" style="margin-bottom: 35px;">
+                                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                                        <i class="fas fa-store"
+                                           style="color: #FFD700; font-size: 1.2em; margin-right: 10px;"></i>
+                                        <strong>eCommerce Platforms:</strong> Feature-rich apps for selling online with intuitive UX
+                                    </li>
+                                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                                        <i class="fas fa-calendar-check"
+                                           style="color: #00FFE0; font-size: 1.2em; margin-right: 10px;"></i>
+                                        <strong>Booking Systems:</strong> Real-time appointment and reservation handling
+                                    </li>
+                                    <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                                        <i class="fas fa-wallet"
+                                           style="color: #FF4D4D; font-size: 1.2em; margin-right: 10px;"></i>
+                                        <strong>Secure Payments:</strong> Fast checkout, payment gateways, invoicing and reports
+                                    </li>
+                                    <li style="color: rgba(255,255,255,0.9);">
+                                        <i class="fas fa-chart-line"
+                                           style="color: #4CF083; font-size: 1.2em; margin-right: 10px;"></i>
+                                        <strong>Growth-Ready:</strong> Scalable solutions that support your business as it grows
+                                    </li>
+                                </ul>
                             </div>
-                            <h3 style="color: #0000FF;">Fast Delivery</h3>
-                            <div class="text">We deliver MVPs within 2-4 weeks and full applications in 6-8 weeks.</div>
+                            <div class="btn-box clearfix">
+                                <a class="theme-btn btn-style-two" href="about.html#sec-title"
+                                   style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                                    <span class="txt">See Our Process</span>
+                                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-performance"></span>
+                </div>
+
+                <!-- Slide 2: Technical Excellence -->
+                <div class="swiper-slide slide"
+                     style="background: linear-gradient(135deg, #3a0ca3 0%, #7f51eb 100%);">
+                    <div class="auto-container">
+                        <div class="content" style="color: #fff;">
+                            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">
+                                Fast, Reliable & Beautiful</h2>
+                            <div class="text">
+                                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
+                                    Your store or booking app deserves technical excellence. We deliver powerful, secure, and visually stunning mobile experiences — tailored for business success.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-tachometer-alt"
+                                                   style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Fast Deployment</strong><br>
+                                                Launch 2x faster with modular architecture and sprint cycles
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-paint-brush"
+                                                   style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Pixel-Perfect UI</strong><br>
+                                                Sleek, responsive interfaces customized to your brand
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                                <i class="fas fa-sync-alt"
+                                                   style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Real-Time Changes</strong><br>
+                                                Iterate instantly with Hot Reload & flexible architecture
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-lock"
+                                                   style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Secure by Design</strong><br>
+                                                Data encryption, user auth & secure payments built-in
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-cogs"
+                                                   style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Clean Architecture</strong><br>
+                                                Maintainable, scalable codebase for long-term growth
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                                <i class="fas fa-check-double"
+                                                   style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Automated Testing</strong><br>
+                                                Confidence in every release with strong QA pipelines
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 style="color: #0000FF;">High Performance</h3>
-                            <div class="text">Optimized Flutter apps with 120fps animations and native speed.</div>
+                            <div class="btn-box clearfix" style="margin-top: 30px;">
+                                <a class="theme-btn btn-style-two" href="#development-process"
+                                   style="background: #fff; color: #3a0ca3; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                                    <span class="txt">Explore Our Tech Stack</span>
+                                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-ui"></span>
+                </div>
+
+
+                <!-- Slide 3: Industry Solutions -->
+                <div class="swiper-slide slide"
+                     style="background: linear-gradient(135deg, #7f51eb 0%, #6981f0 100%);">
+                    <div class="auto-container">
+                        <div class="content" style="color: #fff;">
+                            <h2 style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px;">
+                                For Startups, SMEs & Enterprises</h2>
+                            <div class="text">
+                                <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
+                                    We serve businesses at every stage — from bootstrapped startups to large enterprises —
+                                    with customized eCommerce and booking app solutions that scale with your goals.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-rocket"
+                                                   style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Startups & MVPs</strong><br>
+                                                Launch your idea fast with lean solutions and agile sprints
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-building"
+                                                   style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>SMBs</strong><br>
+                                                Modernize operations and reach more customers online
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                                            <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
+                                                <i class="fas fa-industry"
+                                                   style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Enterprises</strong><br>
+                                                Full-featured apps with custom integrations and enterprise-grade support
+                                            </li>
+                                            <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
+                                                <i class="fas fa-globe"
+                                                   style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
+                                                <strong>Global Scale</strong><br>
+                                                Multi-language, multi-currency, and localization-ready apps
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 style="color: #0000FF;">Custom UI/UX</h3>
-                            <div class="text">Pixel-perfect designs tailored to your brand identity.</div>
+                            <div class="btn-box" style="margin-top: 30px;">
+                                <a class="theme-btn btn-style-one" href="#appointment-form"
+                                   style="background: #fff; color: #560bad; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 12px 30px; border-radius: 30px; font-weight: 600;">
+                                    <span class="txt">Let’s Build Your App</span>
+                                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    
+                </div>
+
+            </div>
+            <!-- Navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+    <!-- End Main Slider -->
+
+
+    <!-- Apps Showcase Section -->
+    <section class="department-section">
+        <div class="auto-container">
+
+            <!-- Section Title -->
+            <div class="sec-title centered">
+                <h2 style="color: #FFD700;">Our Mobile Applications</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="services-carousel owl-carousel owl-theme">
+
+                <!-- Cinema Booking -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-ticket-alt" style="color: #e74c3c;"></div>
+                            <h3><a href="#">CinemaBook</a></h3>
+                        </div>
+                        <div class="text">Movie ticket booking with seat selection and special
+                            offers
+                        </div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Horse Stable -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-horse" style="color: #8e44ad;"></div>
+                            <h3><a href="#">Equestra</a></h3>
+                        </div>
+                        <div class="text">Horse riding lessons and stable management system</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Food Delivery -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-utensils" style="color: #e67e22;"></div>
+                            <h3><a href="#">Foody</a></h3>
+                        </div>
+                        <div class="text">Order meals from top restaurants with fast delivery</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- E-Commerce -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-shopping-cart" style="color: #2980b9;"></div>
+                            <h3><a href="#">ShopNow</a></h3>
+                        </div>
+                        <div class="text">Online shopping with diverse products and fast shipping
+                        </div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Workforce Management -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-users-cog" style="color: #16a085;"></div>
+                            <h3><a href="#">WorkForce</a></h3>
+                        </div>
+                        <div class="text">Comprehensive employee management system</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Time Management -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-clock" style="color: #c0392b;"></div>
+                            <h3><a href="#">TimeMaster</a></h3>
+                        </div>
+                        <div class="text">Schedule organization and productivity enhancement</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Task Management -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-tasks" style="color: #27ae60;"></div>
+                            <h3><a href="#">DailyTasks</a></h3>
+                        </div>
+                        <div class="text">Daily task organization with smart reminders</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cleaning Services -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-broom" style="color: #9b59b6;"></div>
+                            <h3><a href="#">CleanPro</a></h3>
+                        </div>
+                        <div class="text">Booking system for home and office cleaning services</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Donation Platform -->
+                <div class="department-block">
+                    <div class="inner-box" style="height: 320px;">
+                        <div class="upper-box">
+                            <div class="icon fas fa-hand-holding-heart"
+                                 style="color: #e74c3c;"></div>
+                            <h3><a href="#">DonationHub</a></h3>
+                        </div>
+                        <div class="text">Secure platform for charitable donations</div>
+                        <div class="read-outer">
+                            <a class="read-more" href="about.html#appointment-form">View Details
+                                <span class="icon fas fa-angle-double-right"></span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Circles Column with Animated Balls -->
-            <div class="circles-column col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <!-- Animated Balls Path -->
-                    <div class="ball-path">
-                        <div class="ball gold-ball"></div>
-                        <div class="ball green-ball"></div>
-                        <div class="ball red-ball"></div>
-                        <div class="ball blue-ball"></div>
-                        <div class="ball purple-ball"></div>
-                        <div class="ball gray-ball"></div>
-                    </div>
-                    
-                    <div class="core-feature" style="margin-top: 60px; text-align: center;">
-                        <span class="icon flaticon-flutter" style="color: #0553B1; font-size: 50px;"></span>
+        </div>
+
+    </section>
+    <!-- End Apps Showcase Section -->
+
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="auto-container">
+
+            <!-- Sec Title -->
+            <div class="sec-title centered" id="sec-title centered">
+                <h2 style="color: #FFD700;">Our Premium Services</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="row clearfix">
+
+                <!-- Left Column -->
+                <div class="left-column pull-left col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column">
+
+                        <!-- Service Block -->
+                        <div class="service-block" id="contact-details">
+                            <div class="inner-box wow fadeInLeft" data-wow-delay="0ms"
+                                 data-wow-duration="1500ms">
+                                <div class="icon-box">
+                                    <span class="icon flaticon-rocket"></span>
+                                </div>
+                                <h3 style="color: #0000FF;">Fast Delivery</h3>
+                                <div class="text">We deliver MVPs within 2-4 weeks and full
+                                    applications in 6-8 weeks.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Block -->
                         <div class="service-block">
-                            <div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
+                            <div class="inner-box wow fadeInLeft" data-wow-delay="250ms"
+                                 data-wow-duration="1500ms">
+                                <div class="icon-box">
+                                    <span class="icon flaticon-performance"></span>
+                                </div>
+                                <h3 style="color: #0000FF;">High Performance</h3>
+                                <div class="text">Optimized Flutter apps with 120fps animations and
+                                    native speed.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Block -->
+                        <div class="service-block">
+                            <div class="inner-box wow fadeInLeft" data-wow-delay="500ms"
+                                 data-wow-duration="1500ms">
                                 <div class="icon-box">
                                     <span class="icon flaticon-ui"></span>
                                 </div>
-                                <h3 style="color: #0000FF;">Flutter Experts</h3>
-                                <div class="text">5+ Years Experience</div>
+                                <h3 style="color: #0000FF;">Custom UI/UX</h3>
+                                <div class="text">Pixel-perfect designs tailored to your brand
+                                    identity.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Circles Column with Animated Balls -->
+                <div class="circles-column col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <!-- Animated Balls Path -->
+                        <div class="ball-path">
+                            <div class="ball gold-ball"></div>
+                            <div class="ball green-ball"></div>
+                            <div class="ball red-ball"></div>
+                            <div class="ball blue-ball"></div>
+                            <div class="ball purple-ball"></div>
+                            <div class="ball gray-ball"></div>
+                        </div>
+
+                        <div class="core-feature" style="margin-top: 60px; text-align: center;">
+                            <span class="icon flaticon-flutter"
+                                  style="color: #0553B1; font-size: 50px;"></span>
+                            <div class="service-block">
+                                <div class="inner-box wow fadeInLeft" data-wow-delay="500ms"
+                                     data-wow-duration="1500ms">
+                                    <div class="icon-box">
+                                        <span class="icon flaticon-ui"></span>
+                                    </div>
+                                    <h3 style="color: #0000FF;">Flutter Experts</h3>
+                                    <div class="text">5+ Years Experience</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Right Column -->
-            <div class="right-column pull-right col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    
-                    <!-- Service Block -->
-                    <div class="service-block-two">
-                        <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-support"></span>
+
+                <!-- Right Column -->
+                <div class="right-column pull-right col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column">
+
+                        <!-- Service Block -->
+                        <div class="service-block-two">
+                            <div class="inner-box wow fadeInRight" data-wow-delay="0ms"
+                                 data-wow-duration="1500ms">
+                                <div class="icon-box">
+                                    <span class="icon flaticon-support"></span>
+                                </div>
+                                <h3 style="color: #0000FF;">Free Support</h3>
+                                <div class="text">1 week free support after delivery + maintenance
+                                    packages.
+                                </div>
                             </div>
-                            <h3 style="color: #0000FF;">Free Support</h3>
-                            <div class="text">1 week free support after delivery + maintenance packages.</div>
                         </div>
-                    </div>
-                    
-                    <!-- Service Block -->
-                    <div class="service-block-two">
-                        <div class="inner-box wow fadeInRight" data-wow-delay="250ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-testing"></span>
+
+                        <!-- Service Block -->
+                        <div class="service-block-two">
+                            <div class="inner-box wow fadeInRight" data-wow-delay="250ms"
+                                 data-wow-duration="1500ms">
+                                <div class="icon-box">
+                                    <span class="icon flaticon-testing"></span>
+                                </div>
+                                <h3 style="color: #0000FF;">Quality Assurance</h3>
+                                <div class="text">Rigorous testing on 20+ real devices before
+                                    delivery.
+                                </div>
                             </div>
-                            <h3 style="color: #0000FF;">Quality Assurance</h3>
-                            <div class="text">Rigorous testing on 20+ real devices before delivery.</div>
                         </div>
-                    </div>
-                    
-                    <!-- Service Block -->
-                    <div class="service-block-two">
-                        <div class="inner-box wow fadeInRight" data-wow-delay="500ms" data-wow-duration="1500ms">
-                            <div class="icon-box">
-                                <span class="icon flaticon-api"></span>
+
+                        <!-- Service Block -->
+                        <div class="service-block-two">
+                            <div class="inner-box wow fadeInRight" data-wow-delay="500ms"
+                                 data-wow-duration="1500ms">
+                                <div class="icon-box">
+                                    <span class="icon flaticon-api"></span>
+                                </div>
+                                <h3 style="color: #0000FF;">API Integration</h3>
+                                <div class="text">Seamless integration with any REST or GraphQL
+                                    APIs.
+                                </div>
                             </div>
-                            <h3 style="color: #0000FF;">API Integration</h3>
-                            <div class="text">Seamless integration with any REST or GraphQL APIs.</div>
                         </div>
+
                     </div>
-                    
                 </div>
+
             </div>
-        
+
         </div>
-        
-    </div>
+    </section>
+    <!-- End Services Section -->
+
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="auto-container">
+            <!-- Sec Title -->
+            <div class="sec-title centered">
+                <h2 style="color: #FFD700;">What Our Clients Say</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="testimonial-outer"
+                 style="background-image: url(images/background/pattern-4.png)">
+
+                <!-- Client Testimonial Carousel -->
+                <div class="client-testimonial-carousel owl-carousel owl-theme">
+
+                    <!-- Testimonial Block 1 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">Working with this team was a game-changer for our
+                                business. Their Flutter app delivered exceptional performance and
+                                reduced our development costs by 40% compared to native development.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block 2 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">The cross-platform app they built works flawlessly on
+                                both iOS and Android. Their attention to detail in UI/UX made our
+                                product stand out in a competitive market.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block 3 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">Impressive work! They delivered our e-commerce app 2
+                                weeks ahead of schedule with all requested features. The hot-reload
+                                feature saved us countless hours during testing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block 4 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">Their expertise in state management solutions helped
+                                us build a complex financial app that handles real-time data updates
+                                seamlessly. Highly recommended!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block 5 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">The team provided excellent post-launch support and
+                                helped us optimize our app performance. Our user retention increased
+                                by 35% after their optimizations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block 6 -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote-icon flaticon-quote"></div>
+                            <div class="text">We've worked with many developers, but their Flutter
+                                expertise is unmatched. They implemented complex animations that
+                                work at 120fps on mid-range devices.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Client Thumbs Carousel -->
+                <div class="client-thumb-outer">
+                    <div class="client-thumbs-carousel owl-carousel owl-theme">
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Johnson</div>
+                                <div class="designation">CTO, TechSolutions</div>
+                            </div>
+                        </div>
+
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person2.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">Michael Chen</div>
+                                <div class="designation">Product Manager</div>
+                            </div>
+                        </div>
+
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person3.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">David Wilson</div>
+                                <div class="designation">CEO, StartupX</div>
+                            </div>
+                        </div>
+
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">Emma Rodriguez</div>
+                                <div class="designation">UX Director</div>
+                            </div>
+                        </div>
+
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person2.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">James Brown</div>
+                                <div class="designation">Tech Lead</div>
+                            </div>
+                        </div>
+
+                        <div class="thumb-item">
+                            <figure class="thumb-box"><img alt="" src="images/person3.png"></figure>
+                            <div class="author-info">
+                                <div class="author-name">Lisa Taylor</div>
+                                <div class="designation">Marketing Director</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonial Section -->
+
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods-section">
+        <div class="auto-container" style="max-width: 100%; height: 150px; padding: 0;">
+            <h4 class="text-center mb-4">Accepted Payment Methods</h4>
+            <div class="payment-marquee" style="margin-top: 50px;">
+                <div class="payment-icons-track">
+                    <!-- Credit/Debit Cards -->
+                    <div class="payment-icon" data-tooltip="Visa">
+                        <img alt="Visa"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Mastercard">
+                        <img alt="Mastercard"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="American Express">
+                        <img alt="Amex"
+                             src="https://images.icon-icons.com/1178/PNG/512/amex_82052.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Discover">
+                        <img alt="Discover"
+                             src="https://w7.pngwing.com/pngs/321/928/png-transparent-discover-payment-method-icon.png">
+                    </div>
+
+                    <!-- Digital Wallets -->
+                    <div class="payment-icon" data-tooltip="PayPal">
+                        <img alt="PayPal"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Apple Pay">
+                        <img alt="Apple Pay"
+                             src="https://developer.apple.com/news/images/og/apple-pay-og-twitter.jpg">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Google Pay">
+                        <img alt="Google Pay"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/1200px-Google_Pay_Logo.svg.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Alipay">
+                        <img alt="Alipay"
+                             src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/6491bebb2dbd96fc12766172_alipay-pos-1.webp">
+                    </div>
+
+                    <!-- European Payment Methods -->
+                    <div class="payment-icon" data-tooltip="iDEAL">
+                        <img alt="iDEAL"
+                             src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/IDEAL_Logo_2020.svg/1200px-IDEAL_Logo_2020.svg.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Giropay">
+                        <img alt="Giropay"
+                             src="https://lh4.googleusercontent.com/proxy/wGFfW3TEb13BxlBldOOdVzqcdY2K08y3XxQQvn7oCStaqYBZsFlcgnGH8GW8362vhxzxrcEuUGXm1FEGnLyb06y-vXlmVqdw2svs25jsAnABNc4fXWeohEqWYtvkI0v5-1FOY1XewjdLTcDcWZlNFPTbEjpoBI7JCyUNXzgTfugVUJCRJTzyy-WRlzRT4fAEGw">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Klarna">
+                        <img alt="Klarna"
+                             src="https://webshoptiger.com/wp-content/uploads/2020/11/klarna_soepele_betalingen_online.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="WeChat Pay">
+                        <img alt="WeChat Pay"
+                             src="https://walkthechat.com/wp-content/uploads/2017/04/Screen-Shot-2017-04-11-at-6.34.16-PM.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="TWINT">
+                        <img alt="TWINT"
+                             src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/66fef2ee27c6ae35ec0392f8_64db590cd29b6e16d4796f1f_twint_logo_q_pos_bg.webp">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Przelewy24">
+                        <img alt="Przelewy24"
+                             src="https://www.curopayments.com/wp-content/uploads/logo-przelewy24.svg">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Multibanco">
+                        <img alt="Multibanco"
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnt32vL9ucoWInEWjrdxIa8-ZcHV0NKmAsxA&s">
+                    </div>
+                    <div class="payment-icon" data-tooltip="BLIK">
+                        <img alt="BLIK"
+                             src="https://cdn.prod.website-files.com/610922bf9b095f4969ed70fb/6741a84667832beef9b932fb_BLIK%20LOGO%20RGB.png">
+                    </div>
+
+                    <!-- Additional European Methods -->
+                    <div class="payment-icon" data-tooltip="Bancontact">
+                        <img alt="Bancontact"
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpBmSqI4dMbui4WE6DT6BwwMB15LMr7nNwA&s">
+                    </div>
+                    <div class="payment-icon" data-tooltip="Sofort">
+                        <img alt="Sofort"
+                             src="https://givewp.com/wp-content/uploads/2018/01/sofort-addon.png">
+                    </div>
+                    <div class="payment-icon" data-tooltip="EPS">
+                        <img alt="EPS"
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQxmz5hR3O9MSYABcTzKtu3DEqTfJXd8l3mA&s">
+                    </div>
+                    <div class="payment-icon" data-tooltip="SEPA Direct Debit">
+                        <img alt="SEPA"
+                             src="https://www.billwerk.plus/wp-content/uploads/2023/01/sepa-direct-debit-payment-method.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 </section>
-<!-- End Services Section -->
-
-
-
-
-<!-- Testimonial Section -->
-<section class="testimonial-section">
-    <div class="auto-container">
-        <!-- Sec Title -->
-        <div class="sec-title centered">
-            <h2 style="color: #FFD700;">What Our Clients Say</h2>
-            <div class="separator"></div>
-        </div>
-        
-        <div class="testimonial-outer" style="background-image: url(images/background/pattern-4.png)">
-            
-            <!-- Client Testimonial Carousel -->
-            <div class="client-testimonial-carousel owl-carousel owl-theme">
-                
-                <!-- Testimonial Block 1 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">Working with this team was a game-changer for our business. Their Flutter app delivered exceptional performance and reduced our development costs by 40% compared to native development.</div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Block 2 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">The cross-platform app they built works flawlessly on both iOS and Android. Their attention to detail in UI/UX made our product stand out in a competitive market.</div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Block 3 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">Impressive work! They delivered our e-commerce app 2 weeks ahead of schedule with all requested features. The hot-reload feature saved us countless hours during testing.</div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Block 4 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">Their expertise in state management solutions helped us build a complex financial app that handles real-time data updates seamlessly. Highly recommended!</div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Block 5 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">The team provided excellent post-launch support and helped us optimize our app performance. Our user retention increased by 35% after their optimizations.</div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Block 6 -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote-icon flaticon-quote"></div>
-                        <div class="text">We've worked with many developers, but their Flutter expertise is unmatched. They implemented complex animations that work at 120fps on mid-range devices.</div>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <!-- Client Thumbs Carousel -->
-            <div class="client-thumb-outer">
-                <div class="client-thumbs-carousel owl-carousel owl-theme">
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">Sarah Johnson</div>
-                            <div class="designation">CTO, TechSolutions</div>
-                        </div>
-                    </div>
-                    
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person2.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">Michael Chen</div>
-                            <div class="designation">Product Manager</div>
-                        </div>
-                    </div>
-                    
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person3.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">David Wilson</div>
-                            <div class="designation">CEO, StartupX</div>
-                        </div>
-                    </div>
-                    
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">Emma Rodriguez</div>
-                            <div class="designation">UX Director</div>
-                        </div>
-                    </div>
-                    
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person2.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">James Brown</div>
-                            <div class="designation">Tech Lead</div>
-                        </div>
-                    </div>
-                    
-                    <div class="thumb-item">
-                        <figure class="thumb-box"><img src="images/person3.png" alt=""></figure>
-                        <div class="author-info">
-                            <div class="author-name">Lisa Taylor</div>
-                            <div class="designation">Marketing Director</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Testimonial Section -->
-
-
-
-<!-- Payment Methods Section -->
-<section class="payment-methods-section">
-    <div class="auto-container" style="max-width: 100%; height: 150px; padding: 0;">
-        <h4 class="text-center mb-4">Accepted Payment Methods</h4>
-        <div class="payment-marquee" style="margin-top: 50px;">
-            <div class="payment-icons-track">
-               <!-- Credit/Debit Cards -->
-               <div class="payment-icon" data-tooltip="Visa">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
-            </div>
-            <div class="payment-icon" data-tooltip="Mastercard">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
-            </div>
-            <div class="payment-icon" data-tooltip="American Express">
-                <img src="https://images.icon-icons.com/1178/PNG/512/amex_82052.png" alt="Amex">
-            </div>
-            <div class="payment-icon" data-tooltip="Discover">
-                <img src="https://w7.pngwing.com/pngs/321/928/png-transparent-discover-payment-method-icon.png" alt="Discover">
-            </div>
-            
-            <!-- Digital Wallets -->
-            <div class="payment-icon" data-tooltip="PayPal">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png" alt="PayPal">
-            </div>
-            <div class="payment-icon" data-tooltip="Apple Pay">
-                <img src="https://developer.apple.com/news/images/og/apple-pay-og-twitter.jpg" alt="Apple Pay">
-            </div>
-            <div class="payment-icon" data-tooltip="Google Pay">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/1200px-Google_Pay_Logo.svg.png" alt="Google Pay">
-            </div>
-            <div class="payment-icon" data-tooltip="Alipay">
-                <img src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/6491bebb2dbd96fc12766172_alipay-pos-1.webp" alt="Alipay">
-            </div>
-            
-            <!-- European Payment Methods -->
-            <div class="payment-icon" data-tooltip="iDEAL">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/IDEAL_Logo_2020.svg/1200px-IDEAL_Logo_2020.svg.png" alt="iDEAL">
-            </div>
-            <div class="payment-icon" data-tooltip="Giropay">
-                <img src="https://lh4.googleusercontent.com/proxy/wGFfW3TEb13BxlBldOOdVzqcdY2K08y3XxQQvn7oCStaqYBZsFlcgnGH8GW8362vhxzxrcEuUGXm1FEGnLyb06y-vXlmVqdw2svs25jsAnABNc4fXWeohEqWYtvkI0v5-1FOY1XewjdLTcDcWZlNFPTbEjpoBI7JCyUNXzgTfugVUJCRJTzyy-WRlzRT4fAEGw" alt="Giropay">
-            </div>
-            <div class="payment-icon" data-tooltip="Klarna">
-                <img src="https://webshoptiger.com/wp-content/uploads/2020/11/klarna_soepele_betalingen_online.png" alt="Klarna">
-            </div>
-            <div class="payment-icon" data-tooltip="WeChat Pay">
-                <img src="https://walkthechat.com/wp-content/uploads/2017/04/Screen-Shot-2017-04-11-at-6.34.16-PM.png" alt="WeChat Pay">
-            </div>
-            <div class="payment-icon" data-tooltip="TWINT">
-                <img src="https://cdn.prod.website-files.com/64199d190fc7afa82666d89c/66fef2ee27c6ae35ec0392f8_64db590cd29b6e16d4796f1f_twint_logo_q_pos_bg.webp" alt="TWINT">
-            </div>
-            <div class="payment-icon" data-tooltip="Przelewy24">
-                <img src="https://www.curopayments.com/wp-content/uploads/logo-przelewy24.svg" alt="Przelewy24">
-            </div>
-            <div class="payment-icon" data-tooltip="Multibanco">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnt32vL9ucoWInEWjrdxIa8-ZcHV0NKmAsxA&s" alt="Multibanco">
-            </div>
-            <div class="payment-icon" data-tooltip="BLIK">
-                <img src="https://cdn.prod.website-files.com/610922bf9b095f4969ed70fb/6741a84667832beef9b932fb_BLIK%20LOGO%20RGB.png" alt="BLIK">
-            </div>
-            
-            <!-- Additional European Methods -->
-            <div class="payment-icon" data-tooltip="Bancontact">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpBmSqI4dMbui4WE6DT6BwwMB15LMr7nNwA&s" alt="Bancontact">
-            </div>
-            <div class="payment-icon" data-tooltip="Sofort">
-                <img src="https://givewp.com/wp-content/uploads/2018/01/sofort-addon.png" alt="Sofort">
-            </div>
-            <div class="payment-icon" data-tooltip="EPS">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQxmz5hR3O9MSYABcTzKtu3DEqTfJXd8l3mA&s" alt="EPS">
-            </div>
-            <div class="payment-icon" data-tooltip="SEPA Direct Debit">
-                <img src="https://www.billwerk.plus/wp-content/uploads/2023/01/sepa-direct-debit-payment-method.png" alt="SEPA">
-            </div>
-        </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
 
 
 <!--Main Footer-->
-<footer id = "main-footer" class="main-footer">
+<footer class="main-footer" id="main-footer">
     <!-- Animated Background -->
     <div class="footer-bg-animation">
-        <svg class="waves" viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <svg class="waves" preserveAspectRatio="none" viewBox="0 0 1200 800">
             <!-- Infinity Path 1 (Top Wave - Circles) -->
-            <path class="wave-path" d="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" 
-                  stroke="#3a7bd5" stroke-width="40" fill="none" stroke-linecap="round"></path>
-            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
-                <animateMotion dur="30s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" />
+            <path class="wave-path" d="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250"
+                  fill="none" stroke="#3a7bd5" stroke-linecap="round" stroke-width="40"></path>
+            <circle class="moving-shape" cx="0" cy="0" fill="#3a7bd5" r="20">
+                <animateMotion dur="30s"
+                               path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250"
+                               repeatCount="indefinite"/>
             </circle>
-            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
-                <animateMotion dur="35s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="4s" />
+            <circle class="moving-shape" cx="0" cy="0" fill="#3a7bd5" r="20">
+                <animateMotion begin="4s" dur="35s"
+                               path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250"
+                               repeatCount="indefinite"/>
             </circle>
-            <circle class="moving-shape" cx="0" cy="0" r="20" fill="#3a7bd5">
-                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250" begin="8s" />
+            <circle class="moving-shape" cx="0" cy="0" fill="#3a7bd5" r="20">
+                <animateMotion begin="8s" dur="40s"
+                               path="M-200,200 C100,50 300,300 600,150 C900,0 1100,400 1400,250"
+                               repeatCount="indefinite"/>
             </circle>
-            
+
             <!-- Infinity Path 2 (Middle Wave - Triangles) -->
-            <path class="wave-path" d="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" 
-                  stroke="#00d2ff" stroke-width="60" fill="none" stroke-linecap="round"></path>
-            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
-                <animateMotion dur="35s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" />
+            <path class="wave-path" d="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450"
+                  fill="none" stroke="#00d2ff" stroke-linecap="round" stroke-width="60"></path>
+            <polygon class="moving-shape" fill="#00d2ff" points="0,-25 25,25 -25,25">
+                <animateMotion dur="35s"
+                               path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450"
+                               repeatCount="indefinite"/>
             </polygon>
-            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
-                <animateMotion dur="40s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="4s" />
+            <polygon class="moving-shape" fill="#00d2ff" points="0,-25 25,25 -25,25">
+                <animateMotion begin="4s" dur="40s"
+                               path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450"
+                               repeatCount="indefinite"/>
             </polygon>
-            <polygon class="moving-shape" points="0,-25 25,25 -25,25" fill="#00d2ff">
-                <animateMotion dur="45s" repeatCount="indefinite" path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450" begin="9s" />
+            <polygon class="moving-shape" fill="#00d2ff" points="0,-25 25,25 -25,25">
+                <animateMotion begin="9s" dur="45s"
+                               path="M-300,400 C0,250 400,500 700,350 C1000,200 1200,600 1500,450"
+                               repeatCount="indefinite"/>
             </polygon>
-            
+
             <!-- Infinity Path 3 (Bottom Wave - Squares) -->
-            <path class="wave-path" d="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" 
-                  stroke="#4b6cb7" stroke-width="70" fill="none" stroke-linecap="round"></path>
-            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
-                <animateMotion dur="40s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" />
+            <path class="wave-path"
+                  d="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650"
+                  fill="none" stroke="#4b6cb7" stroke-linecap="round" stroke-width="70"></path>
+            <rect class="moving-shape" fill="#4b6cb7" height="50" width="40" x="-25" y="-25">
+                <animateMotion dur="40s"
+                               path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650"
+                               repeatCount="indefinite"/>
             </rect>
-            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
-                <animateMotion dur="45s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="5s" />
+            <rect class="moving-shape" fill="#4b6cb7" height="50" width="40" x="-25" y="-25">
+                <animateMotion begin="5s" dur="45s"
+                               path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650"
+                               repeatCount="indefinite"/>
             </rect>
-            <rect class="moving-shape" x="-25" y="-25" width="40" height="50" fill="#4b6cb7">
-                <animateMotion dur="50s" repeatCount="indefinite" path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650" begin="11s" />
+            <rect class="moving-shape" fill="#4b6cb7" height="50" width="40" x="-25" y="-25">
+                <animateMotion begin="11s" dur="50s"
+                               path="M-200,600 C100,450 300,700 600,550 C900,400 1100,800 1400,650"
+                               repeatCount="indefinite"/>
             </rect>
         </svg>
     </div>
     <div class="auto-container">
         <div class="widgets-section" style="position: relative; z-index: 2;">
             <div class="row clearfix">
-                
+
                 <!-- Logo Column -->
                 <div class="footer-column col-lg-4 col-md-12">
-                    <div class="footer-widget logo-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2);height: 100%;">
+                    <div class="footer-widget logo-widget"
+                         style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2);height: 100%;">
                         <div class="logo text-center mb-4">
-                            <a href="index.html"><img src="images/logo.png" alt="flurixa Logo" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); width: 180px;"/></a>
+                            <a href="index.html"><img alt="flurixa Logo" src="images/logo.png"
+                                                      style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); width: 180px;"/></a>
                         </div>
-                        <div class="text text-center mx-auto" style="max-width: 350px; color: #222; font-size: 16px; line-height: 1.6; font-weight: 500;">
-                            flurixa is a leading Flutter development company specializing in high-performance cross-platform mobile apps.
+                        <div class="text text-center mx-auto"
+                             style="max-width: 350px; color: #222; font-size: 16px; line-height: 1.6; font-weight: 500;">
+                            At flurixa, we help startups and enterprises build high-performance Flutter applications tailored to business needs. Our focus is delivering robust, scalable, and visually stunning cross-platform solutions that drive growth.
                         </div>
                         <ul class="social-icons justify-content-center mt-4">
                             <li class="mx-2" style="display: inline-block; text-align: center;">
-                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
-                                    <span class="fab fa-facebook-f" style="color: #1877F2; font-size: 18px;"></span>
+                                <a href="#"
+                                   style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                    <span class="fab fa-facebook-f"
+                          style="color: #1877F2; font-size: 18px;"></span>
                                 </a>
                             </li>
                             <li class="mx-2" style="display: inline-block; text-align: center;">
-                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
-                                    <span class="fab fa-google" style="color: #DB4437; font-size: 18px;"></span>
+                                <a href="#"
+                                   style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                    <span class="fab fa-google"
+                          style="color: #DB4437; font-size: 18px;"></span>
                                 </a>
                             </li>
                             <li class="mx-2" style="display: inline-block; text-align: center;">
-                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
-                                    <span class="fab fa-twitter" style="color: #1DA1F2; font-size: 18px;"></span>
+                                <a href="#"
+                                   style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                    <span class="fab fa-twitter"
+                          style="color: #1DA1F2; font-size: 18px;"></span>
                                 </a>
                             </li>
                             <li class="mx-2" style="display: inline-block; text-align: center;">
-                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
-                                    <span class="fab fa-skype" style="color: #00AFF0; font-size: 18px;"></span>
+                                <a href="#"
+                                   style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                    <span class="fab fa-skype"
+                          style="color: #00AFF0; font-size: 18px;"></span>
                                 </a>
                             </li>
                             <li class="mx-2" style="display: inline-block; text-align: center;">
-                                <a href="#" style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
-                                    <span class="fab fa-linkedin" style="color: #0077B5; font-size: 18px;"></span>
+                                <a href="#"
+                                   style="background: #fff; width: 40px; height: 45px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+                    <span class="fab fa-linkedin"
+                          style="color: #0077B5; font-size: 18px;"></span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Services Column -->
                 <div class="footer-column col-lg-4 col-md-6">
-                    <div class="footer-widget links-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                    <div class="footer-widget links-widget"
+                         style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
                         <div class="footer-title">
-                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px; text-align: center;">Our Services</h2>
-                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px; text-align: center;">
+                                Our Services</h2>
+                            <div class="separator"
+                                 style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
                         </div>
                         <ul class="footer-list" style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Custom Flutter Development</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Android Mobile App Development</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">iOS App Development</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Firebase Integration</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">UI/UX App Design</span></li>
-                            <li style="margin-bottom: 12px;"><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">Convert Any Design To Mobile</span></li>
-                            <li><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span style="color: #222; font-size: 16px; font-weight: 500;">App Testing</span></li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">Custom Flutter app development tailored to business goals</span>
+                            </li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">Android applications with optimized performance and UI</span>
+                            </li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">High-end iOS apps built with Flutter for modern businesses</span>
+                            </li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">Advanced Firebase integration for backend & analytics</span>
+                            </li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">UI/UX design services that align with your brand</span>
+                            </li>
+                            <li style="margin-bottom: 12px;"><span
+                                    style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">Convert Figma/Sketch/Adobe XD designs into Flutter apps</span>
+                            </li>
+                            <li><span style="color: #4a90e2; margin-right: 10px; font-size: 14px;">🔑</span><span
+                                    style="color: #222; font-size: 16px; font-weight: 500;">End-to-end testing to ensure stability and performance</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                
+
+
                 <!-- Contact Column -->
                 <div class="footer-column col-lg-4 col-md-6">
-                    <div class="footer-widget contact-widget" style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
+                    <div class="footer-widget contact-widget"
+                         style="background: rgba(255,255,255,0.75); padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.2); height: 100%;">
                         <div class="footer-title">
-                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px;text-align: center;">Contact Us</h2>
-                            <div class="separator" style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
+                            <h2 style="color: #222; font-size: 22px; margin-bottom: 20px;text-align: center;">
+                                Contact Us</h2>
+                            <div class="separator"
+                                 style="height: 3px; background: #4a90e2; width: 60px; margin: 0 auto 25px;"></div>
                         </div>
                         <ul class="contact-list" style="list-style: none; padding: 0;">
                             <li style="margin-bottom: 20px; display: flex;">
-                                <span class="icon flaticon-placeholder" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
-                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                <span class="icon flaticon-placeholder"
+                                      style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text"
+                                     style="color: #222; font-size: 16px; font-weight: 500;">
                                     Rijksweg a4 3<br>
                                     2132 MA , HOOFDDORP NETHERLANDS
                                 </div>
                             </li>
                             <li style="margin-bottom: 20px; display: flex;">
-                                <span class="icon flaticon-call" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
-                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                <span class="icon flaticon-call"
+                                      style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text"
+                                     style="color: #222; font-size: 16px; font-weight: 500;">
                                     Sun to Thu: 9AM - 5PM<br>
-                                    <a href="tel:+31617444144" style="color: #222; text-decoration: none;">+31617444144</a>
+                                    <a href="tel:+31617444144"
+                                       style="color: #222; text-decoration: none;">+31617444144</a>
                                 </div>
                             </li>
                             <li style="display: flex;">
-                                <span class="icon flaticon-message" style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
-                                <div class="contact-text" style="color: #222; font-size: 16px; font-weight: 500;">
+                                <span class="icon flaticon-message"
+                                      style="color: #4a90e2; font-size: 20px; margin-right: 15px; margin-top: 3px;"></span>
+                                <div class="contact-text"
+                                     style="color: #222; font-size: 16px; font-weight: 500;">
                                     Have questions?<br>
-                                    <a href="mailto:info@flurixa.com" style="color: #222; text-decoration: none;">contact@flurixa.nl</a>
+                                    <a href="mailto:info@flurixa.com"
+                                       style="color: #222; text-decoration: none;">contact@flurixa.nl</a>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    
+
     <!-- Footer Bottom -->
-    <div class="footer-bottom" style="background: rgba(255,255,255,0.75); padding: 20px 0; box-shadow: 0 0 20px rgba(0,0,0,0.15); position: relative; z-index: 2;">
+    <div class="footer-bottom"
+         style="background: rgba(255,255,255,0.75); padding: 20px 0; box-shadow: 0 0 20px rgba(0,0,0,0.15); position: relative; z-index: 2;">
         <div class="auto-container text-center">
-            <div class="copyright" style="color: #222; font-size: 16px; font-weight: 500;">All Rights Reserved &copy; <span id="year"></span> flurixa</div>
+            <div class="copyright" style="color: #222; font-size: 16px; font-weight: 500;">All
+                Rights Reserved &copy; <span id="year"></span> flurixa
+            </div>
         </div>
     </div>
 </footer>
@@ -1658,17 +1798,12 @@
 <!--End Main Footer-->
 
 
-
-
-
-
-</div>  
+</div>
 <!--End pagewrapper-->
 
 <!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
-
-
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span>
+</div>
 
 
 <!--Scroll to top-->
