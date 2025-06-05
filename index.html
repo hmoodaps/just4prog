@@ -15,6 +15,10 @@
     <link href="/images/barlogo.png" rel="icon" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
           rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <!-- Responsive -->
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -27,533 +31,7 @@
 </head>
 <body>
 <!-- ahmed style -->
-<style>
-    /* Custom CSS for the page */
-    .payment-methods-section {
-        background: #fff;
-        padding: 50px 0;
-        border-top: 1px solid #f0f0f0;
-        width: 100%;
-        overflow: hidden;
-    }
-    .payment-marquee {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-        height: 120px;
-    }
-    
-    .payment-icons-track {
-        display: flex;
-        position: absolute;
-        gap: 50px;
-        align-items: center;
-        height: 100%;
-        animation: marquee 40s linear infinite;
-        padding-left: 100%;
-    }
-    
-    .payment-icon {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .payment-icon img {
-        height: 40px;
-        width: auto;
-        max-width: 100px;
-        transition: transform 0.3s ease;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
-    
-    .payment-icon:hover img {
-        transform: scale(1.2);
-    }
-    
-    .payment-icon::after {
-        content: attr(data-tooltip);
-        position: absolute;
-        bottom: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 12px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        white-space: nowrap;
-        pointer-events: none;
-    }
-    
-    .payment-icon:hover::after {
-        opacity: 1;
-    }
-    
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-    
-    .payment-marquee:hover .payment-icons-track {
-        animation-play-state: paused;
-    }
-    
-    
-    
-    
-            .main-slider{
-                position: relative;
-            }
 
-            .main-slider:before{
-                position: absolute;
-                content:'';
-                left:0px;
-                bottom:0px;
-                width:100%;
-                height:90px;
-                z-index:10;
-                background:url(../images/background/pattern-1.png) repeat-x;
-            }
-
-            .main-slider:after{
-                position: absolute;
-                content:'';
-                left:0px;
-                bottom:0px;
-                width:100%;
-                height:93px;
-                z-index:10;
-                background:url(../images/background/dotted-line.png) repeat-x;
-            }
-
-            .main-slider .slide{
-                position:relative;
-                padding:225px 0px 225px;
-                background-size:cover;
-                background-repeat:no-repeat;
-                background-position:center center;
-            }
-
-            .main-slider .content{
-                position:relative;
-                z-index:10;
-            }
-
-            .main-slider .content .title{
-                position:relative;
-                font-size:18px;
-                color:#222222;
-                font-weight:700;
-                line-height:1em;
-                opacity: 0;
-                -webkit-transition: all 1000ms ease;
-                -moz-transition: all 100ms ease;
-                -ms-transition: all 1000ms ease;
-                -o-transition: all 1000ms ease;
-                transition: all 1000ms ease;
-                -webkit-transform: translateX(80px);
-                -moz-transform: translateX(80px);
-                -ms-transform: translateX(80px);
-                -o-transform: translateX(80px);
-                transform: translateX(80px);
-            }
-
-            .main-slider .swiper-slide-active .content .title{
-                opacity: 1;
-                -webkit-transform: translateY(0);
-                -moz-transform: translateY(0);
-                -ms-transform: translateY(0);
-                -o-transform: translateY(0);
-                transform: translateY(0);
-                transition-delay: 600ms;
-            }
-
-            .main-slider .content h2{
-                position:relative;
-                font-size:48px;
-                color:#da0000;
-                font-weight:700;
-                line-height:1em;
-                opacity: 0;
-                margin-top:25px;
-                -webkit-transition: all 1000ms ease;
-                -moz-transition: all 100ms ease;
-                -ms-transition: all 1000ms ease;
-                -o-transition: all 1000ms ease;
-                transition: all 1000ms ease;
-                -webkit-transform: translateX(80px);
-                -moz-transform: translateX(80px);
-                -ms-transform: translateX(80px);
-                -o-transform: translateX(80px);
-                transform: translateX(80px);
-            }
-
-            .main-slider .swiper-slide-active .content h2{
-                opacity: 1;
-                -webkit-transform: translateY(0);
-                -moz-transform: translateY(0);
-                -ms-transform: translateY(0);
-                -o-transform: translateY(0);
-                transform: translateY(0);
-                transition-delay: 1200ms;
-            }
-
-            .main-slider .content .text{
-                position:relative;
-                font-size:16px;
-                color:#777777;
-                font-weight:400;
-                line-height:1.8em;
-                max-width:600px;
-                margin-top:25px;
-                margin-bottom:30px;
-                opacity: 0;
-                -webkit-transition: all 1000ms ease;
-                -moz-transition: all 100ms ease;
-                -ms-transition: all 1000ms ease;
-                -o-transition: all 1000ms ease;
-                transition: all 1000ms ease;
-                -webkit-transform: translateX(-80px);
-                -moz-transform: translateX(-80px);
-                -ms-transform: translateX(-80px);
-                -o-transform: translateX(-80px);
-                transform: translateX(-80px);
-            }
-
-            .main-slider .swiper-slide-active .content .text{
-                opacity: 1;
-                -webkit-transform: translateX(0);
-                -moz-transform: translateX(0);
-                -ms-transform: translateX(0);
-                -o-transform: translateX(0);
-                transform: translateX(0);
-                transition-delay: 1000ms;
-            }
-
-            .main-slider .btn-box{
-                position:relative;
-                opacity: 0;
-                -webkit-transition: all 1000ms ease;
-                -moz-transition: all 100ms ease;
-                -ms-transition: all 1000ms ease;
-                -o-transition: all 1000ms ease;
-                transition: all 1000ms ease;
-                -webkit-transform: translateY(-80px);
-                -moz-transform: translateY(80px);
-                -ms-transform: translateY(80px);
-                -o-transform: translateY(80px);
-                transform: translateY(80px);
-            }
-
-            .main-slider .btn-box .theme-btn{
-                float:left;
-                margin:0px 30px 15px 0px;
-            }
-
-            .main-slider .swiper-slide-active .btn-box{
-                opacity: 1;
-                -webkit-transform: translateY(0);
-                -moz-transform: translateY(0);
-                -ms-transform: translateY(0);
-                -o-transform: translateY(0);
-                transform: translateY(0);
-                transition-delay: 1500ms;
-            }
-
-            /* Green Navigation Arrows */
-            .main-slider .swiper-button-next{
-                right:40px;
-                width:50px;
-                height:50px;
-                font-size:16px;
-                line-height:49px;
-                border-radius:50%;
-                text-align:center;
-                background-image:none;
-                -webkit-transition:all 0.5s ease;
-                -moz-transition:all 0.5s ease;
-                -ms-transition:all 0.5s ease;
-                -o-transition:all 0.5s ease;
-                transition:all 0.5s ease;
-                border:1px solid #00ff00; /* Green border */
-            }
-
-            .main-slider .swiper-button-next:before{
-                position:absolute;
-                content: "\f14e";
-                left:0px;
-                top:0px;
-                width:50px;
-                color:#00ff00; /* Green icon */
-                font-size:16px;
-                font-weight:700;
-                -webkit-transition:all 0.5s ease;
-                -moz-transition:all 0.5s ease;
-                -ms-transition:all 0.5s ease;
-                -o-transition:all 0.5s ease;
-                transition:all 0.5s ease;
-                font-family: "Flaticon";
-            }
-
-            .main-slider .swiper-button-prev{
-                left:40px;
-                width:50px;
-                height:50px;
-                font-size:16px;
-                border-radius:50%;
-                text-align:center;
-                line-height:49px;
-                -webkit-transition:all 0.5s ease;
-                -moz-transition:all 0.5s ease;
-                -ms-transition:all 0.5s ease;
-                -o-transition:all 0.5s ease;
-                transition:all 0.5s ease;
-                background-image:none;
-                border:1px solid #00ff00; /* Green border */
-            }
-
-            .main-slider .swiper-button-prev:before{
-                position:absolute;
-                content: "\f14f";
-                left:0px;
-                top:0px;
-                width:50px;
-                height:50px;
-                color:#00ff00; /* Green icon */
-                font-size:16px;
-                font-weight:700;
-                -webkit-transition:all 0.5s ease;
-                -moz-transition:all 0.5s ease;
-                -ms-transition:all 0.5s ease;
-                -o-transition:all 0.5s ease;
-                transition:all 0.5s ease;
-                font-family: "Flaticon";
-            }
-
-            .main-slider .swiper-button-next:hover,
-            .main-slider .swiper-button-prev:hover{
-                background-color:#00ff00; /* Green background on hover */
-            }
-
-            .main-slider .swiper-button-next:hover::before,
-            .main-slider .swiper-button-prev:hover::before{
-                color:#ffffff; /* White icon on green background */
-            }
-
-            /* Green Progress Bar */
-            .main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
-                background:#00ff00; /* Green progress bar */
-            }
-    
-    
-    .department-block .icon {
-        font-size: 2.5em;
-        margin-bottom: 15px;
-        transition: transform 0.3s ease;
-    }
-    
-    .department-block:hover .icon {
-        transform: rotate(360deg) scale(1.2);
-    }
-    
-     .logo img {
-        width: 230px;   /* العرض المطلوب */
-        height: 70px;   /* الارتفاع المطلوب */
-        object-fit: contain; /* للحفاظ على التناسب دون تشويه */
-    }
-    .footer-widget {
-        transform: translateZ(30px); /* 3D effect */
-        transition: transform 0.3s ease;
-    }
-    
-    .footer-widget:hover {
-        transform: translateZ(50px) scale(1.02);
-    }
-    
-    .text {
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-    }
-    
-    /* Background Animation Styles */
-    .main-footer {
-        position: relative;
-        background: linear-gradient(135deg, #e6f2ff 0%, #f0f8ff 100%);
-        overflow: hidden;
-        padding-top: 120px;
-        padding-bottom: 120px;
-    }
-    
-    .footer-bg-animation {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-    
-    .waves {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .wave-path {
-        filter: drop-shadow(0 0 8px rgba(0,0,0,0.2));
-    }
-    /* جعل جميع الشرائح بنفس الارتفاع */
-.main-slider .swiper-slide {
-    min-height: 100vh; /* الحد الأدنى للارتفاع */
-    display: flex;
-    align-items: center;
-}
-
-.main-slider .slide .auto-container {
-    width: 100%;
-    padding: 80px 0; /* تعديل حسب الحاجة */
-}
-
-.main-slider .content {
-    width: 100%;
-    padding: 40px 0; /* تعديل حسب الحاجة */
-}
-
-    
-    .moving-shape {
-        filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
-    }
-    /* Animated Balls Styles */
-    .ball-path {
-        position: ce;
-        height: 300px;
-        width: 100%;
-        margin: 20px 0;
-        overflow: hidden;
-    }
-    
-    .ball {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-    }
-    
-    .gold-ball {
-        background: #FFD700;
-        box-shadow: 0 0 12px #FFD700;
-        animation-name: moveFigureEight;
-        top: 10%;
-        left: 50%;
-        animation-delay: 0s;
-    }
-    
-    .green-ball {
-        background: #00FF00;
-        box-shadow: 0 0 12px #00FF00;
-        animation-name: moveCircle;
-        top: 20%;
-        left: 40%;
-        animation-delay: 0.5s;
-        animation-duration: 12s;
-    }
-    
-    .red-ball {
-        background: #FF0000;
-        box-shadow: 0 0 12px #FF0000;
-        animation-name: moveWave;
-        top: 15%;
-        left: 60%;
-        animation-delay: 1s;
-        animation-duration: 9s;
-    }
-    
-    .blue-ball {
-        background: #0066FF;
-        box-shadow: 0 0 12px #0066FF;
-        animation-name: moveZigzag;
-        top: 5%;
-        left: 45%;
-        animation-delay: 1.5s;
-        animation-duration: 11s;
-    }
-    
-    .purple-ball {
-        background: #AA00FF;
-        box-shadow: 0 0 12px #AA00FF;
-        animation-name: moveSpiral;
-        top: 25%;
-        left: 55%;
-        animation-delay: 2s;
-        animation-duration: 13s;
-    }
-    
-    .gray-ball {
-        background: #888888;
-        box-shadow: 0 0 12px #888888;
-        animation-name: moveEllipse;
-        top: 30%;
-        left: 50%;
-        animation-delay: 2.5s;
-        animation-duration: 14s;
-    }
-    
-    /* Animation Paths */
-    @keyframes moveFigureEight {
-        0% { transform: translate(0, 0); }
-        25% { transform: translate(-80px, 150px); }
-        50% { transform: translate(0, 300px); }
-        75% { transform: translate(80px, 150px); }
-        100% { transform: translate(0, 0); }
-    }
-    
-    @keyframes moveCircle {
-        0% { transform: translate(0, 0); }
-        25% { transform: translate(70px, 70px); }
-        50% { transform: translate(0, 140px); }
-        75% { transform: translate(-70px, 70px); }
-        100% { transform: translate(0, 0); }
-    }
-    
-    @keyframes moveWave {
-        0% { transform: translate(0, 0); }
-        25% { transform: translate(-60px, 100px); }
-        50% { transform: translate(60px, 200px); }
-        75% { transform: translate(-60px, 100px); }
-        100% { transform: translate(0, 0); }
-    }
-    
-    @keyframes moveZigzag {
-        0% { transform: translate(0, 0); }
-        20% { transform: translate(-50px, 80px); }
-        40% { transform: translate(50px, 160px); }
-        60% { transform: translate(-50px, 240px); }
-        80% { transform: translate(50px, 160px); }
-        100% { transform: translate(0, 0); }
-    }
-    
-    @keyframes moveSpiral {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        25% { transform: translate(40px, 100px) rotate(90deg); }
-        50% { transform: translate(-40px, 200px) rotate(180deg); }
-        75% { transform: translate(40px, 100px) rotate(270deg); }
-        100% { transform: translate(0, 0) rotate(360deg); }
-    }
-    
-    @keyframes moveEllipse {
-        0% { transform: translate(0, 0); }
-        25% { transform: translate(-100px, 75px); }
-        50% { transform: translate(0, 150px); }
-        75% { transform: translate(100px, 75px); }
-        100% { transform: translate(0, 0); }
-    }
-</style>
 <style>
     /* تنسيقات الجوال فقط (أقل من 768px) */
     @media only screen and (max-width: 767px) {
@@ -566,12 +44,12 @@
         margin: 0 auto !important;
         width: 100% !important;
     }
-    
+
     .social-icons li {
         margin: 0 5px !important;
         display: inline-block !important;
     }
-    
+
     .social-icons a {
         width: 40px !important;
         height: 40px !important;
@@ -586,51 +64,51 @@
             flex: 0 0 100% !important;
             margin-bottom: 25px;
         }
-        
+
         /* تعديلات العناصر الداخلية */
         .footer-widget {
             padding: 25px 20px !important;
             margin: 0 10px 20px !important;
             height: auto !important;
         }
-        
+
         /* تعديلات النصوص */
         .footer-title h2 {
             font-size: 20px !important;
             margin-bottom: 15px !important;
         }
-        
+
         .footer-list li span,
         .contact-text {
             font-size: 14px !important;
         }
-        
+
         /* تعديلات الشعار */
         .logo img {
             width: 140px !important;
         }
-        
+
         /* تعديلات الأيقونات */
         .social-icons li {
             margin: 0 8px !important;
         }
-        
+
         /* إخفاء الخلفية المتحركة على الجوال */
         .footer-bg-animation {
             display: none !important;
         }
-        
+
         /* تعديلات العنوان الفرعي */
         .separator {
             width: 50px !important;
             margin-bottom: 20px !important;
         }
-        
+
         /* تحسين المسافات في قسم الاتصال */
         .contact-list li {
             margin-bottom: 15px !important;
         }
-        
+
         /* تعديلات حقوق النشر */
         .copyright {
             font-size: 14px !important;
@@ -639,53 +117,361 @@
 
 </style>
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    .swiper-slide {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    body {
+        background: #f8f9fa;
+        overflow-x: hidden;
+    }
 
-/* Icon Animation */
-.tech-features i {
+    /* تنسيقات عامة للشريط */
+    .main-slider {
+        position: relative;
+        margin: 20px auto;
+        max-width: 1400px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .swiper-slide.slide {
+        padding: 100px 30px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .auto-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .content {
+        color: #fff;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* تنسيقات النصوص للشاشات الكبيرة */
+    .content h1, .content h2 {
+        font-weight: 800;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+        line-height: 1.3;
+    }
+
+    .content p {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tech-features, .advantages {
+        list-style: none;
+        padding-left: 0;
+        max-width: 800px;
+        margin: 0 auto 35px;
+        text-align: right;
+    }
+
+    .tech-features li, .advantages li {
+        color: rgba(255,255,255,0.9);
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .tech-features li:hover, .advantages li:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateX(-5px);
+    }
+
+    .tech-features i, .advantages i {
+        font-size: 1.2em;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .tech-features li:hover i, .advantages li:hover i {
+        transform: scale(1.2);
+    }
+
+    .btn-box {
+        margin-top: 30px;
+    }
+
+    .theme-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin: 10px;
+    }
+
+    .theme-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 14px rgba(0,0,0,0.2) !important;
+    }
+
+    .btn-style-two {
+        background: #fff;
+        color: #3a0ca3;
+    }
+
+    .btn-style-one {
+        background: #fff;
+        color: #560bad;
+    }
+
+    /* تخصيص الألوان للشرائح */
+    .slide:nth-child(1) {
+        background: linear-gradient(135deg, #6981f0 0%, #3a0ca3 100%);
+    }
+
+    .slide:nth-child(2) {
+        background: linear-gradient(135deg, #3a0ca3 0%, #7f51eb 100%);
+    }
+
+    .slide:nth-child(3) {
+        background: linear-gradient(135deg, #7f51eb 0%, #6981f0 100%);
+    }
+
+    /* تخصيص ألوان الأيقونات */
+    .tech-features li:nth-child(1) i { color: #FFD700; }
+    .tech-features li:nth-child(2) i { color: #00FFE0; }
+    .tech-features li:nth-child(3) i { color: #FF4D4D; }
+    .tech-features li:nth-child(4) i { color: #4CF083; }
+
+.custom-swiper-next,
+.custom-swiper-prev {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: #fff;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+    border: 1px solid #00ff00;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.tech-features li:hover i {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 8px currentColor);
+.custom-swiper-next {
+    right: 10px;
 }
 
-/* Button Animation */
-.btn-style-two {
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+.custom-swiper-prev {
+    left: 10px;
 }
 
-.btn-style-two:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(0,0,0,0.2) !important;
+.custom-swiper-next:hover,
+.custom-swiper-prev:hover {
+    background: #00ff00;
+    color: #000; /* لون السهم عند الهوفر */
 }
 
-/* Content Stagger Animation */
-.content > * {
-    opacity: 0;
-    animation: fadeInUp 0.6s forwards;
+/* إخفاء الأسهم الأصلية من Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
-.content h1 { animation-delay: 0.1s; }
-.content .text { animation-delay: 0.3s; }
-.content .btn-box { animation-delay: 0.5s; }
+    .swiper-pagination-bullet {
+        background: rgba(255,255,255,0.5);
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #00ff00;
+    }
+
+    /* تنسيقات خاصة للهواتف */
+    @media only screen and (max-width: 767px) {
+        .swiper-slide.slide {
+            padding: 80px 15px;
+            min-height: auto;
+        }
+
+        .content h1, .content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .tech-features, .advantages {
+            margin-bottom: 25px;
+            text-align: right;
+            padding: 0 10px;
+        }
+
+        .tech-features li, .advantages li {
+            font-size: 0.9rem;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        .tech-features li strong, .advantages li strong {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .tech-features i, .advantages i {
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+
+        .btn-box {
+            margin-top: 20px;
+        }
+
+        .theme-btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+
+
+
+        /* إخفاء العناصر غير الضرورية على الهواتف */
+        .advantages li br, .tech-features li br {
+            display: none;
+        }
+
+        /* تعديل تخطيط الأعمدة للشريحة الثانية */
+        .row {
+            flex-direction: column;
+        }
+
+        .col-md-6 {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    /* تنسيقات للشاشات المتوسطة */
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .swiper-slide.slide {
+            padding: 120px 20px;
+        }
+
+        .content h1, .content h2 {
+            font-size: 2.2rem;
+        }
+
+        .content p {
+            font-size: 1rem;
+        }
+
+        .tech-features li, .advantages li {
+            font-size: 0.95rem;
+        }
+
+        .theme-btn {
+            padding: 12px 25px;
+            font-size: 0.95rem;
+        }
+    }
+
+    /* أنيميشن للعناصر */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+    .delay-5 { animation-delay: 1s; }
 
 </style>
+
 <!-- ahmed style -->
 <!-- ahmed scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Swiper
+        const swiper = new Swiper('.banner-carousel', {
+  loop: true,
+  speed: 800,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.custom-swiper-next',
+    prevEl: '.custom-swiper-prev',
+  },
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+  on: {
+    slideChange: function () {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+      });
+      setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.style.animation = 'none';
+          setTimeout(() => {
+            el.style.animation = '';
+          }, 10);
+        });
+      }, 100);
+    }
+  }
+});
+
+
+    });
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const track = document.querySelector('.payment-icons-track');
@@ -861,29 +647,36 @@
                                 E-Commerce & Booking Experts</h1>
                             <div class="text">
                                 <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">
-                                    We craft high-impact mobile apps for online stores and booking platforms.
-                                    Whether you're launching a startup or upgrading your business operations, we build scalable digital solutions that drive results.
+                                    We craft high-impact mobile apps for online stores and booking
+                                    platforms.
+                                    Whether you're launching a startup or upgrading your business
+                                    operations, we build scalable digital solutions that drive
+                                    results.
                                 </p>
                                 <ul class="tech-features" style="margin-bottom: 35px;">
                                     <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
                                         <i class="fas fa-store"
                                            style="color: #FFD700; font-size: 1.2em; margin-right: 10px;"></i>
-                                        <strong>eCommerce Platforms:</strong> Feature-rich apps for selling online with intuitive UX
+                                        <strong>eCommerce Platforms:</strong> Feature-rich apps for
+                                        selling online with intuitive UX
                                     </li>
                                     <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
                                         <i class="fas fa-calendar-check"
                                            style="color: #00FFE0; font-size: 1.2em; margin-right: 10px;"></i>
-                                        <strong>Booking Systems:</strong> Real-time appointment and reservation handling
+                                        <strong>Booking Systems:</strong> Real-time appointment and
+                                        reservation handling
                                     </li>
                                     <li style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
                                         <i class="fas fa-wallet"
                                            style="color: #FF4D4D; font-size: 1.2em; margin-right: 10px;"></i>
-                                        <strong>Secure Payments:</strong> Fast checkout, payment gateways, invoicing and reports
+                                        <strong>Secure Payments:</strong> Fast checkout, payment
+                                        gateways, invoicing and reports
                                     </li>
                                     <li style="color: rgba(255,255,255,0.9);">
                                         <i class="fas fa-chart-line"
                                            style="color: #4CF083; font-size: 1.2em; margin-right: 10px;"></i>
-                                        <strong>Growth-Ready:</strong> Scalable solutions that support your business as it grows
+                                        <strong>Growth-Ready:</strong> Scalable solutions that
+                                        support your business as it grows
                                     </li>
                                 </ul>
                             </div>
@@ -907,38 +700,46 @@
                                 Fast, Reliable & Beautiful</h2>
                             <div class="text">
                                 <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
-                                    Your store or booking app deserves technical excellence. We deliver powerful, secure, and visually stunning mobile experiences — tailored for business success.
+                                    Your store or booking app deserves technical excellence. We
+                                    deliver powerful, secure, and visually stunning mobile
+                                    experiences — tailored for business success.
                                 </p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                                        <ul class="advantages"
+                                            style="list-style: none; padding-left: 0;">
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-tachometer-alt"
                                                    style="color: #00FFE0; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Fast Deployment</strong><br>
-                                                Launch 2x faster with modular architecture and sprint cycles
+                                                Launch 2x faster with modular architecture and
+                                                sprint cycles
                                             </li>
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-paint-brush"
                                                    style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Pixel-Perfect UI</strong><br>
-                                                Sleek, responsive interfaces customized to your brand
+                                                Sleek, responsive interfaces customized to your
+                                                brand
                                             </li>
                                             <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
                                                 <i class="fas fa-sync-alt"
                                                    style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Real-Time Changes</strong><br>
-                                                Iterate instantly with Hot Reload & flexible architecture
+                                                Iterate instantly with Hot Reload & flexible
+                                                architecture
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
-                                        <ul class="advantages" style="list-style: none; padding-left: 0;">
+                                        <ul class="advantages"
+                                            style="list-style: none; padding-left: 0;">
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-lock"
                                                    style="color: #FF4D4D; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Secure by Design</strong><br>
-                                                Data encryption, user auth & secure payments built-in
+                                                Data encryption, user auth & secure payments
+                                                built-in
                                             </li>
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-cogs"
@@ -977,17 +778,21 @@
                                 For Startups, SMEs & Enterprises</h2>
                             <div class="text">
                                 <p style="color: rgba(255,255,255,0.9); font-size: 1.1em; margin-bottom: 25px; line-height: 1.6;">
-                                    We serve businesses at every stage — from bootstrapped startups to large enterprises —
-                                    with customized eCommerce and booking app solutions that scale with your goals.
+                                    We serve businesses at every stage — from bootstrapped startups
+                                    to large enterprises —
+                                    with customized eCommerce and booking app solutions that scale
+                                    with your goals.
                                 </p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                                        <ul class="client-types"
+                                            style="list-style: none; padding-left: 0;">
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-rocket"
                                                    style="color: #FFD700; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Startups & MVPs</strong><br>
-                                                Launch your idea fast with lean solutions and agile sprints
+                                                Launch your idea fast with lean solutions and agile
+                                                sprints
                                             </li>
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-building"
@@ -998,18 +803,21 @@
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
-                                        <ul class="client-types" style="list-style: none; padding-left: 0;">
+                                        <ul class="client-types"
+                                            style="list-style: none; padding-left: 0;">
                                             <li style="color: rgba(255,255,255,0.9); margin-bottom: 20px; padding-left: 30px; position: relative;">
                                                 <i class="fas fa-industry"
                                                    style="color: #4CF083; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Enterprises</strong><br>
-                                                Full-featured apps with custom integrations and enterprise-grade support
+                                                Full-featured apps with custom integrations and
+                                                enterprise-grade support
                                             </li>
                                             <li style="color: rgba(255,255,255,0.9); padding-left: 30px; position: relative;">
                                                 <i class="fas fa-globe"
                                                    style="color: #A162E8; position: absolute; left: 0; top: 2px;"></i>
                                                 <strong>Global Scale</strong><br>
-                                                Multi-language, multi-currency, and localization-ready apps
+                                                Multi-language, multi-currency, and
+                                                localization-ready apps
                                             </li>
                                         </ul>
                                     </div>
@@ -1029,8 +837,8 @@
             </div>
             <!-- Navigation -->
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="custom-swiper-prev">‹</div>
+            <div class="custom-swiper-next">›</div>
         </div>
     </section>
     <!-- End Main Slider -->
@@ -1569,8 +1377,8 @@
                 </div>
             </div>
         </div>
+    </section>
 </div>
-</section>
 
 
 <!--Main Footer-->
@@ -1651,7 +1459,10 @@
                         </div>
                         <div class="text text-center mx-auto"
                              style="max-width: 350px; color: #222; font-size: 16px; line-height: 1.6; font-weight: 500;">
-                            At flurixa, we help startups and enterprises build high-performance Flutter applications tailored to business needs. Our focus is delivering robust, scalable, and visually stunning cross-platform solutions that drive growth.
+                            At flurixa, we help startups and enterprises build high-performance
+                            Flutter applications tailored to business needs. Our focus is delivering
+                            robust, scalable, and visually stunning cross-platform solutions that
+                            drive growth.
                         </div>
                         <ul class="social-icons justify-content-center mt-4">
                             <li class="mx-2" style="display: inline-block; text-align: center;">
@@ -1795,30 +1606,24 @@
     </div>
 </footer>
 
-<!--End Main Footer-->
 
-
-</div>
-<!--End pagewrapper-->
-
-<!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span>
 </div>
 
 
 <!--Scroll to top-->
 <script src="js/jquery.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.fancybox.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="js/jquery.paroller.min.js"></script>
+<!--<script src="js/popper.min.js"></script>-->
+<!--<script src="js/jquery-ui.js"></script>-->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!--<script src="js/jquery.fancybox.js"></script>-->
+<!--<script src="js/parallax.min.js"></script>-->
+<!--<script src="js/jquery.paroller.min.js"></script>-->
 <script src="js/owl.js"></script>
 <script src="js/wow.js"></script>
-<script src="js/swiper.min.js"></script>
-<script src="js/appear.js"></script>
+<!--<script src="js/swiper.min.js"></script>-->
+<!--<script src="js/appear.js"></script>-->
 <script src="js/script.js"></script>
-<script src="js/color-settings.js"></script>
+<!--<script src="js/color-settings.js"></script>-->
 </body>
 </html>
